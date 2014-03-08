@@ -9,6 +9,7 @@
     mc:Ignorable="d">
 
     <Grid>
+        <Image Source="/Assets/TestImages/1.jpg"/>
         <controls:SwitchMask PointerPressed="SwitchMask_PointerPressed"/>
     </Grid>
 </Page>
