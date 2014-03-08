@@ -1,0 +1,9 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WorldCup2014WinStore.Styles">
+
+    <!-- colors -->
+    <SolidColorBrush x:Key="App_Theme_Color" Color="#ff82c461"/>
+
+</ResourceDictionary>
