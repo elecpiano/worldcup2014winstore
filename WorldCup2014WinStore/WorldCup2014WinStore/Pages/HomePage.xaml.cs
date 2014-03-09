@@ -14,8 +14,6 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using WorldCup2014WinStore.Controls;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
-
 namespace WorldCup2014WinStore.Pages
 {
     /// <summary>
@@ -28,17 +26,51 @@ namespace WorldCup2014WinStore.Pages
             this.InitializeComponent();
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            HomePage.AttachPageMaskAndOpen(this.maskPanel, "HomePage");
+        }
+
+        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        {
+            DetachPageMask();
+            base.OnNavigatingFrom(e);
+        }
+
         private void SwitchMask_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
-            var properties = e.GetCurrentPoint(this).Properties;
-            if (properties.IsLeftButtonPressed)
+            HomePage.PageMask.Close(() =>
             {
-                (sender as SwitchMask).Open();
-            }
-            else if (properties.IsRightButtonPressed)
+                this.Frame.Navigate(typeof(NewsDetailPage));
+            });
+
+            //var properties = e.GetCurrentPoint(this).Properties;
+            //if (properties.IsLeftButtonPressed)
+            //{
+            //}
+            //else if (properties.IsRightButtonPressed)
+            //{
+            //}
+        }
+
+        #region Page Mask
+
+        public static PageMask PageMask = new PageMask();
+        public static void DetachPageMask()
+        {
+            if (PageMask.Parent != null)
             {
-                (sender as SwitchMask).Close();
+                ((Grid)PageMask.Parent).Children.Remove(PageMask);
             }
         }
+
+        public static void AttachPageMaskAndOpen(Grid maskPanel, string pageTitle)
+        {
+            maskPanel.Children.Add(PageMask);
+            PageMask.Open(pageTitle);
+        }
+
+        #endregion
     }
 }

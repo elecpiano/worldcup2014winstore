@@ -103,20 +103,25 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <Folder Include="Assets\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\SwitchMask.xaml.cs">
-      <DependentUpon>SwitchMask.xaml</DependentUpon>
+    <Compile Include="Controls\SpinningBall.xaml.cs">
+      <DependentUpon>SpinningBall.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PageMask.xaml.cs">
+      <DependentUpon>PageMask.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\NewsDetailPage.xaml.cs">
+      <DependentUpon>NewsDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -127,19 +132,55 @@
     <None Include="WorldCup2014WinStore_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Images\Common\PageTitleBackgroundL.png" />
+    <Content Include="Assets\Images\Common\PageTitleBackgroundM.png" />
+    <Content Include="Assets\Images\Common\PageTitleBackgroundR.png" />
+    <Content Include="Assets\Images\football.gif" />
+    <Content Include="Assets\Images\SpinningBall\1.png" />
+    <Content Include="Assets\Images\SpinningBall\10.png" />
+    <Content Include="Assets\Images\SpinningBall\11.png" />
+    <Content Include="Assets\Images\SpinningBall\12.png" />
+    <Content Include="Assets\Images\SpinningBall\13.png" />
+    <Content Include="Assets\Images\SpinningBall\14.png" />
+    <Content Include="Assets\Images\SpinningBall\15.png" />
+    <Content Include="Assets\Images\SpinningBall\16.png" />
+    <Content Include="Assets\Images\SpinningBall\17.png" />
+    <Content Include="Assets\Images\SpinningBall\18.png" />
+    <Content Include="Assets\Images\SpinningBall\19.png" />
+    <Content Include="Assets\Images\SpinningBall\2.png" />
+    <Content Include="Assets\Images\SpinningBall\20.png" />
+    <Content Include="Assets\Images\SpinningBall\21.png" />
+    <Content Include="Assets\Images\SpinningBall\22.png" />
+    <Content Include="Assets\Images\SpinningBall\23.png" />
+    <Content Include="Assets\Images\SpinningBall\24.png" />
+    <Content Include="Assets\Images\SpinningBall\25.png" />
+    <Content Include="Assets\Images\SpinningBall\26.png" />
+    <Content Include="Assets\Images\SpinningBall\27.png" />
+    <Content Include="Assets\Images\SpinningBall\3.png" />
+    <Content Include="Assets\Images\SpinningBall\4.png" />
+    <Content Include="Assets\Images\SpinningBall\5.png" />
+    <Content Include="Assets\Images\SpinningBall\6.png" />
+    <Content Include="Assets\Images\SpinningBall\7.png" />
+    <Content Include="Assets\Images\SpinningBall\8.png" />
+    <Content Include="Assets\Images\SpinningBall\9.png" />
     <Content Include="Assets\Logo.scale-100.png" />
     <Content Include="Assets\SmallLogo.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
     <Content Include="Assets\TestImages\1.jpg" />
     <Content Include="Assets\TestImages\2.jpg" />
+    <Content Include="Assets\Videos\SpinningBall.mp4" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Controls\SwitchMask.xaml">
+    <Page Include="Controls\SpinningBall.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\PageMask.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -148,6 +189,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\NewsDetailPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

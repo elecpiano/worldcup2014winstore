@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="WorldCup2014WinStore.Pages.HomePage"
+    x:Class="WorldCup2014WinStore.Pages.NewsDetailPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:WorldCup2014WinStore.Pages"
@@ -8,10 +8,8 @@
     xmlns:controls="using:WorldCup2014WinStore.Controls"
     mc:Ignorable="d">
 
-    <Grid PointerPressed="SwitchMask_PointerPressed">
-        <Image Source="/Assets/TestImages/1.jpg"/>
-        <Grid x:Name="maskPanel">
-            <!--<controls:SwitchMask x:Name="mask"/>-->
-        </Grid>
+    <Grid PointerPressed="Grid_PointerPressed">
+        <Image Source="/Assets/TestImages/2.jpg"/>
+        <Grid x:Name="maskPanel"/>
     </Grid>
 </Page>
