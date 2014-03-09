@@ -103,6 +103,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Folder Include="Assets\Videos\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -135,7 +136,6 @@
     <Content Include="Assets\Images\Common\PageTitleBackgroundL.png" />
     <Content Include="Assets\Images\Common\PageTitleBackgroundM.png" />
     <Content Include="Assets\Images\Common\PageTitleBackgroundR.png" />
-    <Content Include="Assets\Images\football.gif" />
     <Content Include="Assets\Images\SpinningBall\1.png" />
     <Content Include="Assets\Images\SpinningBall\10.png" />
     <Content Include="Assets\Images\SpinningBall\11.png" />
@@ -169,7 +169,6 @@
     <Content Include="Assets\StoreLogo.scale-100.png" />
     <Content Include="Assets\TestImages\1.jpg" />
     <Content Include="Assets\TestImages\2.jpg" />
-    <Content Include="Assets\Videos\SpinningBall.mp4" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
