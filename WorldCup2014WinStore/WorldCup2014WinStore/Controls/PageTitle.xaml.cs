@@ -3,14 +3,22 @@ using Windows.Foundation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
 
 namespace WorldCup2014WinStore.Controls
 {
     public sealed partial class PageTitle : UserControl
     {
+        #region Properties
+
+        private static PageBase HostingPage;
+
+        #endregion
+
         #region Singleton
 
         private static PageTitle _Current;
+
         public static PageTitle Current
         {
             get
@@ -22,7 +30,6 @@ namespace WorldCup2014WinStore.Controls
                 return _Current;
             }
         }
-        public static Action OnBack = null;
 
         #endregion
 
@@ -89,38 +96,38 @@ namespace WorldCup2014WinStore.Controls
         public static void Hide(Action completed = null)
         {
             PageTitle.Current.InstanceHidePageTitle(completed);
+            if (HostingPage!=null)
+            {
+                HostingPage.ContentFadeOut();
+            }
         }
 
         #endregion
 
         private void titleBall_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
-            if (OnBack != null)
+            if (HostingPage == null)
             {
-                OnBack();
-                OnBack = null;
+                return;
             }
-            else
-            {
-                PageTitle.Hide(() =>
-                    {
-                        TryGoBack();
-                    });
-            }
+            PageTitle.Hide(() => HostingPage.OnBack());
+            HostingPage.ContentFadeOut();
         }
 
-        public static void TryGoBack()
+        #region Auto Registration
+
+        public static void RegisterForNavigation()
         {
-            Frame frame = Window.Current.Content as Frame;
-            if (frame != null)
-            {
-                if (frame.CanGoBack)
-                {
-                    frame.GoBack();
-                }
-            }
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigated += rootFrame_Navigated;
         }
 
+        static void rootFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+            PageBase page = e.Content as PageBase;
+            HostingPage = page;
+        }
 
+        #endregion
     }
 }

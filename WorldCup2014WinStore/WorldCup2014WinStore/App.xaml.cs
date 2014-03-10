@@ -14,9 +14,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using WorldCup2014WinStore.Controls;
 using WorldCup2014WinStore.Pages;
-
-// The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=234227
 
 namespace WorldCup2014WinStore
 {
@@ -71,6 +70,8 @@ namespace WorldCup2014WinStore
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
             }
+
+            PageTitle.RegisterForNavigation();
 
             if (rootFrame.Content == null)
             {

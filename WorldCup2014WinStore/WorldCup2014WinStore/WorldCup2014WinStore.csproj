@@ -106,6 +106,12 @@
     <Folder Include="Assets\Videos\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Global\Constants.cs" />
+    <Compile Include="Utility\Animations\AnimationBase.cs" />
+    <Compile Include="Utility\Animations\FadeAnimation.cs" />
+    <Compile Include="Utility\Animations\MoveAnimation.cs" />
+    <Compile Include="Utility\Animations\ScaleAnimation.cs" />
+    <Compile Include="Utility\Animations\VibrateAnimation.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -121,6 +127,7 @@
     <Compile Include="Controls\PageMask.xaml.cs">
       <DependentUpon>PageMask.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\PageBase.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

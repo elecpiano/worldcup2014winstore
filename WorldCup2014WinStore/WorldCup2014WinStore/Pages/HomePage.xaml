@@ -1,4 +1,4 @@
-﻿<Page
+﻿<controls:PageBase
     x:Class="WorldCup2014WinStore.Pages.HomePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -12,9 +12,12 @@
         <Image Source="/Assets/TestImages/1.jpg"/>
         <Grid x:Name="pageTitlePanel"/>
 
-        <controls:FlipTiles x:Name="flipTiles" 
+        <Grid x:Name="contentPanel">
+            <controls:FlipTiles x:Name="flipTiles" 
                             Width="750" Height="500"
                             VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120,180,0,0"/>
+        </Grid>
+
         <Grid x:Name="maskPanel" IsHitTestVisible="False"/>
     </Grid>
-</Page>
+</controls:PageBase>

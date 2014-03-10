@@ -22,6 +22,7 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="pageTitleTextBlock">
+            	<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
             	<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
             	<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
@@ -59,7 +60,7 @@
 
         <Grid x:Name="pageTitlePanel" Height="80" RenderTransformOrigin="0,0.5" Opacity="0" Margin="40,0,0,0">
             <Grid.RenderTransform>
-                <CompositeTransform ScaleX="0.5"/>
+                <CompositeTransform/>
             </Grid.RenderTransform>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="40"/>

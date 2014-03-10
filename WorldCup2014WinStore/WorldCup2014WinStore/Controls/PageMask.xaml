@@ -111,38 +111,45 @@
             	</EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
-        <Storyboard x:Name="StoryClose" Completed="StoryClose_Completed" SpeedRatio="1.5">
+        <Storyboard x:Name="StoryClose" Completed="StoryClose_Completed" SpeedRatio="1">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ring1">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+            	<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+            	<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ring2">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.25" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.35" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+            	<EasingDoubleKeyFrame KeyTime="0:0:0.25" Value="0"/>
+            	<EasingDoubleKeyFrame KeyTime="0:0:0.35" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ring3">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+            	<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            	<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ring4">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.15" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.25" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+            	<EasingDoubleKeyFrame KeyTime="0:0:0.15" Value="0"/>
+            	<EasingDoubleKeyFrame KeyTime="0:0:0.25" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ring5">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+            	<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+            	<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ring6">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.05" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.15" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+            	<EasingDoubleKeyFrame KeyTime="0:0:0.05" Value="0"/>
+            	<EasingDoubleKeyFrame KeyTime="0:0:0.15" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="fillup">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ring0">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.35" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.45" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+            	<EasingDoubleKeyFrame KeyTime="0:0:0.35" Value="0"/>
+            	<EasingDoubleKeyFrame KeyTime="0:0:0.45" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="restOfMask">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>

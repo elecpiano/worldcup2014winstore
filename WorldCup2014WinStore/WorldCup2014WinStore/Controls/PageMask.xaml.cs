@@ -126,6 +126,11 @@ namespace WorldCup2014WinStore.Controls
             }
         }
 
+        public static void Attach(Grid maskPanel)
+        {
+            maskPanel.Children.Add(PageMask.Current);
+        }
+
         public static void AttachAndOpen(Grid maskPanel, Action completed = null)
         {
             maskPanel.Children.Add(PageMask.Current);

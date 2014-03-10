@@ -1,4 +1,4 @@
-﻿<Page
+﻿<controls:PageBase
     x:Class="WorldCup2014WinStore.Pages.NewsListPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -10,9 +10,30 @@
 
     <Grid Background="Gray">
         <Grid x:Name="pageTitlePanel"/>
-        <Rectangle Width="100" Height="100" Fill="Wheat" Tapped="Rectangle_Tapped"/>
 
+        <Grid x:Name="contentPanel">
+            <Grid Width="750" Height="500" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120,180,0,0"
+                  Tapped="Item_Tapped">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Rectangle x:Name="tile1" Grid.Row="0" Grid.Column="0" Margin="5" Fill="#BFFFFFFF" />
+                <Rectangle x:Name="tile2" Grid.Row="1" Grid.Column="0" Margin="5" Fill="#BFFFFFFF" />
+                <Rectangle x:Name="tile3" Grid.Row="0" Grid.Column="1" Margin="5" Fill="#BFFFFFFF" />
+                <Rectangle x:Name="tile4" Grid.Row="1" Grid.Column="1" Margin="5" Fill="#BFFFFFFF" />
+                <Rectangle x:Name="tile5" Grid.Row="0" Grid.Column="2" Margin="5" Fill="#BFFFFFFF" />
+                <Rectangle x:Name="tile6" Grid.Row="1" Grid.Column="2" Margin="5" Fill="#BFFFFFFF" />
+            </Grid>
+        </Grid>
+        
         <Grid x:Name="maskPanel" IsHitTestVisible="False"/>
 
     </Grid>
-</Page>
+</controls:PageBase>

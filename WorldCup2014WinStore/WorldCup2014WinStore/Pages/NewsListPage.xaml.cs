@@ -1,28 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
+﻿using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using WorldCup2014WinStore.Controls;
 
 namespace WorldCup2014WinStore.Pages
 {
-    public sealed partial class NewsListPage : Page
+    public sealed partial class NewsListPage : PageBase
     {
         public static bool NavigatingFromHome = false;
 
         public NewsListPage()
         {
             this.InitializeComponent();
+            base.ContentPanel = contentPanel;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -37,15 +27,10 @@ namespace WorldCup2014WinStore.Pages
             }
             else
             {
+                PageMask.Attach(this.maskPanel);
                 PageTitle.AttachAndShow(this.pageTitlePanel, "News List");
             }
-            PageTitle.OnBack = () =>
-                {
-                    PageMask.Close(() =>
-                        {
-                            PageTitle.TryGoBack();
-                        });
-                };
+
             NavigatingFromHome = false;
         }
 
@@ -56,12 +41,18 @@ namespace WorldCup2014WinStore.Pages
             base.OnNavigatingFrom(e);
         }
 
-        private void Rectangle_Tapped(object sender, TappedRoutedEventArgs e)
+        public override void OnBack()
         {
-            PageTitle.Hide(() =>
+            PageMask.Close(() =>
             {
-                this.Frame.Navigate(typeof(NewsDetailPage));
+                base.OnBack();
             });
+        }
+
+        private void Item_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            PageTitle.Hide(() => Navigate(typeof(NewsDetailPage)));
+            ;
         }
 
     }
