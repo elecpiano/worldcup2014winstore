@@ -16,9 +16,9 @@ using WorldCup2014WinStore.Controls;
 
 namespace WorldCup2014WinStore.Pages
 {
-    public sealed partial class HomePage : Page
+    public sealed partial class NewsListPage : Page
     {
-        public HomePage()
+        public NewsListPage()
         {
             this.InitializeComponent();
         }
@@ -26,10 +26,7 @@ namespace WorldCup2014WinStore.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            PageMask.AttachAndOpen(this.maskPanel, "HomePage", () =>
-                {
-                    flipTiles.Expand();
-                });
+            PageMask.AttachAndOpen(this.maskPanel, "News Detail Page #001");
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
@@ -38,21 +35,12 @@ namespace WorldCup2014WinStore.Pages
             base.OnNavigatingFrom(e);
         }
 
-        private void SwitchMask_PointerPressed(object sender, PointerRoutedEventArgs e)
+        private void Rectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            PageMask.Close(() =>
+            PageMask.HidePageTitle(() =>
             {
-                this.Frame.Navigate(typeof(NewsListPage));
+                this.Frame.Navigate(typeof(NewsDetailPage));
             });
-
-            //var properties = e.GetCurrentPoint(this).Properties;
-            //if (properties.IsLeftButtonPressed)
-            //{
-            //}
-            //else if (properties.IsRightButtonPressed)
-            //{
-            //}
         }
-
     }
 }

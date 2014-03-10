@@ -1,0 +1,172 @@
+﻿<UserControl
+    x:Class="WorldCup2014WinStore.Controls.FlipTiles"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WorldCup2014WinStore.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="600"
+    d:DesignWidth="800">
+	<UserControl.Resources>
+		<Storyboard x:Name="StoryExpand" SpeedRatio="1">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="tile1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.033" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.233" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="tile2">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.233" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.433" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="tile4">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.433" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.633" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="tile3">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.633" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.833" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="tile5">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.833" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.033" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="tile6">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.033" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.25" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="tile1r">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.033" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.05" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.233" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.25" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="tile6r">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.033" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.05" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.25" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="tile1r">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.05" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.233" Value="180"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.25" Value="180"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)" Storyboard.TargetName="tile2r">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.25" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.433" Value="-180"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.45" Value="-180"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="tile4r">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.45" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.633" Value="-180"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.65" Value="-180"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)" Storyboard.TargetName="tile3r">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.65" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.833" Value="-180"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.85" Value="-180"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="tile5r">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.85" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.033" Value="180"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.05" Value="180"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)" Storyboard.TargetName="tile6r">
+				<EasingDoubleKeyFrame KeyTime="0:0:1.05" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.25" Value="-180"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="tile5r">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.833" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.85" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.033" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.05" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="tile3r">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.633" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.65" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.833" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.85" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="tile4r">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.433" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.45" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.633" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.65" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="tile2r">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.233" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.25" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.433" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.45" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+	</UserControl.Resources>
+    
+    <Grid>
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition Width="*"/>
+    		<ColumnDefinition Width="*"/>
+    		<ColumnDefinition Width="*"/>
+    	</Grid.ColumnDefinitions>
+    	<Grid.RowDefinitions>
+    		<RowDefinition Height="*"/>
+    		<RowDefinition Height="*"/>
+    	</Grid.RowDefinitions>
+
+        <Rectangle x:Name="tile1" Grid.Row="0" Grid.Column="0" Margin="5" Opacity="0" Fill="#BFFFFFFF" />
+        <Rectangle x:Name="tile2" Grid.Row="1" Grid.Column="0" Margin="5" Opacity="0" Fill="#BFFFFFFF" />
+        <Rectangle x:Name="tile3" Grid.Row="0" Grid.Column="1" Margin="5" Opacity="0" Fill="#BFFFFFFF" />
+        <Rectangle x:Name="tile4" Grid.Row="1" Grid.Column="1" Margin="5" Opacity="0" Fill="#BFFFFFFF" />
+        <Rectangle x:Name="tile5" Grid.Row="0" Grid.Column="2" Margin="5" Opacity="0" Fill="#BFFFFFFF" />
+        <Rectangle x:Name="tile6" Grid.Row="1" Grid.Column="2" Margin="5" Opacity="0" Fill="#BFFFFFFF" />
+
+        <Grid x:Name="tile1r" Grid.Row="0" Grid.Column="0" Opacity="0" IsHitTestVisible="False" >
+            <Grid.Projection>
+        		<PlaneProjection CenterOfRotationY="1"/>
+            </Grid.Projection>
+            <Rectangle Fill="{StaticResource FlipTile_Base_Color}" Margin="5"/>
+        </Grid>
+        <Grid x:Name="tile2r" Grid.Row="1" Grid.Column="0" Opacity="0" IsHitTestVisible="False" >
+        	<Grid.Projection>
+        		<PlaneProjection CenterOfRotationX="1"/>
+        	</Grid.Projection>
+            <Rectangle Fill="{StaticResource FlipTile_Base_Color}" Margin="5"/>
+        </Grid>
+        <Grid x:Name="tile4r" Grid.Row="1" Grid.Column="1" Opacity="0" IsHitTestVisible="False" >
+        	<Grid.Projection>
+        		<PlaneProjection CenterOfRotationY="0"/>
+        	</Grid.Projection>
+        	<Rectangle Fill="{StaticResource FlipTile_Base_Color}" Margin="5"/>
+        </Grid>
+        <Grid x:Name="tile3r" Grid.Column="1" Opacity="0" IsHitTestVisible="False" >
+        	<Grid.Projection>
+        		<PlaneProjection CenterOfRotationX="1"/>
+        	</Grid.Projection>
+        	<Rectangle Fill="{StaticResource FlipTile_Base_Color}" Margin="5"/>
+        </Grid>
+        <Grid x:Name="tile5r" Grid.Row="0" Grid.Column="2" Opacity="0" IsHitTestVisible="False" >
+        	<Grid.Projection>
+        		<PlaneProjection CenterOfRotationY="1"/>
+        	</Grid.Projection>
+        	<Rectangle Fill="{StaticResource FlipTile_Base_Color}" Margin="5"/>
+        </Grid>
+        <Grid x:Name="tile6r" Grid.Row="1" Grid.Column="2" Opacity="0" IsHitTestVisible="False" >
+        	<Grid.Projection>
+        		<PlaneProjection CenterOfRotationX="1"/>
+        	</Grid.Projection>
+        	<Rectangle Fill="{StaticResource FlipTile_Base_Color}" Margin="5"/>
+        </Grid>
+
+    </Grid>
+</UserControl>

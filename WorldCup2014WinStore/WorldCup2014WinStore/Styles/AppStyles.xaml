@@ -6,6 +6,7 @@
     <!-- colors -->
     <SolidColorBrush x:Key="App_Theme_Color" Color="#ff82c461"/>
     <SolidColorBrush x:Key="Switch_Mask_Color" Color="#fff0f0f0"/>
+    <SolidColorBrush x:Key="FlipTile_Base_Color" Color="#BFFFFFFF"/>
 
     <!--base Styles-->
     <Style x:Key="TextBlockStyleBase" TargetType="TextBlock">

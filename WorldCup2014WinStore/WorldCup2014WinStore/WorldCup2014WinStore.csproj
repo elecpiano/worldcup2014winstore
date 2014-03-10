@@ -109,6 +109,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\FlipTiles.xaml.cs">
+      <DependentUpon>FlipTiles.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SpinningBall.xaml.cs">
       <DependentUpon>SpinningBall.xaml</DependentUpon>
     </Compile>
@@ -120,6 +123,9 @@
     </Compile>
     <Compile Include="Pages\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\NewsListPage.xaml.cs">
+      <DependentUpon>NewsListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\NewsDetailPage.xaml.cs">
       <DependentUpon>NewsDetailPage.xaml</DependentUpon>
@@ -175,6 +181,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Controls\FlipTiles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\SpinningBall.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -190,6 +200,10 @@
     <Page Include="Pages\HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\NewsListPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\NewsDetailPage.xaml">
       <SubType>Designer</SubType>

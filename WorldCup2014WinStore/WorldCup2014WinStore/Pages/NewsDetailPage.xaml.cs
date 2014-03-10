@@ -12,12 +12,10 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using WorldCup2014WinStore.Controls;
 
 namespace WorldCup2014WinStore.Pages
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class NewsDetailPage : Page
     {
         public NewsDetailPage()
@@ -28,23 +26,24 @@ namespace WorldCup2014WinStore.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            HomePage.AttachPageMaskAndOpen(this.maskPanel, "News Detail Page #001");
+            PageMask.AttachAndShowPageTitle(this.maskPanel, "News Detail Page #001");
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
-            HomePage.DetachPageMask();
+            PageMask.DetachPageMask();
             base.OnNavigatingFrom(e);
         }
 
         private void Grid_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
+            return;
             Frame frame = Window.Current.Content as Frame;
             if (frame != null)
             {
                 if (frame.CanGoBack)
                 {
-                    HomePage.PageMask.Close(() =>
+                    PageMask.Close(() =>
                     {
                         frame.GoBack();
                     });
