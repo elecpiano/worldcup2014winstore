@@ -10,9 +10,11 @@
 
     <Grid PointerPressed="SwitchMask_PointerPressed">
         <Image Source="/Assets/TestImages/1.jpg"/>
+        <Grid x:Name="pageTitlePanel"/>
+
         <controls:FlipTiles x:Name="flipTiles" 
                             Width="750" Height="500"
                             VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120,180,0,0"/>
-        <Grid x:Name="maskPanel"/>
+        <Grid x:Name="maskPanel" IsHitTestVisible="False"/>
     </Grid>
 </Page>

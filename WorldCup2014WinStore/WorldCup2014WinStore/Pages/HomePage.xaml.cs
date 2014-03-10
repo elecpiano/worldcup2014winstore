@@ -26,15 +26,17 @@ namespace WorldCup2014WinStore.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            PageMask.AttachAndOpen(this.maskPanel, "HomePage", () =>
+            PageMask.AttachAndOpen(this.maskPanel,() =>
                 {
+                    PageTitle.AttachAndShow(this.pageTitlePanel, "Homepage");
                     flipTiles.Expand();
                 });
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
-            PageMask.DetachPageMask();
+            PageMask.Detach();
+            PageTitle.Detach();
             base.OnNavigatingFrom(e);
         }
 
@@ -42,6 +44,7 @@ namespace WorldCup2014WinStore.Pages
         {
             PageMask.Close(() =>
             {
+                NewsListPage.NavigatingFromHome = true;
                 this.Frame.Navigate(typeof(NewsListPage));
             });
 

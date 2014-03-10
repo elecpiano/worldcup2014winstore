@@ -9,7 +9,10 @@
     mc:Ignorable="d">
 
     <Grid Background="Gray">
+        <Grid x:Name="pageTitlePanel"/>
         <Rectangle Width="100" Height="100" Fill="Wheat" Tapped="Rectangle_Tapped"/>
-        <Grid x:Name="maskPanel"/>
+
+        <Grid x:Name="maskPanel" IsHitTestVisible="False"/>
+
     </Grid>
 </Page>

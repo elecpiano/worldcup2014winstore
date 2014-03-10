@@ -10,6 +10,7 @@
 
     <Grid>
         <Image Source="/Assets/TestImages/2.jpg"/>
-        <Grid x:Name="maskPanel"/>
+        <Grid x:Name="pageTitlePanel"/>
+        <Grid x:Name="maskPanel" IsHitTestVisible="False"/>
     </Grid>
 </Page>

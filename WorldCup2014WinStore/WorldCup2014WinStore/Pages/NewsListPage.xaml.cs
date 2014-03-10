@@ -18,6 +18,8 @@ namespace WorldCup2014WinStore.Pages
 {
     public sealed partial class NewsListPage : Page
     {
+        public static bool NavigatingFromHome = false;
+
         public NewsListPage()
         {
             this.InitializeComponent();
@@ -26,21 +28,41 @@ namespace WorldCup2014WinStore.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            PageMask.AttachAndOpen(this.maskPanel, "News Detail Page #001");
+            if (NavigatingFromHome)
+            {
+                PageMask.AttachAndOpen(this.maskPanel, () =>
+                    {
+                        PageTitle.AttachAndShow(this.pageTitlePanel, "News List");
+                    });
+            }
+            else
+            {
+                PageTitle.AttachAndShow(this.pageTitlePanel, "News List");
+            }
+            PageTitle.OnBack = () =>
+                {
+                    PageMask.Close(() =>
+                        {
+                            PageTitle.TryGoBack();
+                        });
+                };
+            NavigatingFromHome = false;
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
-            PageMask.DetachPageMask();
+            PageMask.Detach();
+            PageTitle.Detach();
             base.OnNavigatingFrom(e);
         }
 
         private void Rectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            PageMask.HidePageTitle(() =>
+            PageTitle.Hide(() =>
             {
                 this.Frame.Navigate(typeof(NewsDetailPage));
             });
         }
+
     }
 }

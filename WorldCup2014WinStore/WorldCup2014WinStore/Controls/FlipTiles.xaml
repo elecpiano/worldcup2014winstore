@@ -9,7 +9,7 @@
     d:DesignHeight="600"
     d:DesignWidth="800">
 	<UserControl.Resources>
-		<Storyboard x:Name="StoryExpand" SpeedRatio="1">
+		<Storyboard x:Name="StoryExpand" SpeedRatio="0.75">
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="tile1">
 				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
 				<EasingDoubleKeyFrame KeyTime="0:0:0.033" Value="0"/>

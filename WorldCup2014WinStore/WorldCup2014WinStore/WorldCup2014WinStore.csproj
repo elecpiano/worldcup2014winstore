@@ -112,6 +112,9 @@
     <Compile Include="Controls\FlipTiles.xaml.cs">
       <DependentUpon>FlipTiles.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\PageTitle.xaml.cs">
+      <DependentUpon>PageTitle.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SpinningBall.xaml.cs">
       <DependentUpon>SpinningBall.xaml</DependentUpon>
     </Compile>
@@ -184,6 +187,10 @@
     <Page Include="Controls\FlipTiles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\PageTitle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\SpinningBall.xaml">
       <SubType>Designer</SubType>

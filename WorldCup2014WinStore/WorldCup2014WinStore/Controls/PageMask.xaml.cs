@@ -27,9 +27,7 @@ namespace WorldCup2014WinStore.Controls
 
         private Action onClosed;
         private Action onOpened;
-        private Action onPageTitleShown;
-        private Action onPageTitleHidden;
-
+        
         private bool isOpen = false;
         private bool IsOpen
         {
@@ -62,12 +60,11 @@ namespace WorldCup2014WinStore.Controls
             this.InitializeComponent();
         }
 
-        private void InstantOpen(string pageTitle, Action completed)
+        private void InstantOpen(Action completed)
         {
             onOpened = completed;
             DetectPageTitleOffset();
             this.StoryOpen.Begin();
-            this.pageTitleTextBlock.Text = pageTitle;
         }
 
         private void InstantClose(Action completed)
@@ -94,37 +91,6 @@ namespace WorldCup2014WinStore.Controls
             }
         }
 
-        private void InstanceShowPageTitle(string pageTitle, Action completed)
-        {
-            onPageTitleShown = completed;
-            this.pageTitleTextBlock.Text = pageTitle;
-            this.StoryShowPageTile.Begin();
-        }
-
-        private void InstanceHidePageTitle(Action completed)
-        {
-            onPageTitleHidden = completed;
-            this.StoryHidePageTile.Begin();
-        }
-
-        private void StoryShowPageTile_Completed(object sender, object e)
-        {
-            if (onPageTitleShown != null)
-            {
-                onPageTitleShown();
-                onPageTitleShown = null;
-            }
-        }
-
-        private void StoryHidePageTile_Completed(object sender, object e)
-        {
-            if (onPageTitleHidden != null)
-            {
-                onPageTitleHidden();
-                onPageTitleHidden = null;
-            }
-        }
-
         #region Page Title Ball Positioning
 
         private void DetectPageTitleOffset()
@@ -142,9 +108,9 @@ namespace WorldCup2014WinStore.Controls
 
         #region Static Methods
 
-        public static void Open(string pageTitle, Action completed = null)
+        public static void Open(Action completed = null)
         {
-            PageMask.Current.InstantOpen(pageTitle, completed);
+            PageMask.Current.InstantOpen(completed);
         }
 
         public static void Close(Action completed = null)
@@ -152,7 +118,7 @@ namespace WorldCup2014WinStore.Controls
             PageMask.Current.InstantClose(completed);
         }
 
-        public static void DetachPageMask()
+        public static void Detach()
         {
             if (PageMask.Current.Parent != null)
             {
@@ -160,26 +126,10 @@ namespace WorldCup2014WinStore.Controls
             }
         }
 
-        public static void AttachAndOpen(Grid maskPanel, string pageTitle, Action completed = null)
+        public static void AttachAndOpen(Grid maskPanel, Action completed = null)
         {
             maskPanel.Children.Add(PageMask.Current);
-            PageMask.Open(pageTitle, completed);
-        }
-
-        public static void AttachAndShowPageTitle(Grid maskPanel, string pageTitle, Action completed = null)
-        {
-            maskPanel.Children.Add(PageMask.Current);
-            PageMask.ShowPageTitle(pageTitle, completed);
-        }
-
-        public static void ShowPageTitle(string pageTitle, Action completed = null)
-        {
-            PageMask.Current.InstanceShowPageTitle(pageTitle,completed);
-        }
-
-        public static void HidePageTitle(Action completed = null)
-        {
-            PageMask.Current.InstanceHidePageTitle(completed);
+            PageMask.Open(completed);
         }
 
         #endregion

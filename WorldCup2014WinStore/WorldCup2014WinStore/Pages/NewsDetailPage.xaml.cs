@@ -26,29 +26,14 @@ namespace WorldCup2014WinStore.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            PageMask.AttachAndShowPageTitle(this.maskPanel, "News Detail Page #001");
+            PageTitle.AttachAndShow(this.pageTitlePanel, "News Detail Page #001");
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
-            PageMask.DetachPageMask();
+            PageTitle.Detach();
             base.OnNavigatingFrom(e);
         }
 
-        private void Grid_PointerPressed(object sender, PointerRoutedEventArgs e)
-        {
-            return;
-            Frame frame = Window.Current.Content as Frame;
-            if (frame != null)
-            {
-                if (frame.CanGoBack)
-                {
-                    PageMask.Close(() =>
-                    {
-                        frame.GoBack();
-                    });
-                }
-            }
-        }
     }
 }
