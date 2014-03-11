@@ -1,4 +1,6 @@
-﻿using Windows.UI.Xaml.Controls;
+﻿using System;
+using Utility.Animations;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
 using WorldCup2014WinStore.Controls;
@@ -12,7 +14,6 @@ namespace WorldCup2014WinStore.Pages
         public NewsListPage()
         {
             this.InitializeComponent();
-            base.ContentPanel = contentPanel;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -23,12 +24,16 @@ namespace WorldCup2014WinStore.Pages
                 PageMask.AttachAndOpen(this.maskPanel, () =>
                     {
                         PageTitle.AttachAndShow(this.pageTitlePanel, "News List");
+                        flipTiles.Expand(2);
                     });
             }
             else
             {
                 PageMask.Attach(this.maskPanel);
                 PageTitle.AttachAndShow(this.pageTitlePanel, "News List");
+                FadeAnimation.Fade(this.backgroundClear, 0d, 1d, Constants.DURATION_CONTENT_FADING, null);
+                flipTiles.Expand(0);
+                FadeAnimation.Fade(this.contentPanel, 0d, 1d, Constants.DURATION_CONTENT_FADING, null);
             }
 
             NavigatingFromHome = false;
@@ -43,6 +48,7 @@ namespace WorldCup2014WinStore.Pages
 
         public override void OnBack()
         {
+            PageTitle.Hide();
             PageMask.Close(() =>
             {
                 base.OnBack();
@@ -51,8 +57,13 @@ namespace WorldCup2014WinStore.Pages
 
         private void Item_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            PageTitle.Hide(() => Navigate(typeof(NewsDetailPage)));
-            ;
+            PageTitle.Hide();
+            FadeAnimation.Fade(this.contentPanel, 1d, 0d, Constants.DURATION_CONTENT_FADING, null);
+            FadeAnimation.Fade(this.backgroundClear, 1d, 0d, Constants.DURATION_CONTENT_FADING, fe =>
+            {
+                this.Frame.Navigate(typeof(NewsDetailPage));
+            });
+
         }
 
     }

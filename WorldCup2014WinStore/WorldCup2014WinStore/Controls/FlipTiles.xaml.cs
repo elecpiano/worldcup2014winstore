@@ -1,19 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-
-// The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
+﻿using Windows.UI.Xaml.Controls;
 
 namespace WorldCup2014WinStore.Controls
 {
@@ -24,9 +9,21 @@ namespace WorldCup2014WinStore.Controls
             this.InitializeComponent();
         }
 
-        public void Expand()
+        public void Expand(int type = 1)
         {
-            this.StoryExpand.Begin();
+            if (type == 0)
+            {
+                this.StoryExpand0.Begin();
+            }
+            else if (type == 1)
+            {
+                this.StoryExpand.Begin();
+            }
+            else if (type == 2)
+            {
+                this.StoryExpand2.Begin();
+            }
         }
     }
+
 }

@@ -185,6 +185,7 @@
     <Content Include="Assets\StoreLogo.scale-100.png" />
     <Content Include="Assets\TestImages\1.jpg" />
     <Content Include="Assets\TestImages\2.jpg" />
+    <Content Include="Assets\TestImages\3.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

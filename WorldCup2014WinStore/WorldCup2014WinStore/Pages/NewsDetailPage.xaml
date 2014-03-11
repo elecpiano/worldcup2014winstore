@@ -9,13 +9,15 @@
     mc:Ignorable="d">
 
     <Grid>
-        <Image Source="/Assets/TestImages/2.jpg"/>
+        <Image Source="/Assets/TestImages/3.jpg"/>
+        <!--<Image x:Name="backgroundClear" Source="/Assets/TestImages/2.jpg"/>-->
+
         <Grid x:Name="pageTitlePanel"/>
 
         <Grid x:Name="contentPanel">
-            <Grid Width="750" Height="500" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120,180,0,0">
+            <Grid Width="1200" Height="500" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120,180,0,0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
@@ -24,11 +26,9 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Rectangle x:Name="tile1" Grid.Row="0" Grid.Column="0" Margin="5" Fill="#BFFFFFFF" />
-                <Rectangle x:Name="tile2" Grid.Row="1" Grid.Column="0" Margin="5" Fill="#BFFFFFFF" />
-                <Rectangle x:Name="tile3" Grid.Row="0" Grid.Column="1" Margin="5" Fill="#BFFFFFFF" />
+                <Rectangle x:Name="tile1" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Margin="5" Fill="#BFFFFFFF" />
+                <Rectangle x:Name="tile3" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="5" Fill="#BFFFFFFF" />
                 <Rectangle x:Name="tile4" Grid.Row="1" Grid.Column="1" Margin="5" Fill="#BFFFFFFF" />
-                <Rectangle x:Name="tile5" Grid.Row="0" Grid.Column="2" Margin="5" Fill="#BFFFFFFF" />
                 <Rectangle x:Name="tile6" Grid.Row="1" Grid.Column="2" Margin="5" Fill="#BFFFFFFF" />
             </Grid>
         </Grid>

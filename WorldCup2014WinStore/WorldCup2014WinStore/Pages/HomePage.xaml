@@ -7,15 +7,36 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:WorldCup2014WinStore.Controls"
     mc:Ignorable="d">
+	<controls:PageBase.Resources>
+		<Storyboard x:Name="Storyboard1">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="path">
+				<EasingDoubleKeyFrame KeyTime="0" Value="15"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="15"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="path">
+				<EasingDoubleKeyFrame KeyTime="0" Value="15"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="15"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="path">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Name="Storyboard2"/>
+	</controls:PageBase.Resources>
 
     <Grid PointerPressed="SwitchMask_PointerPressed">
         <Image Source="/Assets/TestImages/1.jpg"/>
         <Grid x:Name="pageTitlePanel"/>
 
         <Grid x:Name="contentPanel">
-            <controls:FlipTiles x:Name="flipTiles" 
-                            Width="750" Height="500"
-                            VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120,180,0,0"/>
+            <controls:FlipTiles x:Name="flipTiles" Width="750" Height="500" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120,180,0,0"/>
         </Grid>
 
         <Grid x:Name="maskPanel" IsHitTestVisible="False"/>

@@ -96,10 +96,6 @@ namespace WorldCup2014WinStore.Controls
         public static void Hide(Action completed = null)
         {
             PageTitle.Current.InstanceHidePageTitle(completed);
-            if (HostingPage!=null)
-            {
-                HostingPage.ContentFadeOut();
-            }
         }
 
         #endregion
@@ -110,8 +106,7 @@ namespace WorldCup2014WinStore.Controls
             {
                 return;
             }
-            PageTitle.Hide(() => HostingPage.OnBack());
-            HostingPage.ContentFadeOut();
+            HostingPage.OnBack();
         }
 
         #region Auto Registration

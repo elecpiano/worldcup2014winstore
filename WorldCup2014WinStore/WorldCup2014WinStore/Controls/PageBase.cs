@@ -29,8 +29,6 @@ namespace WorldCup2014WinStore.Controls
             }
         }
 
-        protected FrameworkElement ContentPanel = null;
-
         #endregion
 
         #region AppBar
@@ -65,41 +63,5 @@ namespace WorldCup2014WinStore.Controls
 
         #endregion
 
-        #region Navigation
-
-        protected void Navigate(Type page, object param = null)
-        {
-            this.Frame.Navigate(page, param);
-        }
-
-        public void ContentFadeIn()
-        {
-            if (ContentPanel == null)
-            {
-                return;
-            }
-            FadeAnimation.Fade(ContentPanel, 0d, 1d, Constants.DURATION_CONTENT_FADING,
-                            fe =>
-                            {
-                            });
-        }
-
-        public void ContentFadeOut(Action completed = null)
-        {
-            if (ContentPanel == null)
-            {
-                return;
-            }
-            FadeAnimation.Fade(ContentPanel, 1d, 0d, Constants.DURATION_CONTENT_FADING,
-                            fe =>
-                            {
-                                if (completed!=null)
-                                {
-                                    completed();
-                                }
-                            });
-        }
-
-        #endregion
     }
 }
