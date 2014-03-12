@@ -1,4 +1,5 @@
-﻿using Windows.UI.Xaml.Input;
+﻿using System;
+using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
 using WorldCup2014WinStore.Controls;
 
@@ -23,18 +24,43 @@ namespace WorldCup2014WinStore.Pages
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
+            SpinningBall.Detach();
             PageMask.Detach();
             PageTitle.Detach();
             base.OnNavigatingFrom(e);
         }
 
-        private void SwitchMask_PointerPressed(object sender, PointerRoutedEventArgs e)
+        //private void SwitchMask_PointerPressed(object sender, PointerRoutedEventArgs e)
+        //{
+        //    PageMask.Close(() =>
+        //    {
+        //        NewsListPage.NavigatingFromHome = true;
+        //        this.Frame.Navigate(typeof(NewsListPage));
+        //    });
+        //}
+
+        private void flipTiles_ItemTapped(object sender, TappedRoutedEventArgs e)
         {
-            PageMask.Close(() =>
+            Action action = null;
+            switch (sender.ToString())
             {
-                NewsListPage.NavigatingFromHome = true;
-                this.Frame.Navigate(typeof(NewsListPage));
-            });
+                case "tile1":
+                    PageMask.Close(() =>
+                    {
+                        NewsListPage.NavigatingFromHome = true;
+                        this.Frame.Navigate(typeof(NewsListPage));
+                    });
+                    break;
+                case "tile2":
+                    PageMask.Close(() =>
+                    {
+                        AlbumListPage.NavigatingFromHome = true;
+                        this.Frame.Navigate(typeof(AlbumListPage));
+                    });
+                    break;
+                default:
+                    break;
+            }
         }
 
 

@@ -27,7 +27,7 @@ namespace WorldCup2014WinStore.Controls
 
         private Action onClosed;
         private Action onOpened;
-        
+
         private bool isOpen = false;
         private bool IsOpen
         {
@@ -62,6 +62,8 @@ namespace WorldCup2014WinStore.Controls
 
         private void InstantOpen(Action completed)
         {
+            SpinningBall.Detach();
+            SpinningBall.Attach(this.spinningBall);
             onOpened = completed;
             DetectPageTitleOffset();
             this.StoryOpen.Begin();
@@ -83,6 +85,13 @@ namespace WorldCup2014WinStore.Controls
         }
 
         private void StoryClose_Completed(object sender, object e)
+        {
+            SpinningBall.Detach();
+            SpinningBall.Attach(this.spinningBall);
+            this.StoryShowBall.Begin();
+        }
+
+        private void StoryShowBall_Completed(object sender, object e)
         {
             if (onClosed != null)
             {
@@ -150,7 +159,6 @@ namespace WorldCup2014WinStore.Controls
                 }
             }
         }
-
 
     }
 }

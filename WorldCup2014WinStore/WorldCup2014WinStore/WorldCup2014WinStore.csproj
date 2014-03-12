@@ -107,6 +107,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global\Constants.cs" />
+    <Compile Include="Pages\AlbumListPage.xaml.cs">
+      <DependentUpon>AlbumListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AlbumPage.xaml.cs">
+      <DependentUpon>AlbumPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utility\Animations\AnimationBase.cs" />
     <Compile Include="Utility\Animations\FadeAnimation.cs" />
     <Compile Include="Utility\Animations\MoveAnimation.cs" />
@@ -215,6 +221,14 @@
     <Page Include="Pages\HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AlbumListPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\AlbumPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\NewsListPage.xaml">
       <Generator>MSBuild:Compile</Generator>

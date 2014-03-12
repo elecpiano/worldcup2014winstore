@@ -31,12 +31,13 @@
 		<Storyboard x:Name="Storyboard2"/>
 	</controls:PageBase.Resources>
 
-    <Grid PointerPressed="SwitchMask_PointerPressed">
-        <Image Source="/Assets/TestImages/1.jpg"/>
+    <Grid>
+        <Image Source="/Assets/TestImages/1.jpg" Stretch="UniformToFill"/>
         <Grid x:Name="pageTitlePanel"/>
 
         <Grid x:Name="contentPanel">
-            <controls:FlipTiles x:Name="flipTiles" Width="750" Height="500" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120,180,0,0"/>
+            <controls:FlipTiles x:Name="flipTiles" Width="750" Height="500" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120,180,0,0"
+                                ItemTapped="flipTiles_ItemTapped"/>
         </Grid>
 
         <Grid x:Name="maskPanel" IsHitTestVisible="False"/>

@@ -1,17 +1,15 @@
-﻿using System;
-using Utility.Animations;
-using Windows.UI.Xaml.Controls;
+﻿using Utility.Animations;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
 using WorldCup2014WinStore.Controls;
 
 namespace WorldCup2014WinStore.Pages
 {
-    public sealed partial class NewsListPage : PageBase
+    public sealed partial class AlbumListPage : PageBase
     {
         public static bool NavigatingFromHome = false;
 
-        public NewsListPage()
+        public AlbumListPage()
         {
             this.InitializeComponent();
         }
@@ -23,14 +21,14 @@ namespace WorldCup2014WinStore.Pages
             {
                 PageMask.AttachAndOpen(this.maskPanel, () =>
                     {
-                        PageTitle.AttachAndShow(this.pageTitlePanel, "News List");
-                        flipTiles.Expand(2);
+                        PageTitle.AttachAndShow(this.pageTitlePanel, "Albums");
+                        flipTiles.Expand(3);
                     });
             }
             else
             {
                 PageMask.Attach(this.maskPanel);
-                PageTitle.AttachAndShow(this.pageTitlePanel, "News List");
+                PageTitle.AttachAndShow(this.pageTitlePanel, "Albums");
                 FadeAnimation.Fade(this.backgroundClear, 0d, 1d, Constants.DURATION_CONTENT_FADING, null);
                 flipTiles.Expand(0);
                 FadeAnimation.Fade(this.contentPanel, 0d, 1d, Constants.DURATION_CONTENT_FADING, null);
@@ -62,7 +60,7 @@ namespace WorldCup2014WinStore.Pages
             FadeAnimation.Fade(this.contentPanel, 1d, 0d, Constants.DURATION_CONTENT_FADING, null);
             FadeAnimation.Fade(this.backgroundClear, 1d, 0d, Constants.DURATION_CONTENT_FADING, fe =>
             {
-                this.Frame.Navigate(typeof(NewsDetailPage));
+                this.Frame.Navigate(typeof(AlbumPage));
             });
 
         }

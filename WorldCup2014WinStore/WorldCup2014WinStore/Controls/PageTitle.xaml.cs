@@ -9,12 +9,6 @@ namespace WorldCup2014WinStore.Controls
 {
     public sealed partial class PageTitle : UserControl
     {
-        #region Properties
-
-        private static PageBase HostingPage;
-
-        #endregion
-
         #region Singleton
 
         private static PageTitle _Current;
@@ -33,6 +27,12 @@ namespace WorldCup2014WinStore.Controls
 
         #endregion
 
+        #region Properties
+
+        private static PageBase HostingPage;
+
+        #endregion
+
         private Action onPageTitleShown;
         private Action onPageTitleHidden;
 
@@ -43,6 +43,8 @@ namespace WorldCup2014WinStore.Controls
 
         private void InstanceShowPageTitle(string pageTitle, Action completed)
         {
+            SpinningBall.Detach();
+            SpinningBall.Attach(this.spinningBall);
             onPageTitleShown = completed;
             this.pageTitleTextBlock.Text = pageTitle;
             this.StoryShowPageTile.Begin();

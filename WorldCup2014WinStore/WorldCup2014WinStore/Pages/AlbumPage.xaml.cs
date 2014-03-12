@@ -5,9 +5,9 @@ using WorldCup2014WinStore.Controls;
 
 namespace WorldCup2014WinStore.Pages
 {
-    public sealed partial class NewsDetailPage : PageBase
+    public sealed partial class AlbumPage : PageBase
     {
-        public NewsDetailPage()
+        public AlbumPage()
         {
             this.InitializeComponent();
         }
@@ -15,7 +15,7 @@ namespace WorldCup2014WinStore.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            PageTitle.AttachAndShow(this.pageTitlePanel, "News Detail Page #001");
+            PageTitle.AttachAndShow(this.pageTitlePanel, "Cool Photos");
             FadeAnimation.Fade(this.contentPanel, 0d, 1d, Constants.DURATION_CONTENT_FADING, null);
         }
 

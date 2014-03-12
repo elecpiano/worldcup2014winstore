@@ -1,4 +1,6 @@
-﻿using Windows.UI.Xaml.Controls;
+﻿using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 
 namespace WorldCup2014WinStore.Controls
 {
@@ -23,7 +25,26 @@ namespace WorldCup2014WinStore.Controls
             {
                 this.StoryExpand2.Begin();
             }
+            else if (type == 3)
+            {
+                this.StoryExpand3.Begin();
+            }
         }
+
+        #region Events
+
+        public event TappedEventHandler ItemTapped;
+
+        private void tile_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            if (ItemTapped!=null)
+            {
+                ItemTapped((sender as FrameworkElement).Name, e);
+            }
+        }
+
+        #endregion
+
     }
 
 }

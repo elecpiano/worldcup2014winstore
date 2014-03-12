@@ -72,7 +72,10 @@
             <TextBlock Grid.Column="1" x:Name="pageTitleTextBlock" Text="Page Title" Style="{StaticResource PageTitle_TextBlock_Style}" Opacity="0"/>
         </Grid>
 
-        <controls:SpinningBall x:Name="spinningBall" Width="60" Height="60" Grid.ColumnSpan="2"
+        <!--<controls:SpinningBall x:Name="spinningBall" Width="60" Height="60" Grid.ColumnSpan="2"
+                                   VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"
+                                   Tapped="titleBall_Tapped"/>-->
+        <Grid x:Name="spinningBall" Width="60" Height="60" Grid.ColumnSpan="2"
                                    VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"
                                    Tapped="titleBall_Tapped"/>
 

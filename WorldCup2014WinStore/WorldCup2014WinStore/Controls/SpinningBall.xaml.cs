@@ -7,6 +7,24 @@ namespace WorldCup2014WinStore.Controls
 {
     public sealed partial class SpinningBall : UserControl
     {
+        #region Singleton
+
+        private static SpinningBall _Current;
+
+        public static SpinningBall Current
+        {
+            get
+            {
+                if (_Current == null)
+                {
+                    _Current = new SpinningBall();
+                }
+                return _Current;
+            }
+        }
+
+        #endregion
+
         public SpinningBall()
         {
             this.InitializeComponent();
@@ -38,6 +56,19 @@ namespace WorldCup2014WinStore.Controls
             }
             imageBall.Source = new BitmapImage(new Uri("ms-appx:///Assets/Images/SpinningBall/" + ballIndex.ToString() + ".png", UriKind.Absolute));
             ballIndex++;
+        }
+
+        public static void Attach(Grid parent)
+        {
+            parent.Children.Add(SpinningBall.Current);
+        }
+
+        public static void Detach()
+        {
+            if (SpinningBall.Current.Parent != null)
+            {
+                ((Grid)SpinningBall.Current.Parent).Children.Remove(SpinningBall.Current);
+            }
         }
 
         #endregion
