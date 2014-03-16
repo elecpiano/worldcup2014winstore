@@ -1,4 +1,6 @@
-﻿using Utility.Animations;
+﻿using System;
+using System.Collections.ObjectModel;
+using Utility.Animations;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using WorldCup2014WinStore.Controls;
@@ -17,6 +19,7 @@ namespace WorldCup2014WinStore.Pages
             base.OnNavigatedTo(e);
             PageTitle.AttachAndShow(this.pageTitlePanel, "Cool Photos");
             FadeAnimation.Fade(this.contentPanel, 0d, 1d, Constants.DURATION_CONTENT_FADING, null);
+            LoadData();
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
@@ -34,6 +37,43 @@ namespace WorldCup2014WinStore.Pages
                     base.OnBack();
                 });
         }
+
+        #region data
+
+        private ObservableCollection<string> photos = new ObservableCollection<string>();
+        private void LoadData()
+        {
+            //itemsControlPhotos.ItemsSource = photos;
+            itemsControlPhotos.ItemLoaded += itemsControlPhotos_ItemLoaded;
+            photos.Clear();
+            photos.Add("1");
+            photos.Add("1");
+            photos.Add("1");
+            photos.Add("1");
+            photos.Add("1");
+            photos.Add("1");
+            photos.Add("1");
+            photos.Add("1");
+            photos.Add("1");
+            photos.Add("1");
+            photos.Add("1");
+            photos.Add("1");
+            photos.Add("1");
+            photos.Add("1");
+            photos.Add("1");
+            photos.Add("1");
+            photos.Add("1");
+            photos.Add("1");
+
+            itemsControlPhotos.ShowItems(photos);
+        }
+
+        void itemsControlPhotos_ItemLoaded(Windows.UI.Xaml.FrameworkElement visual, object item)
+        {
+            FadeAnimation.Fade(visual, 0, 1, TimeSpan.FromSeconds(0.5), null);
+        }
+
+        #endregion
 
     }
 }

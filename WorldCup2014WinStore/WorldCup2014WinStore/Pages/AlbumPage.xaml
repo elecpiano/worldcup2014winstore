@@ -13,7 +13,8 @@
         <Grid x:Name="pageTitlePanel"/>
 
         <Grid x:Name="contentPanel">
-            <Grid Width="500" Height="500" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120,180,0,0">
+            <Grid Width="500" Height="500" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120,180,0,0"
+                  Visibility="Collapsed">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
@@ -36,6 +37,20 @@
                 <Rectangle x:Name="tile9" Grid.Row="2" Grid.Column="2" Margin="5" Fill="#BFFFFFFF" />
 
             </Grid>
+
+            <controls:TransitionItemsControl x:Name="itemsControlPhotos"
+                Height="500" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120,180,0,0">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapGrid Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Rectangle Width="150" Height="150" Margin="0,0,5,5" Fill="#BFFFFFFF" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </controls:TransitionItemsControl>
         </Grid>
 
         <Grid x:Name="maskPanel" IsHitTestVisible="False"/>
