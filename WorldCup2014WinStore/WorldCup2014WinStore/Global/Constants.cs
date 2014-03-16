@@ -12,6 +12,7 @@ namespace WorldCup2014WinStore
 
         //animation duration
         public static TimeSpan DURATION_CONTENT_FADING = TimeSpan.FromMilliseconds(250);
+        public static TimeSpan DURATION_LIST_ITEM_TRANSITION = TimeSpan.FromMilliseconds(500);
 
         //splash
         public const string SPLASH_MODULE = "splash";

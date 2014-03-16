@@ -10,48 +10,26 @@
 
     <Grid>
         <Image Source="/Assets/TestImages/3.jpg" Stretch="UniformToFill"/>
-        <Grid x:Name="pageTitlePanel"/>
 
         <Grid x:Name="contentPanel">
-            <Grid Width="500" Height="500" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120,180,0,0"
-                  Visibility="Collapsed">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-
-                <Rectangle x:Name="tile1" Grid.Row="0" Grid.Column="0" Margin="5" Fill="#BFFFFFFF" />
-                <Rectangle x:Name="tile2" Grid.Row="0" Grid.Column="1" Margin="5" Fill="#BFFFFFFF" />
-                <Rectangle x:Name="tile3" Grid.Row="0" Grid.Column="2" Margin="5" Fill="#BFFFFFFF" />
-                <Rectangle x:Name="tile4" Grid.Row="1" Grid.Column="0" Margin="5" Fill="#BFFFFFFF" />
-                <Rectangle x:Name="tile5" Grid.Row="1" Grid.Column="1" Margin="5" Fill="#BFFFFFFF" />
-                <Rectangle x:Name="tile6" Grid.Row="1" Grid.Column="2" Margin="5" Fill="#BFFFFFFF" />
-                <Rectangle x:Name="tile7" Grid.Row="2" Grid.Column="0" Margin="5" Fill="#BFFFFFFF" />
-                <Rectangle x:Name="tile8" Grid.Row="2" Grid.Column="1" Margin="5" Fill="#BFFFFFFF" />
-                <Rectangle x:Name="tile9" Grid.Row="2" Grid.Column="2" Margin="5" Fill="#BFFFFFFF" />
-
-            </Grid>
-
-            <controls:TransitionItemsControl x:Name="itemsControlPhotos"
-                Height="500" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120,180,0,0">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapGrid Orientation="Vertical"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Rectangle Width="150" Height="150" Margin="0,0,5,5" Fill="#BFFFFFFF" />
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </controls:TransitionItemsControl>
+            <ScrollViewer Style="{StaticResource HorizontalScrollViewerStyle}">
+                <controls:TransitionItemsControl x:Name="itemsControlPhotos"
+                                                 VerticalAlignment="Top" HorizontalAlignment="Left" 
+                                                 Margin="120,180,120,90">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapGrid Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Rectangle Width="165" Height="165" Margin="0,0,5,5" Fill="#BFFFFFFF" />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </controls:TransitionItemsControl>
+            </ScrollViewer>
         </Grid>
+        <Grid x:Name="pageTitlePanel"/>
 
         <Grid x:Name="maskPanel" IsHitTestVisible="False"/>
     </Grid>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -25,7 +26,8 @@ namespace WorldCup2014WinStore.Controls
             if (ItemLoaded != null)
             {
                 ContentPresenter container = element as ContentPresenter;
-                itemToContainer.Add(item, container);
+                int index = _items.IndexOf(item);
+                Containers.Insert(index, container);
                 if (container != null)
                 {
                     container.Opacity = 0;
@@ -41,35 +43,33 @@ namespace WorldCup2014WinStore.Controls
 
         #region Items
 
-        private ObservableCollection<object> _items;
-        private Dictionary<object, FrameworkElement> _itemToContainer;
-        private Dictionary<object, FrameworkElement> itemToContainer
+        private IList _items;
+        private List<FrameworkElement> _containers;
+        private List<FrameworkElement> Containers
         {
             get
             {
-                if (_itemToContainer == null)
+                if (_containers == null)
                 {
-                    _itemToContainer = new Dictionary<object, FrameworkElement>();
+                    _containers = new List<FrameworkElement>();
                 }
-                return _itemToContainer;
+                return _containers;
             }
         }
 
         private DispatcherTimer timer = null;
         private bool timerStarted = false;
-        private int itemCount = 0;
         private int timerIndex = 0;
 
-        public void ShowItems<T>(ObservableCollection<T> items)
+        public void ShowItems(IList items)
         {
             _items = items;
-            itemToContainer.Clear();
+            Containers.Clear();
 
-            itemCount = items.Count();
             if (timer == null)
             {
                 timer = new DispatcherTimer();
-                timer.Interval = TimeSpan.FromMilliseconds(50);
+                timer.Interval = TimeSpan.FromMilliseconds(30);
                 timer.Tick += timer_Tick;
             }
 
@@ -79,15 +79,17 @@ namespace WorldCup2014WinStore.Controls
         private void StartTimer()
         {
             timerStarted = true;
+            timerIndex = 0;
             timer.Start();
         }
 
         private void timer_Tick(object sender, object e)
         {
             object item = _items[timerIndex];
-            ItemLoaded(itemToContainer[item],item);
+            int index = _items.IndexOf(item);
+            ItemLoaded(Containers[index], item);
             timerIndex++;
-            if (timerIndex>=itemCount)
+            if (timerIndex >= _items.Count)
             {
                 timer.Stop();
             }
