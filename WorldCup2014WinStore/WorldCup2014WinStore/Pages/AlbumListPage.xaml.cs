@@ -1,4 +1,6 @@
 ﻿using Utility.Animations;
+using Windows.UI.Popups;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
 using WorldCup2014WinStore.Controls;
