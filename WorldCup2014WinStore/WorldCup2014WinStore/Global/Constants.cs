@@ -101,6 +101,8 @@ namespace WorldCup2014WinStore
         public const string CATEGORY_ABC_FILE_NAME_FORMAT = "category_abc_{0}.txt";
 
         //subscription
+        public const string SUBSCRIPTION_MODULE = "subscription";
+        public const string SUBSCRIPTION_FILE_NAME = "subscription.txt";
         public const string KEY_SUBSCRIPTION_LIST = "subscription_list";
 
         //album

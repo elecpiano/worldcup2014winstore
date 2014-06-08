@@ -16,9 +16,35 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="63"/>
         </Grid.ColumnDefinitions>
+        <!--time-->
         <Image Grid.Column="0" Source="/Assets/Images/epgItemTimeBase.png" Stretch="None" VerticalAlignment="Top"/>
+        <StackPanel Grid.Column="0" VerticalAlignment="Top" Margin="10,10,0,0">
+            <TextBlock Text="{Binding StartTime, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='MM月dd日'}" 
+                   Style="{StaticResource EPG_Date_Style}"/>
+            <TextBlock Text="{Binding StartTime, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='HH:mm'}" 
+                   Style="{StaticResource EPG_Time_Style}"/>
+        </StackPanel>
+
+        <!--image-->
         <Image Grid.Column="1" Source="/Assets/Images/epgItemImageBase.png" Stretch="None" HorizontalAlignment="Left"/>
+        <controls:FadingImage Grid.Column="1" Source="{Binding Image}" Stretch="UniformToFill" HorizontalAlignment="Left" Width="212"/>
+
         <Image Grid.Column="1" Source="/Assets/Images/epgItemTextBase.png" Stretch="None" HorizontalAlignment="Right"/>
+        <!--channel-->
+        <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0">
+            <Image Source="/Assets/Images/CCTV1.png" Visibility="{Binding CCTV1}" Stretch="Uniform" Height="12"/>
+            <Image Source="/Assets/Images/CCTV5.png" Visibility="{Binding CCTV5}" Stretch="Uniform" Height="12" Margin="4,0,0,0"/>
+            <Image Source="/Assets/Images/CCTV5+.png" Visibility="{Binding CCTV5Plus}" Stretch="Uniform" Height="12" Margin="4,0,0,0"/>
+        </StackPanel>
+
+        <Grid HorizontalAlignment="Right" Grid.Column="1">
+            <!--description-->
+            <TextBlock Text="{Binding Description}" Style="{StaticResource EPG_Description_Text_Style}" />
+
+            <!--see point-->
+            <TextBlock Text="{Binding SeePoint}" Style="{StaticResource EPG_SeePoint_Text_Style}"/>
+        </Grid>
+
         <controls:ImageToggleButton Grid.Column="2" VerticalAlignment="Bottom" 
                                     UnCheckedBackgroundNormal="/Assets/Images/Subscribe.png" 
                                     CheckedBackgroundNormal="/Assets/Images/UnSubscribe.png" 

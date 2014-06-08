@@ -9,6 +9,7 @@ using Windows.UI.Xaml.Navigation;
 using WorldCup2014WinStore.Models;
 using WorldCup2014WinStore.Utility;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace WorldCup2014WinStore.Pages
 {
@@ -26,9 +27,9 @@ namespace WorldCup2014WinStore.Pages
         {
             //BuildApplicationBar();
             //InitBannerControl();
-            //InitEpgList();
+            epgListBox.ItemsSource = epgList;
             newsListBox.ItemsSource = newsList;
-            //recommendationNewsListBox.ItemsSource = recommendationNewsList;
+            recommendationNewsListBox.ItemsSource = recommendationNewsList;
             //authorListBox.ItemsSource = authorList;
         }
 
@@ -40,12 +41,8 @@ namespace WorldCup2014WinStore.Pages
 
             LoadSplashImage();
             //LoadBanner();
-            //if (ReloatEpgList)
-            //{
-            //    LoadEpg(true);
-            //    ReloatEpgList = false;
-            //}
-            //LoadRecommendation();
+            LoadEpg(DateTime.Today);
+            LoadRecommendation();
             //LoadAuthorList();
             LoadNews();
         }
@@ -107,29 +104,38 @@ namespace WorldCup2014WinStore.Pages
             string param = "&date=" + date;
 
             epgLoader.Load("getepg", param, true, Constants.EPG_MODULE, string.Format(Constants.EPG_FILE_NAME_FORMTAT, date),
-                list =>
+                result =>
                 {
-                    if (list != null)
+                    if (result != null)
                     {
                         epgList.Clear();
 
-                        foreach (var item in list)
+                        foreach (var item in result)
                         {
                             epgList.Add(item);
                         }
 
-                        var subscriptionList = GetSubscriptionList();
-                        foreach (var item in list)
-                        {
-                            if (subscriptionList.Any(x => x.ID == item.ID))
-                            {
-                                item.Subscribed = true;
-                            }
-                        }
+                        UpdateEpgSubscriptionStatus(result);
 
-                        epgListBox.ScrollIntoView(list.FirstOrDefault());
+                        epgListBox.ScrollIntoView(result.FirstOrDefault());
                     }
                 });
+        }
+
+        private async void UpdateEpgSubscriptionStatus(List<EPG> list)
+        {
+            var subscriptionList = await GetSubscriptionList();
+            if (subscriptionList==null)
+            {
+                return;
+            }
+            foreach (var item in list)
+            {
+                if (subscriptionList.Any(x => x.ID == item.ID))
+                {
+                    item.Subscribed = true;
+                }
+            }
         }
 
         private void epgListBox_ItemClick(object sender, ItemClickEventArgs e)
@@ -144,18 +150,46 @@ namespace WorldCup2014WinStore.Pages
         #endregion
 
         #region Subscription
-        private List<EPG> GetSubscriptionList()
+        private async Task<List<EPG>> GetSubscriptionList()
         {
-            return SubscriptionDataContext.Current.LoadSubscriptions();
-        }
-
-        private void Subscribe_Tap(object sender, GestureEventArgs e)
-        {
-            
+            return await SubscriptionDataContext.Current.LoadSubscriptions();
         }
 
         #endregion
 
+        #region Recommendation
+
+        GenericDataLoader<Recommendation> recommendationLoader = new GenericDataLoader<Recommendation>();
+        ObservableCollection<News> recommendationNewsList = new ObservableCollection<News>();
+
+        private void LoadRecommendation()
+        {
+            if (recommendationLoader.Busy)
+            {
+                return;
+            }
+
+            //busy
+            //snowNews.IsBusy = true;
+
+            //load
+            recommendationLoader.Load("getrecommends", string.Empty, true, Constants.RECOMMENDATION_MODULE, Constants.RECOMMENDATION_FILE_NAME,
+                result =>
+                {
+                    //recommendationSlideShow.SetItemsSource(result.focus);
+
+                    recommendationNewsList.Clear();
+                    foreach (var item in result.data)
+                    {
+                        recommendationNewsList.Add(item);
+                    }
+
+                    //not busy
+                    //snowNews.IsBusy = false;
+                });
+        }
+
+        #endregion
 
         #region News
 

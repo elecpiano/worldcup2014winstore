@@ -75,17 +75,21 @@ namespace WorldCup2014WinStore.Utility
             if (local != null)
             {
                 // Get the DataFolder folder.
-                var dataFolder = await local.GetFolderAsync(folderName);
+                //var dataFolder = await local.GetFolderAsync(folderName);
+                var dataFolder = await local.CreateFolderAsync(folderName, CreationCollisionOption.OpenIfExists);
 
                 if (dataFolder == null)
                 {
                     return null;
                 }
+
                 // Get the file.
-                var file = await dataFolder.OpenStreamForReadAsync(fileName);
+                var file = await dataFolder.CreateFileAsync(fileName, CreationCollisionOption.OpenIfExists);
+                //var file = await dataFolder.OpenStreamForReadAsync(fileName);
+                var stream = await file.OpenStreamForReadAsync();
 
                 // Read the data.
-                using (StreamReader streamReader = new StreamReader(file))
+                using (StreamReader streamReader = new StreamReader(stream))
                 {
                     return streamReader.ReadToEnd();
                 }
@@ -150,7 +154,7 @@ namespace WorldCup2014WinStore.Utility
             catch (Exception ex)
             {
             }
-            
+
             return size;
         }
 

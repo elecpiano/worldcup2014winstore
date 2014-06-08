@@ -115,6 +115,7 @@
       <DependentUpon>FadingImage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ImageToggleButton.cs" />
+    <Compile Include="Controls\NewsDataTemplateSelector.cs" />
     <Compile Include="Controls\TransitionItemsControl.cs" />
     <Compile Include="Converters\AnythingToVisibilityConverter.cs" />
     <Compile Include="Converters\DateTimeToStringConverter.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="Global\Constants.cs" />
     <Compile Include="Models\EPG.cs" />
     <Compile Include="Models\News.cs" />
+    <Compile Include="Models\Recommendation.cs" />
     <Compile Include="Models\SubscriptionDataContext.cs" />
     <Compile Include="Pages\AlbumListPage.xaml.cs">
       <DependentUpon>AlbumListPage.xaml</DependentUpon>
@@ -172,6 +174,10 @@
     <Compile Include="Utility\IsolatedStorageHelper.cs" />
     <Compile Include="Utility\JsonSerializer.cs" />
     <Compile Include="Utility\NetworkHelper.cs" />
+    <Compile Include="Utility\Notification\Common.cs" />
+    <Compile Include="Utility\Notification\NotificationHelper.cs" />
+    <Compile Include="Utility\Notification\ContentInterfaces.cs" />
+    <Compile Include="Utility\Notification\ToastContent.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -182,6 +188,10 @@
   <ItemGroup>
     <Content Include="Assets\Images\band1.png" />
     <Content Include="Assets\Images\band2.png" />
+    <Content Include="Assets\Images\band3.png" />
+    <Content Include="Assets\Images\CCTV1.png" />
+    <Content Include="Assets\Images\CCTV5+.png" />
+    <Content Include="Assets\Images\CCTV5.png" />
     <Content Include="Assets\Images\Common\PageTitleBackgroundL.png" />
     <Content Include="Assets\Images\Common\PageTitleBackgroundM.png" />
     <Content Include="Assets\Images\Common\PageTitleBackgroundR.png" />
@@ -189,7 +199,9 @@
     <Content Include="Assets\Images\epgItemTextBase.png" />
     <Content Include="Assets\Images\epgItemTimeBase.png" />
     <Content Include="Assets\Images\moreButton.png" />
+    <Content Include="Assets\Images\newsItemTextBase.png" />
     <Content Include="Assets\Images\playButton.png" />
+    <Content Include="Assets\Images\recommendationTitle.png" />
     <Content Include="Assets\Images\SpinningBall\1.png" />
     <Content Include="Assets\Images\SpinningBall\10.png" />
     <Content Include="Assets\Images\SpinningBall\11.png" />

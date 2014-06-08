@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Windows.Foundation.Collections;
+using WorldCup2014WinStore.Utility;
 
 namespace WorldCup2014WinStore.Models
 {
@@ -28,7 +30,7 @@ namespace WorldCup2014WinStore.Models
 
         IPropertySet _Settings = Windows.Storage.ApplicationData.Current.LocalSettings.Values;
 
-        public List<EPG> LoadSubscriptions()
+        public List<EPG> LoadSubscriptions2()
         {
             List<EPG> list = null;
             if (_Settings.ContainsKey(Constants.KEY_SUBSCRIPTION_LIST))
@@ -41,21 +43,20 @@ namespace WorldCup2014WinStore.Models
             }
             return list;
         }
-
-        //public void AddSubscription(EPG item)
-        //{
-        //    List<EPG> list = LoadSubscriptions();
-        //    var duplication = list.FirstOrDefault(x => x.ID == item.ID);
-        //    if (duplication == null)
-        //    {
-        //        list.Add(item);
-        //        SaveSubscriptions(list);
-        //    }
-        //}
-
-        public void AddSubscription(EPG item)
+        public async Task<List<EPG>> LoadSubscriptions()
         {
-            List<EPG> list = LoadSubscriptions();
+            var cachedJson = await IsolatedStorageHelper.ReadFile(Constants.SUBSCRIPTION_MODULE, Constants.SUBSCRIPTION_FILE_NAME);
+            List<EPG> result = JsonSerializer.Deserialize<List<EPG>>(cachedJson);
+            if (result==null)
+            {
+                result = new List<EPG>();
+            }
+            return result;
+        }
+
+        public async void AddSubscription2(EPG item)
+        {
+            List<EPG> list = await LoadSubscriptions();
             var duplication = list.FirstOrDefault(x => x.ID == item.ID);
             if (duplication == null)
             {
@@ -64,9 +65,20 @@ namespace WorldCup2014WinStore.Models
             }
         }
 
-        public void RemoveSubscription(string id)
+        public async void AddSubscription(EPG item)
         {
-            List<EPG> list = LoadSubscriptions();
+            List<EPG> list = await LoadSubscriptions();
+            var duplication = list.FirstOrDefault(x => x.ID == item.ID);
+            if (duplication == null)
+            {
+                list.Add(item);
+                SaveSubscriptions(list);
+            }
+        }
+
+        public async void RemoveSubscription(string id)
+        {
+            List<EPG> list = await LoadSubscriptions();
             var item = list.FirstOrDefault(x => x.ID == id);
             if (item != null)
             {
@@ -75,7 +87,7 @@ namespace WorldCup2014WinStore.Models
             }
         }
 
-        public void SaveSubscriptions(List<EPG> list)
+        public void SaveSubscriptions2(List<EPG> list)
         {
             // txtInput is a TextBox defined in XAML.
             if (_Settings.ContainsKey(Constants.KEY_SUBSCRIPTION_LIST))
@@ -84,8 +96,15 @@ namespace WorldCup2014WinStore.Models
             }
             else
             {
-                _Settings.Add(Constants.KEY_SUBSCRIPTION_LIST, list);
+                //_Settings.Add(Constants.KEY_SUBSCRIPTION_LIST, list);
+                _Settings[Constants.KEY_SUBSCRIPTION_LIST] = list;
             }
+        }
+
+        public async void SaveSubscriptions(List<EPG> list)
+        {
+            string json = JsonSerializer.Serialize(list);
+            await IsolatedStorageHelper.WriteToFile(Constants.SUBSCRIPTION_MODULE, Constants.SUBSCRIPTION_FILE_NAME, json);
         }
 
         public void ClearSubscriptions()

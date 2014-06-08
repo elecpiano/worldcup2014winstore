@@ -18,7 +18,7 @@ namespace WorldCup2014WinStore.Utility
                     DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(T));
                     serializer.WriteObject(ms, value);
                     var array = ms.ToArray();
-                    return Encoding.Unicode.GetString(array, 0, array.Length);
+                    return Encoding.UTF8.GetString(array, 0, array.Length);
                 }
             }
             catch (Exception ex)
@@ -41,7 +41,7 @@ namespace WorldCup2014WinStore.Utility
                     DataContractJsonSerializer serializer = new DataContractJsonSerializer(value.GetType());
                     serializer.WriteObject(ms, value);
                     var array = ms.ToArray();
-                    return Encoding.Unicode.GetString(array, 0, array.Length);
+                    return Encoding.UTF8.GetString(array, 0, array.Length);
                 }
             }
             catch (Exception ex)
@@ -56,7 +56,7 @@ namespace WorldCup2014WinStore.Utility
             {
                 if (string.IsNullOrEmpty(json)) return default(T);
 
-                using (MemoryStream ms = new MemoryStream(Encoding.Unicode.GetBytes(json)))
+                using (MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(json)))
                 {
                     DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(T));
                     T value = (T)serializer.ReadObject(ms);
