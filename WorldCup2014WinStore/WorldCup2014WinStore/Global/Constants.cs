@@ -111,12 +111,8 @@ namespace WorldCup2014WinStore
         public const string LIVE_MODULE = "live";
         public const string LIVE_FILE_NAME_FORMAT = "live_{0}.txt";
 
-        
-
         //image helper
         public const string KEY_IMAGE_CACHE = "image_cache";
-
-        
 
         //vod
         public const string VOD_MODULE = "vod";

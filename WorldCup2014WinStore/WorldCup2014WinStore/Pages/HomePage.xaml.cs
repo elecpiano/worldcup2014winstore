@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Utility.Animations;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using WorldCup2014WinStore.Models;
 using WorldCup2014WinStore.Utility;
+using System.Linq;
 
 namespace WorldCup2014WinStore.Pages
 {
@@ -35,7 +38,7 @@ namespace WorldCup2014WinStore.Pages
 
             //App.Toast = this.toast;
 
-            //LoadSplashImage();
+            LoadSplashImage();
             //LoadBanner();
             //if (ReloatEpgList)
             //{
@@ -48,6 +51,111 @@ namespace WorldCup2014WinStore.Pages
         }
 
         #endregion
+
+        #region Splash
+
+        DataLoader<Splash> splashLoader = new DataLoader<Splash>();
+        string openedSplashImageSource = string.Empty;
+        private void LoadSplashImage()
+        {
+            //DisplayLocalSplashImage();
+
+            if (splashLoader.Loaded || splashLoader.Busy)
+            {
+                return;
+            }
+
+            progressbar.Visibility = Visibility.Visible;
+
+            splashLoader.Load("getsplash", string.Empty, true, Constants.SPLASH_MODULE, Constants.SPLASH_FILE_NAME,
+                splash =>
+                {
+                    if (openedSplashImageSource == splash.Image)
+                    {
+                        return;
+                    }
+                    openedSplashImageSource = splash.Image;
+                    MoveAnimation.MoveTo(splashImageBand, 0, 0, Constants.DURATION_CONTENT_FADING, fe =>
+                        {
+                            //this.splashImage.DataContext = splash.Image;
+                            this.splashImage.Source = new BitmapImage(new Uri(splash.Image, UriKind.RelativeOrAbsolute));
+                            progressbar.Visibility = Visibility.Collapsed;
+                        });
+                });
+        }
+
+        #endregion
+
+        #region EPG
+
+        ObservableCollection<EPG> epgList = new ObservableCollection<EPG>();
+        ListDataLoader<EPG> epgLoader = new ListDataLoader<EPG>();
+
+        public void LoadEpg(DateTime date)
+        {
+            string dateStr = date.ToString("yyyy-MM-dd");
+            LoadEpg(dateStr);
+        }
+
+        public void LoadEpg(string date)
+        {
+            if (epgLoader.Busy)
+            {
+                return;
+            }
+
+            string param = "&date=" + date;
+
+            epgLoader.Load("getepg", param, true, Constants.EPG_MODULE, string.Format(Constants.EPG_FILE_NAME_FORMTAT, date),
+                list =>
+                {
+                    if (list != null)
+                    {
+                        epgList.Clear();
+
+                        foreach (var item in list)
+                        {
+                            epgList.Add(item);
+                        }
+
+                        var subscriptionList = GetSubscriptionList();
+                        foreach (var item in list)
+                        {
+                            if (subscriptionList.Any(x => x.ID == item.ID))
+                            {
+                                item.Subscribed = true;
+                            }
+                        }
+
+                        epgListBox.ScrollIntoView(list.FirstOrDefault());
+                    }
+                });
+        }
+
+        private void epgListBox_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            //EPG epg = sender.GetDataContext<EPG>();
+            //string[] paramArray = new string[] { NaviParam.LIVE_ID, epg.ID, NaviParam.LIVE_IMAGE, epg.Image, NaviParam.LIVE_TITLE, epg.Description };
+            //string naviStr = string.Format("/Pages/LivePage.xaml?{0}={1}&{2}={3}&{4}={5}", paramArray);
+            //HostingPage.NavigationService.Navigate(new Uri(naviStr, UriKind.Relative));
+            //this.Frame.Navigate(typeof(AlbumListPage));
+        }
+
+        #endregion
+
+        #region Subscription
+        private List<EPG> GetSubscriptionList()
+        {
+            return SubscriptionDataContext.Current.LoadSubscriptions();
+        }
+
+        private void Subscribe_Tap(object sender, GestureEventArgs e)
+        {
+            
+        }
+
+        #endregion
+
 
         #region News
 
@@ -80,7 +188,7 @@ namespace WorldCup2014WinStore.Pages
 
                     if (newsReloading)
                     {
-                        newsListScrollViewer.ChangeView(null,0d,null);//.ScrollToVerticalOffset(0);
+                        newsListScrollViewer.ChangeView(null, 0d, null);//.ScrollToVerticalOffset(0);
                         newsList.Clear();
                         newsListDateHeaders.Clear();
                     }
@@ -159,6 +267,7 @@ namespace WorldCup2014WinStore.Pages
         }
 
         #endregion
+
 
     }
 }

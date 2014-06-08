@@ -1,0 +1,29 @@
+﻿<UserControl
+    x:Class="WorldCup2014WinStore.Controls.EpgItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WorldCup2014WinStore.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:WorldCup2014WinStore.Controls"
+    mc:Ignorable="d"
+    Height="160"
+    Width="546">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="78"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="63"/>
+        </Grid.ColumnDefinitions>
+        <Image Grid.Column="0" Source="/Assets/Images/epgItemTimeBase.png" Stretch="None" VerticalAlignment="Top"/>
+        <Image Grid.Column="1" Source="/Assets/Images/epgItemImageBase.png" Stretch="None" HorizontalAlignment="Left"/>
+        <Image Grid.Column="1" Source="/Assets/Images/epgItemTextBase.png" Stretch="None" HorizontalAlignment="Right"/>
+        <controls:ImageToggleButton Grid.Column="2" VerticalAlignment="Bottom" 
+                                    UnCheckedBackgroundNormal="/Assets/Images/Subscribe.png" 
+                                    CheckedBackgroundNormal="/Assets/Images/UnSubscribe.png" 
+                                    Click="Subscribe_Click"              
+                                    IsChecked="{Binding Subscribed}"
+                                    />
+    </Grid>
+</UserControl>
