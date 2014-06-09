@@ -10,6 +10,7 @@ using WorldCup2014WinStore.Models;
 using WorldCup2014WinStore.Utility;
 using System.Linq;
 using System.Threading.Tasks;
+using WorldCup2014WinStore.Controls;
 
 namespace WorldCup2014WinStore.Pages
 {
@@ -43,8 +44,8 @@ namespace WorldCup2014WinStore.Pages
             //LoadBanner();
             LoadEpg(DateTime.Today);
             LoadRecommendation();
-            //LoadAuthorList();
-            LoadNews();
+            LoadAuthorList();
+            LoadNews_HomePage();
         }
 
         #endregion
@@ -125,7 +126,7 @@ namespace WorldCup2014WinStore.Pages
         private async void UpdateEpgSubscriptionStatus(List<EPG> list)
         {
             var subscriptionList = await GetSubscriptionList();
-            if (subscriptionList==null)
+            if (subscriptionList == null)
             {
                 return;
             }
@@ -161,7 +162,7 @@ namespace WorldCup2014WinStore.Pages
 
         GenericDataLoader<Recommendation> recommendationLoader = new GenericDataLoader<Recommendation>();
         ObservableCollection<News> recommendationNewsList = new ObservableCollection<News>();
-
+        private const int RECOMMENDATION_COUNT = 6;
         private void LoadRecommendation()
         {
             if (recommendationLoader.Busy)
@@ -179,9 +180,15 @@ namespace WorldCup2014WinStore.Pages
                     //recommendationSlideShow.SetItemsSource(result.focus);
 
                     recommendationNewsList.Clear();
+                    int count = 0;
                     foreach (var item in result.data)
                     {
                         recommendationNewsList.Add(item);
+                        count++;
+                        if (count >= RECOMMENDATION_COUNT)
+                        {
+                            break;
+                        }
                     }
 
                     //not busy
@@ -199,11 +206,44 @@ namespace WorldCup2014WinStore.Pages
         int newsPageCount = 1;
         bool newsReloading = false;
         News newsMoreButtonItem = new News() { IsMoreButton = true };
-        List<DateTime> newsListDateHeaders = new List<DateTime>();
+        //List<DateTime> newsListDateHeaders = new List<DateTime>();
+        private const int NEWS_COUNT = 6;
+
+        private void LoadNews_HomePage()
+        {
+            if (newsLoader.Busy)
+            {
+                return;
+            }
+
+            //busy
+            //snowNews.IsBusy = true;
+
+            //load
+            newsLoader.Load("getnewslist", "&page=" + newsPageIndex.ToString(), true, Constants.NEWS_MODULE, string.Format(Constants.NEWS_LIST_FILE_NAME_FORMAT, newsPageIndex),
+                list =>
+                {
+                    newsList.Clear();
+
+                    int count = 0;
+                    foreach (var item in list.data)
+                    {
+                        newsList.Add(item);
+                        count++;
+                        if (count >= NEWS_COUNT)
+                        {
+                            break;
+                        }
+                    }
+
+                    //not busy
+                    //snowNews.IsBusy = false;
+                });
+        }
 
         private void LoadNews()
         {
-            if (newsLoader.Loaded || newsLoader.Busy)
+            if (newsLoader.Busy)
             {
                 return;
             }
@@ -222,21 +262,27 @@ namespace WorldCup2014WinStore.Pages
 
                     if (newsReloading)
                     {
-                        newsListScrollViewer.ChangeView(null, 0d, null);//.ScrollToVerticalOffset(0);
+                        //newsListScrollViewer.ChangeView(null, 0d, null);//.ScrollToVerticalOffset(0);
                         newsList.Clear();
-                        newsListDateHeaders.Clear();
+                        //newsListDateHeaders.Clear();
                     }
 
+                    int count = 0;
                     foreach (var item in list.data)
                     {
-                        if (!newsListDateHeaders.Contains(item.Time.Date))
-                        {
-                            newsListDateHeaders.Add(item.Time.Date);
-                            News dateHeader = new News() { IsDateHeader = true, HeaderDate = item.Time.Date };
-                            newsList.Add(dateHeader);
-                        }
+                        //if (!newsListDateHeaders.Contains(item.Time.Date))
+                        //{
+                        //    newsListDateHeaders.Add(item.Time.Date);
+                        //    News dateHeader = new News() { IsDateHeader = true, HeaderDate = item.Time.Date };
+                        //    newsList.Add(dateHeader);
+                        //}
 
                         newsList.Add(item);
+                        count++;
+                        if (count >= NEWS_COUNT)
+                        {
+                            break;
+                        }
                     }
 
                     if (newsPageIndex < newsPageCount)
@@ -302,6 +348,68 @@ namespace WorldCup2014WinStore.Pages
 
         #endregion
 
+        #region Author
+
+        GenericDataLoader<AuthorList> authorListLoader = new GenericDataLoader<AuthorList>();
+        ObservableCollection<Author> authorList = new ObservableCollection<Author>();
+
+        private void LoadAuthorList()
+        {
+            if (authorListLoader.Busy)
+            {
+                return;
+            }
+
+            //busy
+            //snowNews.IsBusy = true;
+
+            //load
+            authorListLoader.Load("getauthorlist", string.Empty, true, Constants.AUTHOR_MODULE, Constants.AUTHOR_FILE_NAME,
+                result =>
+                {
+                    authorList.Clear();
+
+                    foreach (var item in result.data)
+                    {
+                        authorList.Add(item);
+                    }
+
+                    PopulateAuthorList();
+
+                    //authorListBox.ScrollIntoView(authorList.FirstOrDefault());
+                    authorListScrollViewer.ChangeView(null, 0d, null);
+
+                    //not busy
+                    //snowNews.IsBusy = false;
+                });
+        }
+
+        private void PopulateAuthorList()
+        {
+            authorListPanel.Children.Clear();
+            foreach (var item in authorList)
+            {
+                AuthorItem control = new AuthorItem();
+                control.DataContext = item;
+                if (item.Images != null && item.Images.Length > 0 && item.Images[0].Image != null)
+                {
+                    control.SetImageListVisibility(true);
+                }
+                authorListPanel.Children.Add(control);
+            }
+        }
+
+        private void author_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Author author = sender.GetDataContext<Author>();
+            string naviString = string.Format("/Pages/DiaryListPage.xaml?{0}={1}&{2}={3}&{4}={5}",
+                NaviParam.AUTHOR_ID, author.ID,
+                NaviParam.AUTHOR_NAME, author.Name,
+                NaviParam.AUTHOR_FACE, author.Face);
+            //NavigationService.Navigate(new Uri(naviString, UriKind.Relative));
+        }
+
+        #endregion
 
     }
 }

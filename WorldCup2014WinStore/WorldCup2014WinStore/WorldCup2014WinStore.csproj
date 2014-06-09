@@ -108,6 +108,9 @@
     <Folder Include="Assets\Videos\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\AuthorItem.xaml.cs">
+      <DependentUpon>AuthorItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\EpgItem.xaml.cs">
       <DependentUpon>EpgItem.xaml</DependentUpon>
     </Compile>
@@ -121,6 +124,7 @@
     <Compile Include="Converters\DateTimeToStringConverter.cs" />
     <Compile Include="Global\ApplicationExtension.cs" />
     <Compile Include="Global\Constants.cs" />
+    <Compile Include="Models\Author.cs" />
     <Compile Include="Models\EPG.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\Recommendation.cs" />
@@ -186,9 +190,12 @@
     <None Include="WorldCup2014WinStore_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Images\authorTitle.png" />
     <Content Include="Assets\Images\band1.png" />
     <Content Include="Assets\Images\band2.png" />
     <Content Include="Assets\Images\band3.png" />
+    <Content Include="Assets\Images\band4.png" />
+    <Content Include="Assets\Images\band5.png" />
     <Content Include="Assets\Images\CCTV1.png" />
     <Content Include="Assets\Images\CCTV5+.png" />
     <Content Include="Assets\Images\CCTV5.png" />
@@ -198,9 +205,11 @@
     <Content Include="Assets\Images\epgItemImageBase.png" />
     <Content Include="Assets\Images\epgItemTextBase.png" />
     <Content Include="Assets\Images\epgItemTimeBase.png" />
+    <Content Include="Assets\Images\epgTitle.png" />
     <Content Include="Assets\Images\moreButton.png" />
     <Content Include="Assets\Images\newsItemTextBase.png" />
-    <Content Include="Assets\Images\playButton.png" />
+    <Content Include="Assets\Images\newsTitle.png" />
+    <Content Include="Assets\Images\PlayButton.png" />
     <Content Include="Assets\Images\recommendationTitle.png" />
     <Content Include="Assets\Images\SpinningBall\1.png" />
     <Content Include="Assets\Images\SpinningBall\10.png" />
@@ -244,6 +253,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Controls\AuthorItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\EpgItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

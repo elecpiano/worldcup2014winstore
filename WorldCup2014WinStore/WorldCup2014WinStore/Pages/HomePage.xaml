@@ -11,57 +11,40 @@
         <controls:NewsDataTemplateSelector x:Key="newsDataTemplateSelector">
             <controls:NewsDataTemplateSelector.NewsTemplate>
                 <DataTemplate>
-                    <!--<Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Border Width="120" Height="100" Margin="0,0,0,0" Style="{StaticResource Image_Border_Style}">
-                            <controls:FadingImage Stretch="UniformToFill" Source="{Binding Image}"/>
-                        </Border>
-                        <StackPanel Grid.Column="1" Margin="12,0,12,0">
-                            <TextBlock Text="{Binding Title}" Style="{StaticResource NewsList_ItemTitle_Text_Style}"/>
-                            <TextBlock Text="{Binding Time, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='yyyy-MM-dd hh:mm'}" 
-                                                                           Style="{StaticResource NewsList_ItemTime_Text_Style}"/>
-                        </StackPanel>
-                    </Grid>-->
-
                     <Grid Width="440" Height="192" Background="{StaticResource App_Theme_Color}">
-                        <!--image-->
                         <controls:FadingImage Source="{Binding Image}" Stretch="UniformToFill" HorizontalAlignment="Left" Width="255"/>
-
                         <Image Source="/Assets/Images/newsItemTextBase.png" Stretch="None" HorizontalAlignment="Right"/>
-
                         <Grid HorizontalAlignment="Right">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
                             <!--description-->
                             <TextBlock Text="{Binding Title}" Style="{StaticResource NewsList_ItemTitle_Text_Style}" />
                             <!--time-->
-                            <TextBlock Text="{Binding Time, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='yyyy-MM-dd hh:mm'}" 
+                            <TextBlock Grid.Row="1" Text="{Binding Time, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='yyyy-MM-dd hh:mm'}" 
                                    Style="{StaticResource NewsList_ItemTime_Text_Style}"/>
                         </Grid>
-
                     </Grid>
-
                 </DataTemplate>
             </controls:NewsDataTemplateSelector.NewsTemplate>
             <controls:NewsDataTemplateSelector.VideoTemplate>
                 <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Border Width="120" Height="100" Margin="0,0,0,0" Style="{StaticResource Image_Border_Style}">
-                            <Grid>
-                                <controls:FadingImage Stretch="UniformToFill" Source="{Binding Image}"/>
-                                <Image Source="/Assets/Images/PlayButton48.png" Stretch="None"/>
-                            </Grid>
-                        </Border>
-                        <StackPanel Grid.Column="1" Margin="12,0,12,0">
-                            <TextBlock Text="{Binding Title}" Style="{StaticResource NewsList_ItemTitle_Text_Style}"/>
-                            <TextBlock Text="{Binding Time, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='yyyy-MM-dd hh:mm'}" 
-                                                                           Style="{StaticResource NewsList_ItemTime_Text_Style}"/>
-                        </StackPanel>
+                    <Grid Width="440" Height="192" Background="{StaticResource App_Theme_Color}">
+                        <controls:FadingImage Source="{Binding Image}" Stretch="UniformToFill" HorizontalAlignment="Left" Width="255"/>
+                        <Image Source="/Assets/Images/PlayButton.png" Stretch="None" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100,0,0,0"/>
+                        <Image Source="/Assets/Images/newsItemTextBase.png" Stretch="None" HorizontalAlignment="Right"/>
+                        <Grid HorizontalAlignment="Right">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <!--description-->
+                            <TextBlock Text="{Binding Title}" Style="{StaticResource NewsList_ItemTitle_Text_Style}" />
+                            <!--time-->
+                            <TextBlock Grid.Row="1" Text="{Binding Time, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='yyyy-MM-dd hh:mm'}" 
+                                   Style="{StaticResource NewsList_ItemTime_Text_Style}"/>
+                        </Grid>
                     </Grid>
                 </DataTemplate>
             </controls:NewsDataTemplateSelector.VideoTemplate>
@@ -79,6 +62,8 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
                     <!--splash-->
@@ -93,19 +78,18 @@
 
                     <!--epg-->
                     <Grid Grid.Column="1" Margin="200,0,0,0" >
-                        <Image Source="/Assets/Images/band2.png" Stretch="None" Margin="-100,0"/>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Image Grid.RowSpan="2" Source="/Assets/Images/band2.png" Stretch="None" Margin="-100,0"/>
+                        <Image Source="/Assets/Images/epgTitle.png" Stretch="None" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-8,40,0,0"/>
 
                         <ListView Grid.Row="1" Margin="0,20,0,0" 
                                   x:Name="epgListBox"
                                   SelectionMode="None"
                                   IsItemClickEnabled="True" ItemClick="epgListBox_ItemClick">
-                            <!--Style="{StaticResource NonScrollable_ListViewStyle}"
-
-                            <ListView.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <WrapGrid />
-                                </ItemsPanelTemplate>
-                            </ListView.ItemsPanel>-->
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <controls:EpgItem />
@@ -115,7 +99,7 @@
                     </Grid>
 
                     <!--recommendation-->
-                    <Grid Grid.Column="2" Margin="200,0,80,0" >
+                    <Grid Grid.Column="2" Margin="200,0,0,0" >
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
@@ -134,44 +118,56 @@
                             </ListView.ItemsPanel>
                         </ListView>
                     </Grid>
+
+                    <!--news-->
+                    <Grid Grid.Column="3" Margin="175,0,0,0" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Image Grid.RowSpan="2" Source="/Assets/Images/band4.png" Stretch="None" Margin="80,0,-80,0"/>
+                        <Image Source="/Assets/Images/newsTitle.png" Stretch="None" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-8,40,0,0"/>
+
+                        <ListView Grid.Row="1"  x:Name="newsListBox" 
+                                  SelectionMode="None"
+                                  ItemTemplateSelector="{StaticResource newsDataTemplateSelector}"
+                                  Margin="0,20,0,0">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapGrid/>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                        </ListView>
+                    </Grid>
+
+                    <!--author-->
+                    <Grid Grid.Column="4" Margin="175,0,200,0" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Image Grid.RowSpan="2" Source="/Assets/Images/band5.png" Stretch="None" Margin="0,0,-80,0"/>
+                        <Image Source="/Assets/Images/authorTitle.png" Stretch="None" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,40,0,0"/>
+
+                        <!--<ListView Grid.Row="1" x:Name="authorListBox" 
+                                  SelectionMode="None"
+                                  Margin="0,20,0,0"
+                                  IsItemClickEnabled="True" ItemClick="author_ItemClick">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <controls:AuthorItem/>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>-->
+                        <ScrollViewer Grid.Row="1" x:Name="authorListScrollViewer" Margin="50,0,0,0"
+                                      Style="{StaticResource VerticalScrollViewerStyle}">
+                            <StackPanel x:Name="authorListPanel" Margin="0,20,0,0"/>
+                        </ScrollViewer>
+                    </Grid>
                 </Grid>
             </ScrollViewer>
 
             <ProgressBar x:Name="progressbar" IsIndeterminate="True" Visibility="Collapsed" VerticalAlignment="Top" Margin="0,30,0,0"/>
-        </Grid>
-
-        <!--news-->
-        <Grid Margin="12,0,0,0" Visibility="Collapsed">
-            <ScrollViewer x:Name="newsListScrollViewer" Style="{StaticResource VerticalScrollViewerStyle}">
-                <ItemsControl x:Name="newsListBox" Margin="0,0,0,0">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel Background="LightBlue"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Button Style="{StaticResource ContentButtonStyle}" Margin="0,0,0,12" Click="NewsItem_Click">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Border Width="120" Height="100" Margin="0,0,0,0" Style="{StaticResource Image_Border_Style}">
-                                        <Image Stretch="UniformToFill" Source="{Binding Image}"/>
-                                    </Border>
-                                    <StackPanel Grid.Column="1" Margin="12,0,12,0">
-                                        <TextBlock Text="{Binding Title}" Style="{StaticResource NewsList_ItemTitle_Text_Style}"/>
-                                        <TextBlock Text="{Binding Time, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='yyyy-MM-dd hh:mm'}" 
-                                                                           Style="{StaticResource NewsList_ItemTime_Text_Style}"/>
-                                    </StackPanel>
-                                </Grid>
-                            </Button>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </ScrollViewer>
         </Grid>
 
     </Grid>
