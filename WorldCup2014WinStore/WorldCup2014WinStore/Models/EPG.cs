@@ -121,6 +121,10 @@ namespace WorldCup2014WinStore.Models
         {
             get
             {
+                if (string.IsNullOrEmpty(Start.Trim()))
+                {
+                    return DateTime.MinValue;
+                }
                 string[] dtArr = Start.Split(' ');
                 string[] dateArr = dtArr[0].Split('-');
                 int year = int.Parse(dateArr[0]);

@@ -32,6 +32,8 @@ namespace WorldCup2014WinStore.Pages
             newsListBox.ItemsSource = newsList;
             recommendationNewsListBox.ItemsSource = recommendationNewsList;
             //authorListBox.ItemsSource = authorList;
+
+            this.TopAppBar = new NavBar(this);
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -145,7 +147,7 @@ namespace WorldCup2014WinStore.Pages
             //string[] paramArray = new string[] { NaviParam.LIVE_ID, epg.ID, NaviParam.LIVE_IMAGE, epg.Image, NaviParam.LIVE_TITLE, epg.Description };
             //string naviStr = string.Format("/Pages/LivePage.xaml?{0}={1}&{2}={3}&{4}={5}", paramArray);
             //HostingPage.NavigationService.Navigate(new Uri(naviStr, UriKind.Relative));
-            //this.Frame.Navigate(typeof(AlbumListPage));
+            this.Frame.Navigate(typeof(EpgPage));
         }
 
         #endregion

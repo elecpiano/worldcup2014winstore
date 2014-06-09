@@ -1,0 +1,60 @@
+﻿<AppBar
+    x:Class="WorldCup2014WinStore.Controls.NavBar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WorldCup2014WinStore.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:WorldCup2014WinStore.Controls"
+    mc:Ignorable="d"
+    Height="360"
+    d:DesignWidth="400">
+
+
+    <Grid Style="{StaticResource AppBarBackgroundStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="190"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Margin="80,50,0,0" VerticalAlignment="Top">
+            <Button Style="{StaticResource ContentButtonStyle}" Margin="0,0,-5,0">
+                <Image Source="/Assets/Images/topAppBarTV.png" Stretch="None"/>
+            </Button>
+            <Button Style="{StaticResource ContentButtonStyle}" Margin="0,0,-5,0">
+                <Image Source="/Assets/Images/topAppBarRecommendation.png" Stretch="None"/>
+            </Button>
+            <Button Style="{StaticResource ContentButtonStyle}" Margin="0,0,-5,0">
+                <Image Source="/Assets/Images/topAppBarAuthor.png" Stretch="None"/>
+            </Button>
+            <Button Style="{StaticResource ContentButtonStyle}" Margin="0,0,-5,0">
+                <Image Source="/Assets/Images/topAppBarNews.png" Stretch="None"/>
+            </Button>
+        </StackPanel>
+        
+        <Rectangle Height="1" Fill="#ff3b681e" VerticalAlignment="Bottom" Margin="80,0"/>
+
+        <Image Grid.Row="1" Source="/Assets/Images/topAppBarMyWorldCup.png" Stretch="None" 
+               HorizontalAlignment="Left" Margin="90,0,0,0"/>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="80,0,0,0" VerticalAlignment="Top">
+            <Button Style="{StaticResource ContentButtonStyle}" Margin="0,0,-1,0">
+                <Image Source="/Assets/Images/topAppBarGameData.png" Stretch="None"/>
+            </Button>
+            <Button Style="{StaticResource ContentButtonStyle}" Margin="0,0,-1,0">
+                <Image Source="/Assets/Images/topAppBarMegma.png" Stretch="None"/>
+            </Button>
+            <Button Style="{StaticResource ContentButtonStyle}" Margin="0,0,-1,0">
+                <Image Source="/Assets/Images/topAppBarTeam.png" Stretch="None"/>
+            </Button>
+            <Button Style="{StaticResource ContentButtonStyle}" Margin="0,0,-1,0">
+                <Image Source="/Assets/Images/topAppBarStadium.png" Stretch="None"/>
+            </Button>
+            <Button Style="{StaticResource ContentButtonStyle}" Margin="0,0,-1,0">
+                <Image Source="/Assets/Images/topAppBarStatistics.png" Stretch="None"/>
+            </Button>
+        </StackPanel>
+        
+    </Grid>
+
+</AppBar>

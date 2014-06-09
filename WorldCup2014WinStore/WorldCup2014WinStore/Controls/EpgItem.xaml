@@ -18,8 +18,8 @@
         </Grid.ColumnDefinitions>
         <!--time-->
         <Image Grid.Column="0" Source="/Assets/Images/epgItemTimeBase.png" Stretch="None" VerticalAlignment="Top"/>
-        <StackPanel Grid.Column="0" VerticalAlignment="Top" Margin="10,10,0,0">
-            <TextBlock Text="{Binding StartTime, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='MM月dd日'}" 
+        <StackPanel Grid.Column="0" VerticalAlignment="Top" Margin="15,10,0,0">
+            <TextBlock Text="{Binding StartTime, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='M月d日'}" 
                    Style="{StaticResource EPG_Date_Style}"/>
             <TextBlock Text="{Binding StartTime, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='HH:mm'}" 
                    Style="{StaticResource EPG_Time_Style}"/>

@@ -7,12 +7,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:WorldCup2014WinStore.Controls"
     mc:Ignorable="d"
-    Height="80"
+    Height="119"
     d:DesignWidth="1366"
-    HorizontalAlignment="Left" VerticalAlignment="Top" Margin="32,64,0,0" >
+    HorizontalAlignment="Left" VerticalAlignment="Top" >
 
     <UserControl.Resources>
-        <Storyboard x:Name="StoryShowPageTile" Completed="StoryShowPageTile_Completed">
+        <Storyboard x:Name="StoryShowPageTile" >
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="pageTitlePanel">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0.5"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
@@ -22,62 +22,53 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="pageTitleTextBlock">
-            	<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-            	<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
-            	<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
-        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="backgroundL">
-        		<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
-        	</DoubleAnimationUsingKeyFrames>
         </Storyboard>
-        <Storyboard x:Name="StoryHidePageTile" Completed="StoryHidePageTile_Completed">
-        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="pageTitlePanel">
-        		<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.5"/>
-        	</DoubleAnimationUsingKeyFrames>
-        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="pageTitlePanel">
-        		<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
-        	</DoubleAnimationUsingKeyFrames>
-        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="pageTitleTextBlock">
-        		<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
-        	</DoubleAnimationUsingKeyFrames>
-        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="backgroundL">
-        		<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
-        	</DoubleAnimationUsingKeyFrames>
+        <Storyboard x:Name="StoryHidePageTile" >
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="pageTitlePanel">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.5"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="pageTitlePanel">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="pageTitleTextBlock">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </UserControl.Resources>
 
     <Grid x:Name="rootGrid">
 
-        <Image x:Name="backgroundL" Grid.Column="0" Source="/Assets/Images/Common/PageTitleBackgroundL.png" Stretch="None" HorizontalAlignment="Left" Opacity="0"/>
-
-        <Grid x:Name="pageTitlePanel" Height="80" RenderTransformOrigin="0,0.5" Opacity="0" Margin="40,0,0,0">
+        <Grid x:Name="pageTitlePanel" RenderTransformOrigin="0,0.5" Opacity="0">
             <Grid.RenderTransform>
                 <CompositeTransform/>
             </Grid.RenderTransform>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="40"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="77"/>
+                <ColumnDefinition Width="Auto" MinWidth="226"/>
+                <ColumnDefinition Width="127"/>
             </Grid.ColumnDefinitions>
-            <Image Grid.Column="0" Grid.ColumnSpan="2" Source="/Assets/Images/Common/PageTitleBackgroundM.png" Stretch="Fill"/>
-            <Image Grid.Column="2" Source="/Assets/Images/Common/PageTitleBackgroundR.png" Stretch="None"/>
+            <Image Grid.Column="0" Grid.ColumnSpan="2" Source="/Assets/Images/pageTitleBase.png" Stretch="Fill"/>
             <TextBlock Grid.Column="1" x:Name="pageTitleTextBlock" Text="Page Title" Style="{StaticResource PageTitle_TextBlock_Style}" Opacity="0"/>
         </Grid>
 
-        <!--<controls:SpinningBall x:Name="spinningBall" Width="60" Height="60" Grid.ColumnSpan="2"
-                                   VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"
-                                   Tapped="titleBall_Tapped"/>-->
-        <Grid x:Name="spinningBall" Width="60" Height="60" Grid.ColumnSpan="2"
-                                   VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"
-                                   Tapped="titleBall_Tapped"/>
+        <Button x:Name="backButton" Style="{StaticResource ContentButtonStyle}" VerticalAlignment="Top" HorizontalAlignment="Left"
+                Click="backButton_Click">
+            <Image Source="/Assets/Images/backButton.png" Stretch="None"/>
+        </Button>
+
+        <Button x:Name="menuButton" Style="{StaticResource ContentButtonStyle}" VerticalAlignment="Top" HorizontalAlignment="Right"
+                Click="menuButton_Click">
+            <Image Source="/Assets/Images/pageTitleMenu.png" Stretch="None"/>
+        </Button>
 
     </Grid>
 

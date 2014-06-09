@@ -163,6 +163,12 @@
         <Setter Property="ZoomMode" Value="Disabled"/>
     </Style>
 
+    <!--App Bar-->
+    <Style x:Key="AppBarBackgroundStyle" TargetType="Panel" >
+        <Setter Property="Background" Value="#ff255705"/>
+        <Setter Property="Margin" Value="-10,-2"/>
+    </Style>
+
     <!--epg-->
     <Style x:Key="EPG_Tag_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
         <Setter Property="FontSize" Value="20"/>
