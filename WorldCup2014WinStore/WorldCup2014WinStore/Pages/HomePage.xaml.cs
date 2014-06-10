@@ -411,18 +411,23 @@ namespace WorldCup2014WinStore.Pages
                 {
                     control.SetImageListVisibility(true);
                 }
+                control.Tapped += control_Tapped;
                 authorListPanel.Children.Add(control);
             }
         }
 
-        private void author_ItemClick(object sender, ItemClickEventArgs e)
+        void control_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
             Author author = sender.GetDataContext<Author>();
-            string naviString = string.Format("/Pages/DiaryListPage.xaml?{0}={1}&{2}={3}&{4}={5}",
-                NaviParam.AUTHOR_ID, author.ID,
-                NaviParam.AUTHOR_NAME, author.Name,
-                NaviParam.AUTHOR_FACE, author.Face);
-            //NavigationService.Navigate(new Uri(naviString, UriKind.Relative));
+            if (author == null)
+            {
+                return;
+            }
+            Dictionary<string, string> param = new Dictionary<string, string>();
+            param.Add(NaviParam.AUTHOR_ID, author.ID);
+            param.Add(NaviParam.AUTHOR_NAME, author.Name);
+            param.Add(NaviParam.AUTHOR_FACE, author.Face);
+            this.Frame.Navigate(typeof(DiaryListPage), param);
         }
 
         #endregion

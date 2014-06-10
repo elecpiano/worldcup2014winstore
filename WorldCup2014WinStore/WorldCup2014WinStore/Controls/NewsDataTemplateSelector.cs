@@ -52,6 +52,14 @@ namespace WorldCup2014WinStore.Controls
                     }
                 }
             }
+            else
+            {
+                DiaryItem diary = item as DiaryItem;
+                if (diary!=null)
+                {
+                    template = NewsTemplate;
+                }
+            }
 
             return template;
         }

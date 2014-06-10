@@ -152,6 +152,7 @@
     <Compile Include="Models\AlbumItem.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\CalendarItem.cs" />
+    <Compile Include="Models\Diary.cs" />
     <Compile Include="Models\EPG.cs" />
     <Compile Include="Models\GameResult.cs" />
     <Compile Include="Models\HTML.cs" />
@@ -161,6 +162,12 @@
     <Compile Include="Models\Subject.cs" />
     <Compile Include="Models\SubscriptionDataContext.cs" />
     <Compile Include="Models\VOD.cs" />
+    <Compile Include="Pages\AlbumPage.xaml.cs">
+      <DependentUpon>AlbumPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DiaryListPage.xaml.cs">
+      <DependentUpon>DiaryListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\SubjectPage.xaml.cs">
       <DependentUpon>SubjectPage.xaml</DependentUpon>
     </Compile>
@@ -375,6 +382,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\AlbumPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\DiaryListPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

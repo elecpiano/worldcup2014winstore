@@ -1,0 +1,69 @@
+﻿<Page
+    x:Class="WorldCup2014WinStore.Pages.DiaryListPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WorldCup2014WinStore.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:WorldCup2014WinStore.Controls"
+    mc:Ignorable="d">
+
+    <Grid Background="White">
+
+        <!--content-->
+        <Grid Margin="0,0,0,0" Height="768">
+            <ScrollViewer x:Name="scrollViewer" Style="{StaticResource HorizontalScrollViewerStyle}">
+                <Grid Margin="0,0,50,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="450"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <controls:FadingImage x:Name="coverImage" HorizontalAlignment="Left" Stretch="UniformToFill" Opacity="0.5" Margin="-200,0,0,0"/>
+
+                    <!--base-->
+                    <Grid Grid.ColumnSpan="2" Margin="360,0,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="/Assets/Images/band7.png" Stretch="None"/>
+                        <Image Grid.Column="1" Source="/Assets/Images/band8.png" Stretch="Fill"/>
+                        <Image Grid.Column="2" Source="/Assets/Images/band9.png" Stretch="None"/>
+                    </Grid>
+
+                    <!--face, name-->
+                    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100,0,0,0">
+                        <Border Width="160" Height="160" Margin="0,0,0,0" Style="{StaticResource Image_Border_Style}">
+                            <controls:FadingImage x:Name="faceImage" Source="{Binding}" Stretch="UniformToFill" />
+                        </Border>
+                        <!--<TextBlock x:Name="nameTextBlock" Style="{StaticResource AuthorList_AuthorName_Text_Style}"/>-->
+                    </StackPanel>
+
+                    <!--diary list-->
+                    <ListView Grid.Column="1" Margin="100,120,150,0"
+                              x:Name="diaryListBox" 
+                              SelectionMode="None"
+                              ItemTemplateSelector="{StaticResource newsDataTemplateSelector}"
+                              IsSwipeEnabled="False"
+                              IsItemClickEnabled="True" ItemClick="diary_ItemClick">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapGrid/>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    </ListView>
+
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+
+
+        <ProgressBar x:Name="progressbar" IsIndeterminate="True" Visibility="Collapsed" VerticalAlignment="Top" Margin="0,30,0,0"/>
+
+        <!--top bar-->
+        <controls:PageTitle x:Name="pageTitle"/>
+
+    </Grid>
+</Page>

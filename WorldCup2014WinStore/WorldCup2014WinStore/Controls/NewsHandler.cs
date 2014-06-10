@@ -44,14 +44,13 @@ namespace WorldCup2014WinStore.Controls
             }
         }
 
-        public static void OnNewsTap(Page hostingPage, string id, string title, string image, string secondaryHeader = "")
+        public static void OnNewsTap(Page hostingPage, string id, string title, string image)
         {
-            string naviString = string.Format("/Pages/NewsDetailPage.xaml?{0}={1}&{2}={3}&{4}={5}", new object[] { NaviParam.NEWS_ID, id, NaviParam.NEWS_TITLE, title, NaviParam.NEWS_IMAGE, image });
-            if (!string.IsNullOrEmpty(secondaryHeader))
-            {
-                naviString = string.Format(naviString + "&{0}={1}", NaviParam.NEWS_SECOND_TITLE, secondaryHeader);
-            }
-            //hostingPage.NavigationService.Navigate(new Uri(naviString, UriKind.Relative));
+            Dictionary<string, string> param = new Dictionary<string, string>();
+            param.Add(NaviParam.NEWS_ID, id);
+            param.Add(NaviParam.NEWS_TITLE, title);
+            param.Add(NaviParam.NEWS_IMAGE, image);
+            hostingPage.Frame.Navigate(typeof(NewsDetailPage), param);
         }
     }
 }

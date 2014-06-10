@@ -1,0 +1,36 @@
+﻿<controls:PageBase
+    x:Class="WorldCup2014WinStore.Pages.AlbumPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WorldCup2014WinStore.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:WorldCup2014WinStore.Controls"
+    mc:Ignorable="d">
+
+    <Grid>
+        <Image Source="/Assets/TestImages/3.jpg" Stretch="UniformToFill"/>
+
+        <Grid x:Name="contentPanel">
+            <ScrollViewer Style="{StaticResource HorizontalScrollViewerStyle}">
+                <controls:TransitionItemsControl x:Name="itemsControlPhotos"
+                                                 VerticalAlignment="Top" HorizontalAlignment="Left" 
+                                                 Margin="120,180,120,90">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapGrid Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Rectangle Width="165" Height="165" Margin="0,0,5,5" Fill="#BFFFFFFF" />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </controls:TransitionItemsControl>
+            </ScrollViewer>
+        </Grid>
+        <Grid x:Name="pageTitlePanel"/>
+
+        <Grid x:Name="maskPanel" IsHitTestVisible="False"/>
+    </Grid>
+</controls:PageBase>

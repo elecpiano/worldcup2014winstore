@@ -49,6 +49,7 @@
                                   x:Name="epgListBox"
                                   SelectionMode="None"
                                   Padding="0,0,0,50"
+                                  IsSwipeEnabled="False"
                                   IsItemClickEnabled="True" ItemClick="epgListBox_ItemClick">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
@@ -70,6 +71,7 @@
                         <ListView Grid.Row="1" Margin="0,20,0,0"
                                   x:Name="recommendationNewsListBox" 
                                   SelectionMode="None"
+                                  IsSwipeEnabled="False"
                                   ItemTemplateSelector="{StaticResource newsDataTemplateSelector}"
                                   IsItemClickEnabled="True" ItemClick="news_ItemClick">
                             <ListView.ItemsPanel>
@@ -92,6 +94,7 @@
                         <ListView Grid.Row="1" Margin="0,20,0,0"
                                   x:Name="newsListBox" 
                                   SelectionMode="None"
+                                  IsSwipeEnabled="False"
                                   ItemTemplateSelector="{StaticResource newsDataTemplateSelector}"
                                   IsItemClickEnabled="True" ItemClick="news_ItemClick">
 

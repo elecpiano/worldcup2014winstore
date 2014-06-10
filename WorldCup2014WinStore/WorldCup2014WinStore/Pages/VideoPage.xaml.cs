@@ -65,7 +65,7 @@ namespace WorldCup2014WinStore.Pages
                 data =>
                 {
                     progressbar.Visibility = Visibility.Collapsed;
-                    if (data != null && !string.IsNullOrEmpty(data.URL.Trim()))
+                    if (data != null && data.URL != null && !string.IsNullOrEmpty(data.URL.Trim()))
                     {
                         PlaySingleVideo(data.URL);
                     }

@@ -51,7 +51,7 @@ namespace WorldCup2014WinStore.Pages
             }
 
             //busy
-            //snowNews.IsBusy = true;
+            progressbar.Visibility = Visibility.Visible;
 
             //load
             subjectLoader.Load("getsubject", "&id=" + subjectID, true, Constants.SUBJECT_MODULE, string.Format(Constants.SUBJECT_FILE_NAME_FORMAT, subjectID),
@@ -77,6 +77,8 @@ namespace WorldCup2014WinStore.Pages
                         }
                     }
                     newsGroupListBox.ItemsSource = newsGroups;
+
+                    progressbar.Visibility = Visibility.Collapsed;
                 });
         }
 

@@ -65,7 +65,7 @@ namespace WorldCup2014WinStore.Pages
                 {
                     string title = @"<h2 align=""center"">" + newsTitle + "</h2>";
                     string htmlContent = html.Content.Insert(html.Content.IndexOf("</style>") + 8, title);
-                    htmlContent = htmlContent.Replace("max-width: 100%;", "width: 100%;");
+                    //htmlContent = htmlContent.Replace("max-width: 100%;", "width: 100%;");
                     browser.NavigateToString(htmlContent);
                     progressbar.Visibility = Visibility.Collapsed;
                 });
