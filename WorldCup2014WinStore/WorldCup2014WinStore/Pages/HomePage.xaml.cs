@@ -143,11 +143,12 @@ namespace WorldCup2014WinStore.Pages
 
         private void epgListBox_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //EPG epg = sender.GetDataContext<EPG>();
-            //string[] paramArray = new string[] { NaviParam.LIVE_ID, epg.ID, NaviParam.LIVE_IMAGE, epg.Image, NaviParam.LIVE_TITLE, epg.Description };
-            //string naviStr = string.Format("/Pages/LivePage.xaml?{0}={1}&{2}={3}&{4}={5}", paramArray);
-            //HostingPage.NavigationService.Navigate(new Uri(naviStr, UriKind.Relative));
-            this.Frame.Navigate(typeof(EpgPage));
+            EPG epg = sender.GetDataContext<EPG>();
+            Dictionary<string, string> param = new Dictionary<string, string>();
+            param.Add(NaviParam.LIVE_ID, epg.ID);
+            param.Add(NaviParam.LIVE_IMAGE, epg.Image);
+            param.Add(NaviParam.LIVE_TITLE, epg.Description);
+            this.Frame.Navigate(typeof(LivePage), param);
         }
 
         #endregion
