@@ -14,18 +14,25 @@
             <!--content-->
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="120"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <!--top bar-->
-                <Image Source="/Assets/Images/TopBar.png" Stretch="Uniform"/>
-
-                <Rectangle Grid.Row="1" Width="4" Fill="#ffffffff" HorizontalAlignment="Left" Margin="55,0,0,0"/>
+                <!--cover image-->
+                <controls:FadingImage x:Name="titleImage" Stretch="UniformToFill" Height="110" Width="500"
+                                      VerticalAlignment="Top" HorizontalAlignment="Right"/>
+                <Rectangle Width="500" HorizontalAlignment="Right" Margin="0,0,0,0">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="White" Offset="0"/>
+                            <GradientStop Color="Transparent" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
 
                 <!--content-->
                 <ScrollViewer x:Name="scrollViewer" Grid.Row="1" Style="{StaticResource HorizontalScrollViewerStyle}">
-                    <Grid x:Name="ContentPanel">
+                    <Grid x:Name="ContentPanel" Margin="50,0,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="Auto"/>
@@ -33,20 +40,8 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
 
-                        <!--title panel-->
-                        <Grid Grid.Column="0" Background="#ffffffff" MaxWidth="800">
-                            <controls:FadingImage x:Name="titleImage" Stretch="UniformToFill"/>
-                            <Grid VerticalAlignment="Bottom" Margin="25,25,100,25" >
-                                <TextBlock x:Name="titleTextBlock2" Style="{StaticResource LivePage_Title_Text_Style}"
-                                           Margin="1,0,-1,-1" Foreground="#ff000000"/>
-                                <TextBlock x:Name="titleTextBlock1" Style="{StaticResource LivePage_Title_Text_Style}"
-                                           Margin="0,0,0,0" />
-                            </Grid>
-                            <Image Source="/Assets/Images/band6.png" Stretch="None" HorizontalAlignment="Right" Margin="0,0,0,0"/>
-                        </Grid>
-
                         <!--score panel-->
-                        <Grid x:Name="scorePanel" Grid.Column="1" Background="#ffffffff" Visibility="Collapsed">
+                        <Grid x:Name="scorePanel" Grid.Column="1" Background="#ffffffff" Margin="50,0,0,0" Visibility="Collapsed">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="Auto"/>
@@ -69,7 +64,7 @@
                         </Grid>
 
                         <!-- ranklist panel-->
-                        <ItemsControl Grid.Column="2" x:Name="rankListBox">
+                        <ListView Grid.Column="2" x:Name="rankListBox" Margin="50,0,0,0" Visibility="Collapsed">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <StackPanel Margin="0,0,0,0" Background="#ffffffff"/>
@@ -94,11 +89,14 @@
                                     </Grid>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
-                        </ItemsControl>
+                        </ListView>
 
                         <!--live content panel-->
-                        <Grid Grid.Column="3">
-                            <StackPanel x:Name="lineItemsStackPanel" Margin="0,0,0,24" />
+                        <Grid Grid.Column="3" Margin="50,0,0,0">
+                            <Rectangle Width="1" Fill="{StaticResource App_Theme_Color}" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+                            <ScrollViewer Style="{StaticResource VerticalScrollViewerStyle}">
+                                <StackPanel x:Name="lineItemsStackPanel" Margin="0,0,0,24" Width="400"/>
+                            </ScrollViewer>
                         </Grid>
 
                     </Grid>

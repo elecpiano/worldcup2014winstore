@@ -8,6 +8,8 @@
     
     <!-- colors -->
     <SolidColorBrush x:Key="App_Theme_Color" Color="#ff82c461"/>
+    <SolidColorBrush x:Key="App_Theme_Color_Light" Color="#ffadcd90"/>
+    <SolidColorBrush x:Key="App_Theme_Color_Dark" Color="#ff3c6615"/>
     <SolidColorBrush x:Key="Switch_Mask_Color" Color="#fff0f0f0"/>
     <SolidColorBrush x:Key="FlipTile_Base_Color" Color="#BFFFFFFF"/>
 
@@ -25,7 +27,9 @@
         <Setter Property="FontSize" Value="40"/>
         <Setter Property="Foreground" Value="#ff9d9d9d"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="Margin" Value="0,0,0,0"/>
+        <Setter Property="Margin" Value="100,0,30,0"/>
+        <Setter Property="TextTrimming" Value="WordEllipsis"/>
+        <Setter Property="MaxWidth" Value="700"/>
     </Style>
 
     <Style x:Key="ContentButtonStyle" TargetType="ButtonBase">
@@ -301,9 +305,9 @@
     <Style x:Key="LivePage_ItemTime_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
         <Setter Property="FontSize" Value="18"/>
         <Setter Property="Foreground" Value="#ff5d5d5d"/>
-        <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="VerticalAlignment" Value="Bottom"/>
-        <Setter Property="Margin" Value="3,0,3,0"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="0,0,0,0"/>
     </Style>
 
     <Style x:Key="LivePage_LiveText_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">

@@ -23,7 +23,21 @@ namespace WorldCup2014WinStore.Models
         public string ID { get; set; }
 
         [DataMember(Name = "time")]
-        public DateTime Time { get; set; }
+        public string TimeStr { get; set; }
+
+        [IgnoreDataMember]
+        public DateTime Time
+        {
+            get
+            {
+                DateTime dt = DateTime.Now;
+                if (DateTime.TryParse(TimeStr, out dt))
+                {
+                    return dt;
+                }
+                return dt;
+            }
+        }
 
         [DataMember(Name = "title")]
         public string Title { get; set; }

@@ -44,7 +44,7 @@ namespace WorldCup2014WinStore.Pages
 
             LoadSplashImage();
             //LoadBanner();
-            LoadEpg(DateTime.Today);
+            LoadEpg(DateTime.Today.AddDays(-1));
             LoadRecommendation();
             LoadAuthorList();
             LoadNews_HomePage();

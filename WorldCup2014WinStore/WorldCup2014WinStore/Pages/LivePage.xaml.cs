@@ -31,7 +31,6 @@ namespace WorldCup2014WinStore.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            pageTitle.Show("xxxxxx");
 
             Dictionary<string, string> param = e.Parameter as Dictionary<string, string>;
             if (param != null)
@@ -42,7 +41,7 @@ namespace WorldCup2014WinStore.Pages
             }
 
             this.titleImage.Source = new BitmapImage(new Uri(liveImage, UriKind.RelativeOrAbsolute));
-            this.titleTextBlock1.Text = this.titleTextBlock2.Text = liveTitle;
+            pageTitle.Show(liveTitle);
 
             LoadData();
             StartTimer();
@@ -63,7 +62,7 @@ namespace WorldCup2014WinStore.Pages
 
         private void LoadData()
         {
-            if (liveLoader.Loaded || liveLoader.Busy)
+            if (liveLoader.Busy)
             {
                 return;
             }
@@ -99,10 +98,12 @@ namespace WorldCup2014WinStore.Pages
             if (data.RankList != null)
             {
                 rankListBox.ItemsSource = data.RankList;
+                rankListBox.Visibility = Visibility.Visible;
             }
             else
             {
                 rankListBox.ItemsSource = null;
+                rankListBox.Visibility = Visibility.Collapsed;
             }
         }
 

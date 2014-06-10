@@ -8,7 +8,8 @@
     xmlns:controls="using:WorldCup2014WinStore.Controls"
     mc:Ignorable="d"
     Height="120"
-    d:DesignWidth="400">
+    d:DesignWidth="400"
+    Margin="0,0,0,10">
 
     <Grid x:Name="LayoutRoot">
         <Grid.RowDefinitions>
@@ -18,16 +19,19 @@
 
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="60"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Rectangle Width="10" Height="10" Fill="{StaticResource App_Theme_Color}" HorizontalAlignment="Left" Margin="-20,0,0,0"/>
-            <TextBlock Text="{Binding Time, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='hh:mm'}" Style="{StaticResource LivePage_ItemTime_Style}"/>
-            <Image Grid.Column="1" Source="/Assets/Images/ContentTypeIconAlbum.png" 
-                   Width="24" Height="24" Stretch="Fill" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            <Rectangle Grid.Column="0" Width="10" Height="10" Fill="{StaticResource App_Theme_Color}" HorizontalAlignment="Left" Margin="0,0,0,0"/>
+            <TextBlock Grid.Column="1" Text="{Binding Time, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='hh:mm'}" 
+                       Style="{StaticResource LivePage_ItemTime_Style}"/>
+            <Image Grid.Column="2" Source="/Assets/Images/ContentTypeIconAlbum.png" 
+                       Width="24" Height="24" Stretch="Fill" VerticalAlignment="Center" HorizontalAlignment="Left"/>
         </Grid>
 
-        <Button Style="{StaticResource ContentButtonStyle}" Grid.Row="1" HorizontalAlignment="Stretch" 
+
+        <Button Style="{StaticResource ContentButtonStyle}" Grid.Row="1" HorizontalAlignment="Stretch" Margin="20,0,0,0"
                 Tapped="Control_Tapped">
             <Grid Background="#ffffffff">
                 <Grid.ColumnDefinitions>

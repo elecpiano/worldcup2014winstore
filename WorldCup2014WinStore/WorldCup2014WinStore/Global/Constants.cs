@@ -137,6 +137,8 @@ namespace WorldCup2014WinStore
         public const string STADIUM_ID = "stadium_id";
         public const string STADIUM_NAME = "stadium_name";
 
+        public const string VIDEO_ID = "video_id";
+        public const string VIDEO_NAME = "video_name";
        
 
         /// /////////////////////////////////// TO-DO : remove all below

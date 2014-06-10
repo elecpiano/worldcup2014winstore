@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
+﻿using System.Collections.Generic;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 using WorldCup2014WinStore.Models;
+using WorldCup2014WinStore.Pages;
 using WorldCup2014WinStore.Utility;
 
 namespace WorldCup2014WinStore.Controls
@@ -33,6 +23,11 @@ namespace WorldCup2014WinStore.Controls
                 LiveLineItem item = sender.GetDataContext<LiveLineItem>();
                 if (item != null)
                 {
+                    Dictionary<string, string> param = new Dictionary<string, string>();
+                    param.Add(NaviParam.VIDEO_ID, item.ID);
+                    param.Add(NaviParam.VIDEO_NAME, item.Title);
+                    HostingPage.Frame.Navigate(typeof(VideoPage), param);
+
                     //TO-DO
                     //VideoPage.PlayVideo(HostingPage, item.ID, this.snow1);
                 }

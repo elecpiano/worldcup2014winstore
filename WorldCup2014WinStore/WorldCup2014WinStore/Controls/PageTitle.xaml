@@ -92,7 +92,9 @@
                 <CompositeTransform/>
             </Grid.RenderTransform>
             <Image Grid.Column="0" Grid.ColumnSpan="2" Source="/Assets/Images/pageTitleBase.png" Stretch="Fill" Margin="0,0,0,-19"/>
-            <TextBlock Grid.Column="1" x:Name="pageTitleTextBlock" Text="Page Title" Style="{StaticResource PageTitle_TextBlock_Style}" Opacity="0" Margin="80,0,0,0" VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="1" x:Name="pageTitleTextBlock" Text="Page Title" 
+                       Style="{StaticResource PageTitle_TextBlock_Style}" 
+                       Opacity="0" />
         </Grid>
 
         <Button x:Name="backButton" Style="{StaticResource ContentButtonStyle}" VerticalAlignment="Top" HorizontalAlignment="Left"
