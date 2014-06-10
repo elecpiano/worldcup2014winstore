@@ -1,0 +1,20 @@
+﻿<UserControl
+    x:Class="WorldCup2014WinStore.Controls.GameCalendarItemControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WorldCup2014WinStore.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    Margin="-1,-1,0,0">
+
+    <Border BorderBrush="#00000000" BorderThickness="1,1,1,1" Tapped="Border_Tapped">
+        <Grid x:Name="LayoutRoot" Background="#ff517836" Margin="0">
+            <Rectangle x:Name="rect" Fill="#a0ffffff" Opacity="0"/>
+            <Ellipse Visibility="{Binding HasGame}" Width="40" Height="40" Fill="{StaticResource App_Theme_Color}" VerticalAlignment="Center" Margin="0,0,0,0"/>
+            <TextBlock Text="{Binding Date, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='dd'}" Style="{StaticResource GameCalendar_Date_Style}"/>
+        </Grid>
+    </Border>
+</UserControl>

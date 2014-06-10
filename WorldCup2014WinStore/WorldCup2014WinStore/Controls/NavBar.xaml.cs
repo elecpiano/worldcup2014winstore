@@ -1,5 +1,6 @@
 ﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using WorldCup2014WinStore.Pages;
 
 namespace WorldCup2014WinStore.Controls
 {
@@ -13,10 +14,10 @@ namespace WorldCup2014WinStore.Controls
             this.page = page;
         }
 
-        private void OnHome(object sender, RoutedEventArgs e)
+        private void OnTV(object sender, RoutedEventArgs e)
         {
             HideAppBars();
-            //this.page.Frame.Navigate(typeof(Home));
+            this.page.Frame.Navigate(typeof(EpgPage));
         }
 
         private void OnChapter(object sender, RoutedEventArgs e)
@@ -42,5 +43,7 @@ namespace WorldCup2014WinStore.Controls
                 page.BottomAppBar.IsOpen = false;
             }
         }
+
+
     }
 }

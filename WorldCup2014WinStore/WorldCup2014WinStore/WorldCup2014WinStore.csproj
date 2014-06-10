@@ -117,6 +117,15 @@
     <Compile Include="Controls\FadingImage.xaml.cs">
       <DependentUpon>FadingImage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\GameCalendarControl.xaml.cs">
+      <DependentUpon>GameCalendarControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GameCalendarItemControl.xaml.cs">
+      <DependentUpon>GameCalendarItemControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GameCalendarMonthControl.xaml.cs">
+      <DependentUpon>GameCalendarMonthControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ImageToggleButton.cs" />
     <Compile Include="Controls\NavBar.xaml.cs">
       <DependentUpon>NavBar.xaml</DependentUpon>
@@ -128,6 +137,7 @@
     <Compile Include="Global\ApplicationExtension.cs" />
     <Compile Include="Global\Constants.cs" />
     <Compile Include="Models\Author.cs" />
+    <Compile Include="Models\CalendarItem.cs" />
     <Compile Include="Models\EPG.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\Recommendation.cs" />
@@ -159,7 +169,6 @@
     <Compile Include="Controls\PageMask.xaml.cs">
       <DependentUpon>PageMask.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\PageBase.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -274,6 +283,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\FlipTiles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\GameCalendarControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\GameCalendarItemControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\GameCalendarMonthControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

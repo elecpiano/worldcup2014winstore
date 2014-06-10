@@ -8,7 +8,7 @@ namespace WorldCup2014WinStore.Controls
     {
         #region Properties
 
-        private static PageBase HostingPage;
+        private static Page HostingPage;
 
         #endregion
 
@@ -19,6 +19,7 @@ namespace WorldCup2014WinStore.Controls
 
         public void Show(string pageTitle)
         {
+            //HostingPage = page;
             this.pageTitleTextBlock.Text = pageTitle;
             this.StoryShowPageTile.Begin();
         }
@@ -34,7 +35,19 @@ namespace WorldCup2014WinStore.Controls
             {
                 return;
             }
-            HostingPage.OnBack();
+            GoBack();
+        }
+
+        private void GoBack()
+        {
+            Frame frame = Window.Current.Content as Frame;
+            if (frame != null)
+            {
+                if (frame.CanGoBack)
+                {
+                    frame.GoBack();
+                }
+            }
         }
 
         #region Auto Registration
@@ -47,7 +60,7 @@ namespace WorldCup2014WinStore.Controls
 
         static void rootFrame_Navigated(object sender, NavigationEventArgs e)
         {
-            PageBase page = e.Content as PageBase;
+            Page page = e.Content as Page;
             HostingPage = page;
         }
 
@@ -55,7 +68,19 @@ namespace WorldCup2014WinStore.Controls
 
         private void menuButton_Click(object sender, RoutedEventArgs e)
         {
+            ShowTopAppBar();
+        }
 
+        private void ShowTopAppBar()
+        {
+            if (HostingPage.TopAppBar != null)
+            {
+                HostingPage.TopAppBar.IsOpen = true;
+            }
+            //if (HostingPage.BottomAppBar != null)
+            //{
+            //    HostingPage.BottomAppBar.IsOpen = false;
+            //}
         }
 
     }

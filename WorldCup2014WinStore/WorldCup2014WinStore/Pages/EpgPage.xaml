@@ -9,6 +9,20 @@
     mc:Ignorable="d">
 
     <Grid>
+
+        <!--content-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <controls:GameCalendarControl/>
+
+        </Grid>
+
+        <!--top bar-->
         <controls:PageTitle x:Name="pageTitle"/>
+
     </Grid>
 </Page>
