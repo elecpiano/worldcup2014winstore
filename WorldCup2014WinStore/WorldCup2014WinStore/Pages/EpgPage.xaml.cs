@@ -6,6 +6,8 @@ namespace WorldCup2014WinStore.Pages
 {
     public sealed partial class EpgPage : Page
     {
+        #region Lifecycle
+
         public EpgPage()
         {
             this.InitializeComponent();
@@ -17,5 +19,8 @@ namespace WorldCup2014WinStore.Pages
             base.OnNavigatedTo(e);
             pageTitle.Show("TV");
         }
+
+        #endregion
+
     }
 }

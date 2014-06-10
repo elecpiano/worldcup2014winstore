@@ -23,13 +23,7 @@ namespace WorldCup2014WinStore.Controls
                 LiveLineItem item = sender.GetDataContext<LiveLineItem>();
                 if (item != null)
                 {
-                    Dictionary<string, string> param = new Dictionary<string, string>();
-                    param.Add(NaviParam.VIDEO_ID, item.ID);
-                    param.Add(NaviParam.VIDEO_NAME, item.Title);
-                    HostingPage.Frame.Navigate(typeof(VideoPage), param);
-
-                    //TO-DO
-                    //VideoPage.PlayVideo(HostingPage, item.ID, this.snow1);
+                    VideoPage.PlayVideo(HostingPage, item.ID, item.Title);
                 }
             }
         }

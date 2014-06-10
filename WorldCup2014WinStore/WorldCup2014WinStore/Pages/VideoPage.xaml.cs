@@ -42,6 +42,14 @@ namespace WorldCup2014WinStore.Pages
 
         #region Data
 
+        public static void PlayVideo(Page page, string id, string title )
+        {
+            Dictionary<string, string> param = new Dictionary<string, string>();
+            param.Add(NaviParam.VIDEO_ID, id);
+            param.Add(NaviParam.VIDEO_NAME, title);
+            page.Frame.Navigate(typeof(VideoPage), param);
+        }
+
         static DataLoader<VOD> dataLoader = new DataLoader<VOD>();
 
         private void PlayVideo(string vodID)

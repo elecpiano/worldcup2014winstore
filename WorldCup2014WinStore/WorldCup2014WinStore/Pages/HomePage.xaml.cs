@@ -44,7 +44,7 @@ namespace WorldCup2014WinStore.Pages
 
             LoadSplashImage();
             //LoadBanner();
-            LoadEpg(DateTime.Today.AddDays(-1));
+            LoadEpg(DateTime.Today);
             LoadRecommendation();
             LoadAuthorList();
             LoadNews_HomePage();
@@ -144,7 +144,7 @@ namespace WorldCup2014WinStore.Pages
         private void epgListBox_ItemClick(object sender, ItemClickEventArgs e)
         {
             EPG epg = e.ClickedItem as EPG;
-            if (epg==null)
+            if (epg == null)
             {
                 return;
             }
@@ -326,15 +326,24 @@ namespace WorldCup2014WinStore.Pages
 
         private void NewsItem_Click(object sender, RoutedEventArgs e)
         {
-            News news = sender.GetDataContext<News>();
+
+        }
+
+        private void news_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            News news = e.ClickedItem as News;
+            if (news == null)
+            {
+                return;
+            }
+
             if (news.IsMoreButton)
             {
                 LoadMoreNews();
                 return;
             }
 
-            //TO-DO
-            //NewsHandler.OnNewsTap(this, news);
+            NewsHandler.OnNewsTap(this, news);
         }
 
         private void TryRemoveMoreButton()
@@ -417,6 +426,10 @@ namespace WorldCup2014WinStore.Pages
         }
 
         #endregion
+
+
+
+
 
     }
 }

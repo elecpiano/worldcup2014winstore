@@ -143,6 +143,7 @@
       <DependentUpon>NavBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\NewsDataTemplateSelector.cs" />
+    <Compile Include="Controls\NewsHandler.cs" />
     <Compile Include="Controls\TransitionItemsControl.cs" />
     <Compile Include="Converters\AnythingToVisibilityConverter.cs" />
     <Compile Include="Converters\DateTimeToStringConverter.cs" />
@@ -153,11 +154,22 @@
     <Compile Include="Models\CalendarItem.cs" />
     <Compile Include="Models\EPG.cs" />
     <Compile Include="Models\GameResult.cs" />
+    <Compile Include="Models\HTML.cs" />
     <Compile Include="Models\LiveData.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\Recommendation.cs" />
+    <Compile Include="Models\Subject.cs" />
     <Compile Include="Models\SubscriptionDataContext.cs" />
     <Compile Include="Models\VOD.cs" />
+    <Compile Include="Pages\SubjectPage.xaml.cs">
+      <DependentUpon>SubjectPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\NewsDetailPage.xaml.cs">
+      <DependentUpon>NewsDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EmptyPage.xaml.cs">
+      <DependentUpon>EmptyPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\VideoPage.xaml.cs">
       <DependentUpon>VideoPage.xaml</DependentUpon>
     </Compile>
@@ -223,6 +235,9 @@
     <Content Include="Assets\Images\band4.png" />
     <Content Include="Assets\Images\band5.png" />
     <Content Include="Assets\Images\band6.png" />
+    <Content Include="Assets\Images\band7.png" />
+    <Content Include="Assets\Images\band8.png" />
+    <Content Include="Assets\Images\band9.png" />
     <Content Include="Assets\Images\CCTV1.png" />
     <Content Include="Assets\Images\CCTV5+.png" />
     <Content Include="Assets\Images\CCTV5.png" />
@@ -237,6 +252,8 @@
     <Content Include="Assets\Images\epgItemTextBase.png" />
     <Content Include="Assets\Images\epgItemTimeBase.png" />
     <Content Include="Assets\Images\epgTitle.png" />
+    <Content Include="Assets\Images\groupTitleL.png" />
+    <Content Include="Assets\Images\groupTitleM.png" />
     <Content Include="Assets\Images\moreButton.png" />
     <Content Include="Assets\Images\newsItemTextBase.png" />
     <Content Include="Assets\Images\newsTitle.png" />
@@ -358,6 +375,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\SubjectPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\NewsDetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\EmptyPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
