@@ -320,5 +320,13 @@
         <Setter Property="TextTrimming" Value="WordEllipsis"/>
     </Style>
 
+    <Style x:Key="LivePage_RankListText_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Foreground" Value="#ff000000"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="Margin" Value="4,4,4,4"/>
+    </Style>
+
 
 </ResourceDictionary>

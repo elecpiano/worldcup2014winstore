@@ -51,13 +51,13 @@
         </controls:NewsDataTemplateSelector>
     </Page.Resources>
 
-    <Grid Background="White">
+    <Grid Background="White" >
 
         <!--full view-->
-        <Grid x:Name="fullView">
+        <Grid x:Name="fullView" Height="768">
 
-            <ScrollViewer ZoomMode="Disabled" Style="{StaticResource HorizontalScrollViewerStyle}">
-                <Grid Height="768">
+            <ScrollViewer Style="{StaticResource HorizontalScrollViewerStyle}">
+                <Grid >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>

@@ -127,6 +127,18 @@
       <DependentUpon>GameCalendarMonthControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ImageToggleButton.cs" />
+    <Compile Include="Controls\LivePageItemAlbum.xaml.cs">
+      <DependentUpon>LivePageItemAlbum.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LivePageItemLiveText.xaml.cs">
+      <DependentUpon>LivePageItemLiveText.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LivePageItemNews.xaml.cs">
+      <DependentUpon>LivePageItemNews.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LivePageItemVideo.xaml.cs">
+      <DependentUpon>LivePageItemVideo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\NavBar.xaml.cs">
       <DependentUpon>NavBar.xaml</DependentUpon>
     </Compile>
@@ -136,9 +148,12 @@
     <Compile Include="Converters\DateTimeToStringConverter.cs" />
     <Compile Include="Global\ApplicationExtension.cs" />
     <Compile Include="Global\Constants.cs" />
+    <Compile Include="Models\AlbumItem.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\CalendarItem.cs" />
     <Compile Include="Models\EPG.cs" />
+    <Compile Include="Models\GameResult.cs" />
+    <Compile Include="Models\LiveData.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\Recommendation.cs" />
     <Compile Include="Models\SubscriptionDataContext.cs" />
@@ -203,12 +218,17 @@
     <Content Include="Assets\Images\band3.png" />
     <Content Include="Assets\Images\band4.png" />
     <Content Include="Assets\Images\band5.png" />
+    <Content Include="Assets\Images\band6.png" />
     <Content Include="Assets\Images\CCTV1.png" />
     <Content Include="Assets\Images\CCTV5+.png" />
     <Content Include="Assets\Images\CCTV5.png" />
     <Content Include="Assets\Images\Common\PageTitleBackgroundL.png" />
     <Content Include="Assets\Images\Common\PageTitleBackgroundM.png" />
     <Content Include="Assets\Images\Common\PageTitleBackgroundR.png" />
+    <Content Include="Assets\Images\ContentTypeIconAlbum.png" />
+    <Content Include="Assets\Images\ContentTypeIconLiveText.png" />
+    <Content Include="Assets\Images\ContentTypeIconNews.png" />
+    <Content Include="Assets\Images\ContentTypeIconVideo.png" />
     <Content Include="Assets\Images\epgItemImageBase.png" />
     <Content Include="Assets\Images\epgItemTextBase.png" />
     <Content Include="Assets\Images\epgItemTimeBase.png" />
@@ -298,6 +318,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\GameCalendarMonthControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\LivePageItemAlbum.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\LivePageItemLiveText.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\LivePageItemNews.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\LivePageItemVideo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
