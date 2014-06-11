@@ -271,12 +271,12 @@
                 </StackPanel>
 
             </ScrollViewer>
+
+            <ProgressBar x:Name="progressbar" IsIndeterminate="True" Visibility="Collapsed" VerticalAlignment="Top" Margin="0,30,0,0"/>
+
+            <!--top bar-->
+            <controls:PageTitle x:Name="pageTitle"/>
         </Grid>
-
-        <ProgressBar x:Name="progressbar" IsIndeterminate="True" Visibility="Collapsed" VerticalAlignment="Top" Margin="0,30,0,0"/>
-
-        <!--top bar-->
-        <controls:PageTitle x:Name="pageTitle"/>
 
     </Grid>
 </Page>

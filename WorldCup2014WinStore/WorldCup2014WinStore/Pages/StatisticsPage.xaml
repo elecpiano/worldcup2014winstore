@@ -11,14 +11,14 @@
     <Grid Background="White">
 
         <!--content-->
-        <Grid>
+        <Grid Height="768">
             <WebView x:Name="browser" Margin="100,120,0,50" HorizontalAlignment="Left" Width="480"/>
+
+            <ProgressBar x:Name="progressbar" IsIndeterminate="True" Visibility="Collapsed" VerticalAlignment="Top" Margin="0,30,0,0"/>
+
+            <!--top bar-->
+            <controls:PageTitle x:Name="pageTitle"/>
+
         </Grid>
-
-        <ProgressBar x:Name="progressbar" IsIndeterminate="True" Visibility="Collapsed" VerticalAlignment="Top" Margin="0,30,0,0"/>
-
-        <!--top bar-->
-        <controls:PageTitle x:Name="pageTitle"/>
-
     </Grid>
 </Page>

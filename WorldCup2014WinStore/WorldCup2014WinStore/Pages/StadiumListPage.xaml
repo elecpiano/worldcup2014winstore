@@ -10,9 +10,17 @@
     NavigationCacheMode="Enabled">
 
     <Grid Background="White">
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="768"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Rectangle Grid.Row="0" Fill="#ff545454"/>
+        <Rectangle Grid.Row="2" Fill="#ff404040"/>-->
 
         <!--content-->
-        <Grid Height="768">
+        <Grid Grid.Row="0" Height="768" Background="White">
             <Image Source="/Assets/Images/band3.png" Stretch="None" Margin="-200,0,0,0" HorizontalAlignment="Left"/>
             <ScrollViewer x:Name="scrollViewer" Style="{StaticResource HorizontalScrollViewerStyle}">
                 <ListView x:Name="stadiumListBox" Margin="100,120,150,0"
@@ -45,12 +53,12 @@
                     </ItemsControl.ItemTemplate>
                 </ListView>
             </ScrollViewer>
+
+            <ProgressBar x:Name="progressbar" IsIndeterminate="True" Visibility="Collapsed" VerticalAlignment="Top" Margin="0,30,0,0"/>
+
+            <!--top bar-->
+            <controls:PageTitle x:Name="pageTitle"/>
+
         </Grid>
-
-        <ProgressBar x:Name="progressbar" IsIndeterminate="True" Visibility="Collapsed" VerticalAlignment="Top" Margin="0,30,0,0"/>
-
-        <!--top bar-->
-        <controls:PageTitle x:Name="pageTitle"/>
-
     </Grid>
 </Page>

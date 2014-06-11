@@ -14,10 +14,10 @@
 
     <Grid Background="White" >
 
-        <Grid x:Name="fullView" >
+        <Grid Height="768">
 
             <ScrollViewer Style="{StaticResource HorizontalScrollViewerStyle}">
-                <Grid Height="768">
+                <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>

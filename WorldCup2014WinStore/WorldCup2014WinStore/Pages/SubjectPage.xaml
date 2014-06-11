@@ -12,7 +12,7 @@
     <Grid Background="White">
 
         <!--content-->
-        <Grid Margin="0,0,0,0" Height="768">
+        <Grid Height="768">
             <ScrollViewer x:Name="scrollViewer" Style="{StaticResource HorizontalScrollViewerStyle}">
                 <Grid Margin="0,0,50,0">
                     <Grid.ColumnDefinitions>
@@ -50,7 +50,7 @@
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    
+
                                     <!--group title-->
                                     <Grid Height="60">
                                         <Grid.ColumnDefinitions>
@@ -63,7 +63,7 @@
                                         <Image Grid.Column="2" Source="/Assets/Images/groupTitleM.png" Stretch="None"/>
                                         <TextBlock Grid.Column="1" Text="{Binding GroupTitle}" Style="{StaticResource SubjectPage_Category_Title_Style}"/>
                                     </Grid>
-                                    
+
                                     <!--group items-->
                                     <ListView Grid.Row="1" Margin="0,20,0,0"
                                               ItemsSource="{Binding NewsList}"
@@ -85,12 +85,12 @@
 
                 </Grid>
             </ScrollViewer>
+
+            <ProgressBar x:Name="progressbar" IsIndeterminate="True" Visibility="Collapsed" VerticalAlignment="Top" Margin="0,30,0,0"/>
+
+            <!--top bar-->
+            <controls:PageTitle x:Name="pageTitle"/>
+
         </Grid>
-
-        <ProgressBar x:Name="progressbar" IsIndeterminate="True" Visibility="Collapsed" VerticalAlignment="Top" Margin="0,30,0,0"/>
-
-        <!--top bar-->
-        <controls:PageTitle x:Name="pageTitle"/>
-
     </Grid>
 </Page>
