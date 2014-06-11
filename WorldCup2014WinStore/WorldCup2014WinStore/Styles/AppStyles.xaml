@@ -152,7 +152,7 @@
     
     <Style x:Key="Item_SplitBar_Bottom_Style" TargetType="Rectangle">
         <Setter Property="Height" Value="1"/>
-        <Setter Property="Fill" Value="#ff808080"/>
+        <Setter Property="Fill" Value="#ffd0d0d0"/>
         <Setter Property="VerticalAlignment" Value="Bottom"/>
     </Style>
 
