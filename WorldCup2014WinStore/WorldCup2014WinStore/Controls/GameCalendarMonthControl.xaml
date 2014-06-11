@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400"
-    Margin="72,0,72,0" >
+    Margin="0,50,0,50" >
 
     <Grid x:Name="LayoutRoot">
         <Grid.RowDefinitions>
@@ -16,7 +16,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         
-        <Grid Height="48" Margin="0,0,0,0">
+        <Grid Height="40" Margin="0,0,0,0">
             <TextBlock Text="{Binding Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='yyyy年M月'}" 
                    Style="{StaticResource GameCalendar_Month_Style}"/>
         </Grid>
@@ -34,7 +34,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="48"/>
+                <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Column="0" Text="一" Style="{StaticResource GameCalendar_Header_Style}"/>
             <TextBlock Grid.Column="1" Text="二" Style="{StaticResource GameCalendar_Header_Style}"/>

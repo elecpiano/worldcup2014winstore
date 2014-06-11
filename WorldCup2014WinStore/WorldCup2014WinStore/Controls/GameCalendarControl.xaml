@@ -7,10 +7,16 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     d:DesignHeight="600"
-    Width="550">
+    Width="385" >
 
-    <Grid x:Name="LayoutRoot" Background="#ff255705">
-        <FlipView x:Name="flipView" VerticalAlignment="Center" Height="600" Margin="0,100,0,0"/>
+    <Grid x:Name="LayoutRoot" Background="#00000000">
+        <FlipView x:Name="flipView" Margin="0,0,0,50">
+            <FlipView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel Orientation="Vertical"/>
+                </ItemsPanelTemplate>
+            </FlipView.ItemsPanel>
+        </FlipView>
     </Grid>
     
 </UserControl>

@@ -11,9 +11,9 @@
     Margin="-1,-1,0,0">
 
     <Border BorderBrush="#00000000" BorderThickness="1,1,1,1" Tapped="Border_Tapped">
-        <Grid x:Name="LayoutRoot" Background="#ff517836" Margin="0">
+        <Grid x:Name="LayoutRoot" Background="#2dffffff" Margin="0">
             <Rectangle x:Name="rect" Fill="#a0ffffff" Opacity="0"/>
-            <Ellipse Visibility="{Binding HasGame}" Width="40" Height="40" Fill="{StaticResource App_Theme_Color}" VerticalAlignment="Center" Margin="0,0,0,0"/>
+            <Ellipse Visibility="{Binding HasGame}" Width="40" Height="40" Fill="{StaticResource App_Theme_Color_Dark}" VerticalAlignment="Center" Margin="0,0,0,0"/>
             <TextBlock Text="{Binding Date, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='dd'}" Style="{StaticResource GameCalendar_Date_Style}"/>
         </Grid>
     </Border>

@@ -17,7 +17,7 @@ namespace WorldCup2014WinStore.Controls
         private void OnTV(object sender, RoutedEventArgs e)
         {
             HideAppBars();
-            this.page.Frame.Navigate(typeof(EpgPage));
+            this.page.Frame.Navigate(typeof(EpgListPage));
         }
 
         private void OnChapter(object sender, RoutedEventArgs e)

@@ -196,7 +196,7 @@
     </Style>
 
     <Style x:Key="GameCalendar_Header_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
-        <Setter Property="FontSize" Value="25"/>
+        <Setter Property="FontSize" Value="22"/>
         <Setter Property="FontWeight" Value="Normal"/>
         <Setter Property="Foreground" Value="#ff82c461"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>

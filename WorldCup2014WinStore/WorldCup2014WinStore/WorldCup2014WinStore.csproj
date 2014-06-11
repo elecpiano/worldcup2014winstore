@@ -183,8 +183,8 @@
     <Compile Include="Pages\LivePage.xaml.cs">
       <DependentUpon>LivePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\EpgPage.xaml.cs">
-      <DependentUpon>EpgPage.xaml</DependentUpon>
+    <Compile Include="Pages\EpgListPage.xaml.cs">
+      <DependentUpon>EpgListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
@@ -413,7 +413,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Pages\EpgPage.xaml">
+    <Page Include="Pages\EpgListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

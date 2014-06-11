@@ -127,7 +127,7 @@ namespace WorldCup2014WinStore.Pages
 
         private async void UpdateEpgSubscriptionStatus(List<EPG> list)
         {
-            var subscriptionList = await GetSubscriptionList();
+            var subscriptionList = await SubscriptionDataContext.Current.LoadSubscriptions();
             if (subscriptionList == null)
             {
                 return;
@@ -153,14 +153,6 @@ namespace WorldCup2014WinStore.Pages
             param.Add(NaviParam.LIVE_IMAGE, epg.Image);
             param.Add(NaviParam.LIVE_TITLE, epg.Description);
             this.Frame.Navigate(typeof(LivePage), param);
-        }
-
-        #endregion
-
-        #region Subscription
-        private async Task<List<EPG>> GetSubscriptionList()
-        {
-            return await SubscriptionDataContext.Current.LoadSubscriptions();
         }
 
         #endregion

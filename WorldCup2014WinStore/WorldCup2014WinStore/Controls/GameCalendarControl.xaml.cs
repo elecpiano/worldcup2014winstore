@@ -1,17 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 using WorldCup2014WinStore.Models;
 using WorldCup2014WinStore.Utility;
 
@@ -106,7 +98,6 @@ namespace WorldCup2014WinStore.Controls
         }
 
         public event EventHandler<TappedRoutedEventArgs> DayTapped;
-
         void monthControl_DayTapped(object sender, TappedRoutedEventArgs e)
         {
             if (DayTapped != null)

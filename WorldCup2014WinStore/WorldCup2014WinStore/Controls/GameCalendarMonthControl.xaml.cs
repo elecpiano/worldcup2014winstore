@@ -27,7 +27,7 @@ namespace WorldCup2014WinStore.Controls
             if (!weeks.Contains(monday))
             {
                 weeks.Add(monday);
-                monthPanel.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(72, GridUnitType.Pixel) });
+                monthPanel.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(55, GridUnitType.Pixel) });
             }
 
             int row = weeks.IndexOf(monday) + 1;
