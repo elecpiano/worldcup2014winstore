@@ -10,60 +10,56 @@
     d:DesignHeight="300"
     Width="370">
 
-    <Grid Margin="0,34,0,0">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+    <Button Style="{StaticResource ContentButtonStyle}">
 
-        <Border Width="50" Height="50" Margin="0,0,0,0" Style="{StaticResource Image_Border_Style}" 
+        <Grid Margin="0,34,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Border Width="50" Height="50" Margin="0,0,0,0" Style="{StaticResource Image_Border_Style}" 
                 HorizontalAlignment="Left">
-            <controls:FadingImage Stretch="UniformToFill" Source="{Binding Face}"/>
-        </Border>
-        <StackPanel Margin="60,0,0,0">
-            <TextBlock Text="{Binding Name}" Style="{StaticResource AuthorList_AuthorName_Text_Style}" />
-            <TextBlock Text="{Binding Date, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='yyyy-MM-dd hh:mm'}" 
+                <controls:FadingImage Stretch="UniformToFill" Source="{Binding Face}"/>
+            </Border>
+            <StackPanel Margin="60,0,0,0">
+                <TextBlock Text="{Binding Name}" Style="{StaticResource AuthorList_AuthorName_Text_Style}" />
+                <TextBlock Text="{Binding Date, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='yyyy-MM-dd hh:mm'}" 
                        Style="{StaticResource NewsList_ItemTime_Text_Style}" Margin="0,10,0,0"/>
-        </StackPanel>
+            </StackPanel>
 
-        <!--text-->
-        <Button Grid.Row="1" Style="{StaticResource ContentButtonStyle}">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <TextBlock Text="{Binding Title}" Style="{StaticResource AuthorList_Title_Text_Style}"/>
+            <!--text-->
 
-                <!--images-->
-                <ItemsControl x:Name="imageListBox" Visibility="Collapsed" Grid.Row="1" ItemsSource="{Binding Images}" Margin="-5,20,0,0">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <controls:FadingImage Stretch="UniformToFill" Source="{Binding Image}" Width="120" Height="90" Margin="5,0,0,0"/>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </Grid>
-        </Button>
+            <TextBlock Grid.Row="1" Text="{Binding Title}" Style="{StaticResource AuthorList_Title_Text_Style}"/>
 
-        <!--views , likes-->
-        <StackPanel Grid.Row="2" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,10,0,10">
-            <TextBlock Text="阅读:" Style="{StaticResource NewsList_ItemTime_Text_Style}"/>
-            <TextBlock Text="{Binding ViewCount}" Style="{StaticResource NewsList_ItemTime_Text_Style}"/>
-            <TextBlock Text="赞:" Style="{StaticResource NewsList_ItemTime_Text_Style}" Margin="12,0,0,0"/>
-            <TextBlock Text="{Binding LoveCount}" Style="{StaticResource NewsList_ItemTime_Text_Style}"/>
-        </StackPanel>
+            <!--images-->
+            <ItemsControl Grid.Row="2" x:Name="imageListBox" Visibility="Collapsed" ItemsSource="{Binding Images}" Margin="-5,20,0,0">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <controls:FadingImage Stretch="UniformToFill" Source="{Binding Image}" Width="120" Height="90" Margin="5,0,0,0"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
 
-        <Rectangle Grid.Row="3" Grid.ColumnSpan="2" Style="{StaticResource Item_SplitBar_Bottom_Style}" Margin="-50,0,-50,0"/>
+            <!--views , likes-->
+            <StackPanel Grid.Row="3" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,10,0,10">
+                <TextBlock Text="阅读:" Style="{StaticResource NewsList_ItemTime_Text_Style}"/>
+                <TextBlock Text="{Binding ViewCount}" Style="{StaticResource NewsList_ItemTime_Text_Style}"/>
+                <TextBlock Text="赞:" Style="{StaticResource NewsList_ItemTime_Text_Style}" Margin="12,0,0,0"/>
+                <TextBlock Text="{Binding LoveCount}" Style="{StaticResource NewsList_ItemTime_Text_Style}"/>
+            </StackPanel>
 
-    </Grid>
+            <Rectangle Grid.Row="4" Grid.ColumnSpan="2" Style="{StaticResource Item_SplitBar_Bottom_Style}" Margin="-50,0,-50,0"/>
 
+        </Grid>
+    </Button>
 
 </UserControl>

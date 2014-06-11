@@ -26,15 +26,17 @@ namespace WorldCup2014WinStore.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-
-            Dictionary<string, string> param = e.Parameter as Dictionary<string, string>;
-            if (param != null)
+            if (e.NavigationMode == NavigationMode.New)
             {
-                subjectID = param[NaviParam.SUBJECT_ID];
-            }
+                Dictionary<string, string> param = e.Parameter as Dictionary<string, string>;
+                if (param != null)
+                {
+                    subjectID = param[NaviParam.SUBJECT_ID];
+                }
 
-            pageTitle.Show("热门推荐");
-            Loadsubject();
+                pageTitle.Show("热门推荐");
+                Loadsubject();
+            }
         }
 
         #endregion

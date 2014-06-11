@@ -6,7 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:WorldCup2014WinStore.Controls"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    NavigationCacheMode="Enabled">
 
     <Grid Background="White">
         <Grid Height="768">
@@ -19,7 +20,7 @@
                 </Grid.RowDefinitions>
 
                 <!--cover image-->
-                <controls:FadingImage x:Name="titleImage" Stretch="UniformToFill" Height="110" Width="500"
+                <!--<controls:FadingImage x:Name="titleImage" Stretch="UniformToFill" Height="110" Width="500"
                                       VerticalAlignment="Top" HorizontalAlignment="Right"/>
                 <Rectangle Width="500" HorizontalAlignment="Right" Margin="0,0,0,0">
                     <Rectangle.Fill>
@@ -28,7 +29,7 @@
                             <GradientStop Color="Transparent" Offset="1"/>
                         </LinearGradientBrush>
                     </Rectangle.Fill>
-                </Rectangle>
+                </Rectangle>-->
 
                 <!--content-->
                 <ScrollViewer x:Name="scrollViewer" Grid.Row="1" Style="{StaticResource HorizontalScrollViewerStyle}">
@@ -104,14 +105,15 @@
                 </ScrollViewer>
 
             </Grid>
-
-            <!--progress bar-->
-            <ProgressBar x:Name="progressbar" IsIndeterminate="True" Visibility="Collapsed" VerticalAlignment="Top" Margin="0,30,0,0"/>
-
-            <!--top bar-->
-            <controls:PageTitle x:Name="pageTitle"/>
-
+            
         </Grid>
+
+        <!--progress bar-->
+        <ProgressBar x:Name="progressbar" IsIndeterminate="True" Visibility="Collapsed" VerticalAlignment="Top" Margin="0,30,0,0"/>
+
+        <!--top bar-->
+        <controls:PageTitle x:Name="pageTitle"/>
+
     </Grid>
 
 </Page>

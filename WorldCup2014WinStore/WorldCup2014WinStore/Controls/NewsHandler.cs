@@ -26,8 +26,9 @@ namespace WorldCup2014WinStore.Controls
                     hostingPage.Frame.Navigate(typeof(NewsDetailPage), param);
                     break;
                 case "2":
-                    naviString = string.Format("/Pages/AlbumPage.xaml?{0}={1}", NaviParam.ALBUM_ID, news.ID);
-                    //hostingPage.NavigationService.Navigate(new Uri(naviString, UriKind.Relative));
+                    param = new Dictionary<string, string>();
+                    param.Add(NaviParam.ALBUM_ID, news.ID);
+                    hostingPage.Frame.Navigate(typeof(AlbumPage), param);
                     break;
                 case "31":
                     param = new Dictionary<string, string>();

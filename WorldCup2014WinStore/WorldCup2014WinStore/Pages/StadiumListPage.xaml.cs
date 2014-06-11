@@ -27,17 +27,11 @@ namespace WorldCup2014WinStore.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-
-            //Dictionary<string, string> param = e.Parameter as Dictionary<string, string>;
-            //if (param != null)
-            //{
-            //    newsID = param[NaviParam.NEWS_ID];
-            //    newsTitle = param[NaviParam.NEWS_TITLE];
-            //    newsImage = param[NaviParam.NEWS_IMAGE];
-            //}
-
-            pageTitle.Show("球场巡礼");
-            LoadStadiums();
+            if (e.NavigationMode == NavigationMode.New)
+            {
+                pageTitle.Show("球场巡礼");
+                LoadStadiums();
+            }
         }
 
         #endregion

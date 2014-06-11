@@ -32,20 +32,22 @@ namespace WorldCup2014WinStore.Pages
         {
             base.OnNavigatedTo(e);
 
-            Dictionary<string, string> param = e.Parameter as Dictionary<string, string>;
-            if (param != null)
+            if (e.NavigationMode == NavigationMode.New)
             {
-                liveID = param[NaviParam.LIVE_ID];
-                liveImage = param[NaviParam.LIVE_IMAGE];
-                liveTitle = param[NaviParam.LIVE_TITLE];
+                Dictionary<string, string> param = e.Parameter as Dictionary<string, string>;
+                if (param != null)
+                {
+                    liveID = param[NaviParam.LIVE_ID];
+                    liveImage = param[NaviParam.LIVE_IMAGE];
+                    liveTitle = param[NaviParam.LIVE_TITLE];
+                }
+
+                //this.titleImage.Source = new BitmapImage(new Uri(liveImage, UriKind.RelativeOrAbsolute));
+                pageTitle.Show(liveTitle);
+
+                LoadData();
             }
-
-            this.titleImage.Source = new BitmapImage(new Uri(liveImage, UriKind.RelativeOrAbsolute));
-            pageTitle.Show(liveTitle);
-
-            LoadData();
             StartTimer();
-
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)

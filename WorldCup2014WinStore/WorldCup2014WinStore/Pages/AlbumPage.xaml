@@ -12,7 +12,28 @@
 
         <!--content-->
         <Grid Height="768">
-
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="250"/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="bigImagePanel" Margin="100,120,30,50" >
+                <controls:FadingImage x:Name="img" Source="{Binding Image}"/>
+                <Grid Background="#80000000" VerticalAlignment="Bottom">
+                    <TextBlock Text="{Binding Title}" Style="{StaticResource AlbumPage_Description_Text_Style}"/>
+                </Grid>
+            </Grid>
+            
+            <ListView Grid.Column="1" Margin="0,120,50,50"
+                      x:Name="listBox" 
+                      SelectionMode="None"
+                      IsSwipeEnabled="False"
+                      IsItemClickEnabled="True" ItemClick="imageList_ItemClick">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <controls:FadingImage Source="{Binding Image}" Width="180" Height="120"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </Grid>
 
         <ProgressBar x:Name="progressbar" IsIndeterminate="True" Visibility="Collapsed" VerticalAlignment="Top" Margin="0,30,0,0"/>

@@ -412,5 +412,24 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 
+    <!--album page-->
+    <Style x:Key="AlbumPage_Description_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Foreground" Value="#ffffffff"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="Margin" Value="20"/>
+    </Style>
+
+    <!--settings-->
+    <Style x:Key="SettingsPage_Title_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontSize" Value="32"/>
+        <Setter Property="Foreground" Value="#ff000000"/>
+    </Style>
+
+    <Style x:Key="SettingsPage_Description_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="Foreground" Value="#ff4d4d4d"/>
+    </Style>
+
 
 </ResourceDictionary>

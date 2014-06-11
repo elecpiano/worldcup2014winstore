@@ -173,8 +173,14 @@
     <Compile Include="Pages\DiaryListPage.xaml.cs">
       <DependentUpon>DiaryListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\GameDataPage.xaml.cs">
       <DependentUpon>GameDataPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RecommendationListPage.xaml.cs">
+      <DependentUpon>RecommendationListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\NewsListPage.xaml.cs">
       <DependentUpon>NewsListPage.xaml</DependentUpon>
@@ -422,7 +428,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Pages\AboutPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Pages\GameDataPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\RecommendationListPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

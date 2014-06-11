@@ -28,8 +28,11 @@ namespace WorldCup2014WinStore.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            pageTitle.Show("新闻");
-            LoadNews();
+            if (e.NavigationMode == NavigationMode.New)
+            {
+                pageTitle.Show("新闻");
+                LoadNews();
+            }
         }
 
         #endregion

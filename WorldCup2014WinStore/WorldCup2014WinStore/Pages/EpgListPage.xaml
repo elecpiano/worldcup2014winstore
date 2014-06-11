@@ -6,12 +6,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:WorldCup2014WinStore.Controls"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    NavigationCacheMode="Enabled">
 
     <Grid Background="White">
 
         <!--content-->
-        <Grid>
+        <Grid Height="768">
             <ScrollViewer x:Name="scrollViewer" Style="{StaticResource HorizontalScrollViewerStyle}">
 
                 <Grid>
@@ -20,7 +21,7 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Image Source="/Assets/Images/band4.png" Stretch="None" Margin="0,0,0,0" HorizontalAlignment="Right"/>
+                    <Image Source="/Assets/Images/band4.png" Stretch="None" Margin="-380,0,0,0" HorizontalAlignment="Left"/>
                     <controls:GameCalendarControl DayTapped="calendar_DayTapped" VerticalAlignment="Top" Margin="0,120,0,0"/>
 
                     <!--epg-->
@@ -30,7 +31,7 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
 
-                        <Image Grid.RowSpan="2" Source="/Assets/Images/band2.png" Stretch="None" Margin="-100,0"/>
+                        <Image Grid.RowSpan="2" Source="/Assets/Images/band2.png" Stretch="None" Margin="-100,0" HorizontalAlignment="Left"/>
                         <!--group title-->
                         <Grid Height="60" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-108,40,0,0">
                             <Grid.ColumnDefinitions>

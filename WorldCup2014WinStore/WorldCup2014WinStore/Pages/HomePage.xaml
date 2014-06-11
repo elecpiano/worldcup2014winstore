@@ -5,7 +5,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:WorldCup2014WinStore.Controls"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    NavigationCacheMode="Enabled">
 
     <Page.Resources>
 
@@ -114,17 +115,6 @@
                         </Grid.RowDefinitions>
                         <Image Grid.RowSpan="2" Source="/Assets/Images/band5.png" Stretch="None" Margin="0,0,-80,0"/>
                         <Image Source="/Assets/Images/authorTitle.png" Stretch="None" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,40,0,0"/>
-
-                        <!--<ListView Grid.Row="1" x:Name="authorListBox" 
-                                  SelectionMode="None"
-                                  Margin="0,20,0,0"
-                                  IsItemClickEnabled="True" ItemClick="author_ItemClick">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <controls:AuthorItem/>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>-->
                         <ScrollViewer Grid.Row="1" x:Name="authorListScrollViewer" Margin="50,0,0,0"
                                       Style="{StaticResource VerticalScrollViewerStyle}">
                             <StackPanel x:Name="authorListPanel" Margin="0,20,0,0"/>

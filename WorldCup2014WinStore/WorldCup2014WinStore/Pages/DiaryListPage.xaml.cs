@@ -32,20 +32,23 @@ namespace WorldCup2014WinStore.Pages
         {
             base.OnNavigatedTo(e);
 
-            Dictionary<string, string> param = e.Parameter as Dictionary<string, string>;
-            if (param != null)
+            if (e.NavigationMode == NavigationMode.New)
             {
-                authorId = param[NaviParam.AUTHOR_ID];
-                authorName = param[NaviParam.AUTHOR_NAME];
-                authorFace = param[NaviParam.AUTHOR_FACE];
+                Dictionary<string, string> param = e.Parameter as Dictionary<string, string>;
+                if (param != null)
+                {
+                    authorId = param[NaviParam.AUTHOR_ID];
+                    authorName = param[NaviParam.AUTHOR_NAME];
+                    authorFace = param[NaviParam.AUTHOR_FACE];
+                }
+
+                //nameTextBlock.Text = authorName;
+                faceImage.Source = new BitmapImage(new Uri(authorFace, UriKind.RelativeOrAbsolute));
+
+                pageTitle.Show(authorName);
+
+                LoadData();
             }
-
-            //nameTextBlock.Text = authorName;
-            faceImage.Source = new BitmapImage(new Uri(authorFace, UriKind.RelativeOrAbsolute));
-
-            pageTitle.Show(authorName);
-
-            LoadData();
         }
 
         #endregion

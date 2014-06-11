@@ -30,8 +30,11 @@ namespace WorldCup2014WinStore.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            pageTitle.Show("TV");
-            LoadEpg(DateTime.Today);
+            if (e.NavigationMode == NavigationMode.New)
+            {
+                pageTitle.Show("TV");
+                LoadEpg(DateTime.Today);
+            }
         }
 
         #endregion

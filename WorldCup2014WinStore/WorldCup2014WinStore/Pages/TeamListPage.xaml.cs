@@ -26,8 +26,11 @@ namespace WorldCup2014WinStore.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            pageTitle.Show("球队巡礼");
-            LoadData();
+            if (e.NavigationMode == NavigationMode.New)
+            {
+                pageTitle.Show("球队巡礼");
+                LoadData();
+            }
         }
 
         #endregion
@@ -50,7 +53,7 @@ namespace WorldCup2014WinStore.Pages
             dataLoader.Load("getteamlist", string.Empty, true, Constants.TEAM_MODULE, Constants.TEAM_FILE_NAME,
                 result =>
                 {
-                    scrollViewer.ChangeView(0,null,null);
+                    scrollViewer.ChangeView(0, null, null);
                     listBox.ItemsSource = result.NewsGroups;
                     progressbar.Visibility = Visibility.Collapsed;
                 });

@@ -38,11 +38,11 @@ namespace WorldCup2014WinStore.Controls
                     this.page.Frame.Navigate(typeof(EpgListPage));
                     break;
                 case "recommendation":
-                    //this.page.Frame.Navigate(typeof(EpgListPage));
+                    this.page.Frame.Navigate(typeof(RecommendationListPage));
                     break;
-                case "author":
-                    //this.page.Frame.Navigate(typeof(EpgListPage));
-                    break;
+                //case "author":
+                //    this.page.Frame.Navigate(typeof(EpgListPage));
+                //    break;
                 case "news":
                     this.page.Frame.Navigate(typeof(NewsListPage));
                     break;

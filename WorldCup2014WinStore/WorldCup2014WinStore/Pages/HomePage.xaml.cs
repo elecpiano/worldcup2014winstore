@@ -11,6 +11,7 @@ using WorldCup2014WinStore.Utility;
 using System.Linq;
 using System.Threading.Tasks;
 using WorldCup2014WinStore.Controls;
+using Windows.UI.ApplicationSettings;
 
 namespace WorldCup2014WinStore.Pages
 {
@@ -22,16 +23,15 @@ namespace WorldCup2014WinStore.Pages
         {
             this.InitializeComponent();
             InitPage();
+            SettingsPane.GetForCurrentView().CommandsRequested += SettingCommandsRequested;
         }
 
         private void InitPage()
         {
-            //BuildApplicationBar();
             //InitBannerControl();
             epgListBox.ItemsSource = epgList;
             newsListBox.ItemsSource = newsList;
             recommendationNewsListBox.ItemsSource = recommendationNewsList;
-            //authorListBox.ItemsSource = authorList;
 
             this.TopAppBar = new NavBar(this);
         }
@@ -40,14 +40,15 @@ namespace WorldCup2014WinStore.Pages
         {
             base.OnNavigatedTo(e);
 
-            //App.Toast = this.toast;
-
-            LoadSplashImage();
-            //LoadBanner();
-            LoadEpg(DateTime.Today);
-            LoadRecommendation();
-            LoadAuthorList();
-            LoadNews_HomePage();
+            if (e.NavigationMode == NavigationMode.New)
+            {
+                LoadSplashImage();
+                //LoadBanner();
+                LoadEpg(DateTime.Today);
+                LoadRecommendation();
+                LoadAuthorList();
+                LoadNews_HomePage();
+            }
         }
 
         #endregion
@@ -419,8 +420,47 @@ namespace WorldCup2014WinStore.Pages
 
         #endregion
 
+        #region Settings
+
+        private SettingsCommand scAbout;
+        private SettingsCommand scPrivacy;
+        private SettingsCommand scFeedback;
+
+        private void SettingCommandsRequested(SettingsPane sender, SettingsPaneCommandsRequestedEventArgs args)
+        {
+            scAbout = new SettingsCommand("About", "关于", async (x) =>
+            {
+                this.Frame.Navigate(typeof(AboutPage), null);
+            });
+
+            scFeedback = new SettingsCommand("Feedback", "用户反馈", async (x) =>
+            {
+                var success = await Windows.System.Launcher.LaunchUriAsync(new Uri("mailto:service@cntv.cn", UriKind.RelativeOrAbsolute));
+            });
+
+            scPrivacy = new SettingsCommand("Privacy", "隐私策略", async (x) =>
+            {
+                var success = await Windows.System.Launcher.LaunchUriAsync(new Uri("http://www.cntv.cn", UriKind.RelativeOrAbsolute));
+            });
 
 
+            if (!args.Request.ApplicationCommands.Contains(scAbout))
+            {
+                args.Request.ApplicationCommands.Add(scAbout);
+            }
+
+            if (!args.Request.ApplicationCommands.Contains(scFeedback))
+            {
+                args.Request.ApplicationCommands.Add(scFeedback);
+            }
+
+            if (!args.Request.ApplicationCommands.Contains(scPrivacy))
+            {
+                args.Request.ApplicationCommands.Add(scPrivacy);
+            }
+        }
+
+        #endregion
 
 
     }
