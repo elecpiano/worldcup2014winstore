@@ -163,6 +163,7 @@
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Score.cs" />
     <Compile Include="Models\Stadium.cs" />
+    <Compile Include="Models\StatisticsAddress.cs" />
     <Compile Include="Models\Subject.cs" />
     <Compile Include="Models\SubscriptionDataContext.cs" />
     <Compile Include="Models\VOD.cs" />
@@ -174,6 +175,15 @@
     </Compile>
     <Compile Include="Pages\GameDataPage.xaml.cs">
       <DependentUpon>GameDataPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\NewsListPage.xaml.cs">
+      <DependentUpon>NewsListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MegmaListPage.xaml.cs">
+      <DependentUpon>MegmaListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StatisticsPage.xaml.cs">
+      <DependentUpon>StatisticsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\StadiumDetailPage.xaml.cs">
       <DependentUpon>StadiumDetailPage.xaml</DependentUpon>
@@ -278,6 +288,7 @@
     <Content Include="Assets\Images\groupTitleL.png" />
     <Content Include="Assets\Images\groupTitleM.png" />
     <Content Include="Assets\Images\moreButton.png" />
+    <Content Include="Assets\Images\moreButton440x192.png" />
     <Content Include="Assets\Images\newsItemTextBase.png" />
     <Content Include="Assets\Images\newsTitle.png" />
     <Content Include="Assets\Images\pageTitleBase.png" />
@@ -410,6 +421,18 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\GameDataPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\NewsListPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\MegmaListPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\StatisticsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

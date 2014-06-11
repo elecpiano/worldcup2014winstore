@@ -286,6 +286,13 @@
                 </Grid>
             </DataTemplate>
         </controls:NewsDataTemplateSelector.VideoTemplate>
+        <controls:NewsDataTemplateSelector.MoreButtonTemplate>
+            <DataTemplate>
+                <Grid Width="440" Height="192" Background="{StaticResource App_Theme_Color}">
+                    <Image Source="/Assets/Images/moreButton440x192.png" Stretch="None"/>
+                </Grid>
+            </DataTemplate>
+        </controls:NewsDataTemplateSelector.MoreButtonTemplate>
     </controls:NewsDataTemplateSelector>
 
     <Style x:Key="NewsList_ItemTitle_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">

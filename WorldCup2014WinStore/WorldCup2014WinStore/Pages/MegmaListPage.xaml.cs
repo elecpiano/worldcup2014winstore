@@ -10,7 +10,7 @@ using System;
 
 namespace WorldCup2014WinStore.Pages
 {
-    public sealed partial class NewsListPage : Page
+    public sealed partial class MegmaListPage : Page
     {
         #region Property
 
@@ -18,7 +18,7 @@ namespace WorldCup2014WinStore.Pages
 
         #region Lifecycle
 
-        public NewsListPage()
+        public MegmaListPage()
         {
             this.InitializeComponent();
             this.TopAppBar = new NavBar(this);
@@ -28,7 +28,7 @@ namespace WorldCup2014WinStore.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            pageTitle.Show("新闻");
+            pageTitle.Show("技术看球");
             LoadNews();
         }
 
@@ -46,7 +46,7 @@ namespace WorldCup2014WinStore.Pages
 
         private void LoadNews()
         {
-            if (newsLoader.Loaded || newsLoader.Busy)
+            if (newsLoader.Busy)
             {
                 return;
             }
@@ -55,7 +55,7 @@ namespace WorldCup2014WinStore.Pages
             progressbar.Visibility = Visibility.Visible;
 
             //load
-            newsLoader.Load("getnewslist", "&page=" + newsPageIndex.ToString(), true, Constants.NEWS_MODULE, string.Format(Constants.NEWS_LIST_FILE_NAME_FORMAT, newsPageIndex),
+            newsLoader.Load("getmagmalist", string.Empty, true, Constants.MAGMA_MODULE, Constants.MAGMA_LIST_FILE_NAME,
                 list =>
                 {
                     newsPageCount = list.TotalPageCount;
@@ -72,13 +72,6 @@ namespace WorldCup2014WinStore.Pages
 
                     foreach (var item in list.data)
                     {
-                        if (!newsListDateHeaders.Contains(item.Time.Date))
-                        {
-                            newsListDateHeaders.Add(item.Time.Date);
-                            News dateHeader = new News() { IsDateHeader = true, HeaderDate = item.Time.Date };
-                            newsList.Add(dateHeader);
-                        }
-
                         newsList.Add(item);
                     }
 
@@ -148,7 +141,6 @@ namespace WorldCup2014WinStore.Pages
         }
 
         #endregion
-
 
     }
 }

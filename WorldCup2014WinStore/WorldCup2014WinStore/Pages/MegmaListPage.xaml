@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="WorldCup2014WinStore.Pages.NewsListPage"
+    x:Class="WorldCup2014WinStore.Pages.MegmaListPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:WorldCup2014WinStore.Pages"

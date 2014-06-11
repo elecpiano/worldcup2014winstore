@@ -316,11 +316,6 @@ namespace WorldCup2014WinStore.Pages
             LoadNews();
         }
 
-        private void NewsItem_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void news_ItemClick(object sender, ItemClickEventArgs e)
         {
             News news = e.ClickedItem as News;
