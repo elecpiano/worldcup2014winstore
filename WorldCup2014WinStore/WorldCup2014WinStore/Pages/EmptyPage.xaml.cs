@@ -4,6 +4,7 @@ using Windows.UI.Xaml.Navigation;
 using WorldCup2014WinStore.Controls;
 using WorldCup2014WinStore.Models;
 using WorldCup2014WinStore.Utility;
+using Windows.UI.Xaml;
 
 namespace WorldCup2014WinStore.Pages
 {
@@ -37,5 +38,10 @@ namespace WorldCup2014WinStore.Pages
         }
 
         #endregion
+
+         
+        //progressbar.Visibility = Visibility.Visible;
+        //progressbar.Visibility = Visibility.Collapsed;
+
     }
 }

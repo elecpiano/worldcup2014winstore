@@ -159,6 +159,7 @@
     <Compile Include="Models\LiveData.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\Recommendation.cs" />
+    <Compile Include="Models\Stadium.cs" />
     <Compile Include="Models\Subject.cs" />
     <Compile Include="Models\SubscriptionDataContext.cs" />
     <Compile Include="Models\VOD.cs" />
@@ -167,6 +168,12 @@
     </Compile>
     <Compile Include="Pages\DiaryListPage.xaml.cs">
       <DependentUpon>DiaryListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StadiumDetailPage.xaml.cs">
+      <DependentUpon>StadiumDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StadiumListPage.xaml.cs">
+      <DependentUpon>StadiumListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\SubjectPage.xaml.cs">
       <DependentUpon>SubjectPage.xaml</DependentUpon>
@@ -390,6 +397,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\DiaryListPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\StadiumDetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\StadiumListPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

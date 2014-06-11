@@ -14,24 +14,6 @@ namespace WorldCup2014WinStore.Controls
             this.page = page;
         }
 
-        private void OnTV(object sender, RoutedEventArgs e)
-        {
-            HideAppBars();
-            this.page.Frame.Navigate(typeof(EpgListPage));
-        }
-
-        private void OnChapter(object sender, RoutedEventArgs e)
-        {
-            HideAppBars();
-            //this.page.Frame.Navigate(typeof(Catalog));
-        }
-
-        private void OnMark(object sender, RoutedEventArgs e)
-        {
-            HideAppBars();
-            //this.page.Frame.Navigate(typeof(Bookmark));
-        }
-
         private void HideAppBars()
         {
             if (page.TopAppBar != null)
@@ -44,6 +26,21 @@ namespace WorldCup2014WinStore.Controls
             }
         }
 
-
+        private void OnItemClick(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            switch (btn.Tag.ToString())
+            {
+                case "tv":
+                    this.page.Frame.Navigate(typeof(EpgListPage));
+                    break;
+                case "stadium":
+                    this.page.Frame.Navigate(typeof(StadiumListPage));
+                    break;
+                default:
+                    break;
+            }
+            HideAppBars();
+        }
     }
 }

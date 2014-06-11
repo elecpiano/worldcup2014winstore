@@ -8,21 +8,20 @@ using System.Collections.Generic;
 
 namespace WorldCup2014WinStore.Pages
 {
-    public sealed partial class NewsDetailPage : Page
+    public sealed partial class StadiumDetailPage : Page
     {
         #region Property
 
         App App { get { return App.Current as App; } }
 
-        private string newsID = string.Empty;
-        private string newsTitle = string.Empty;
-        private string newsImage = string.Empty;
+        private string stadiumID = string.Empty;
+        private string stadiumName = string.Empty;
 
         #endregion
 
         #region Lifecycle
 
-        public NewsDetailPage()
+        public StadiumDetailPage()
         {
             this.InitializeComponent();
             this.TopAppBar = new NavBar(this);
@@ -35,12 +34,11 @@ namespace WorldCup2014WinStore.Pages
             Dictionary<string, string> param = e.Parameter as Dictionary<string, string>;
             if (param != null)
             {
-                newsID = param[NaviParam.NEWS_ID];
-                newsTitle = param[NaviParam.NEWS_TITLE];
-                newsImage = param[NaviParam.NEWS_IMAGE];
+                stadiumID = param[NaviParam.STADIUM_ID];
+                stadiumName = param[NaviParam.STADIUM_NAME];
             }
 
-            pageTitle.Show(newsTitle);
+            pageTitle.Show(stadiumName);
 
             LoadHTML();
         }
@@ -60,13 +58,14 @@ namespace WorldCup2014WinStore.Pages
 
             progressbar.Visibility = Visibility.Visible;
 
-            htmlLoader.Load("getdetail", "&id=" + newsID, true, Constants.NEWS_MODULE, string.Format(Constants.NEWS_DETAIL_FILE_NAME_FORMAT, newsID),
+            htmlLoader.Load("getstadiumdetail", "&id=" + stadiumID, true, Constants.STADIUM_MODULE, string.Format(Constants.STADIUM_DETAIL_FILE_NAME_FORMAT, stadiumID),
                 html =>
                 {
-                    string title = @"<h2 align=""center"">" + newsTitle + "</h2>";
+                    string title = @"<h2 align=""center"">" + stadiumName + "</h2>";
                     string htmlContent = html.Content.Insert(html.Content.IndexOf("</style>") + 8, title);
                     htmlContent = htmlContent.Replace("max-width: 100%;", "width: 100%;");
                     browser.NavigateToString(htmlContent);
+                    //browser.NavigateToString(html.Content);
                     progressbar.Visibility = Visibility.Collapsed;
                 });
         }

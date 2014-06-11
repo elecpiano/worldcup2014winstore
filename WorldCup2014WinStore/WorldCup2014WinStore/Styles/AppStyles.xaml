@@ -382,5 +382,13 @@
         <Setter Property="Margin" Value="4,4,4,4"/>
     </Style>
 
+    <!--stadium list page-->
+    <Style x:Key="StadiumListPage_Title_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontSize" Value="25"/>
+        <Setter Property="Foreground" Value="#ffffffff"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+    </Style>
+
 
 </ResourceDictionary>
