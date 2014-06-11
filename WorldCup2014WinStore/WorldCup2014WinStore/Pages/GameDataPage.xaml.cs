@@ -79,8 +79,8 @@ namespace WorldCup2014WinStore.Pages
                         item.Index = result.IndexOf(item);
                     }
 
-                    //goalListBox.ItemsSource = result;
-                    //goalScrollViewer.ScrollToVerticalOffset(0);
+                    goalListBox.ItemsSource = result;
+                    goalScrollViewer.ChangeView(null, 0, null);
                 });
         }
 
@@ -100,8 +100,8 @@ namespace WorldCup2014WinStore.Pages
             scheduleLoader.Load("getschedule", string.Empty, true, Constants.GAME_DATA_MODULE, Constants.SCHEDULE_FILE_NAME,
                 result =>
                 {
-                    //scheduleListBox.ItemsSource = result;
-                    //scheduleScrollViewer.ScrollToVerticalOffset(0);
+                    scheduleListBox.ItemsSource = result;
+                    scheduleScrollViewer.ChangeView(null, 0, null);
                 });
         }
 

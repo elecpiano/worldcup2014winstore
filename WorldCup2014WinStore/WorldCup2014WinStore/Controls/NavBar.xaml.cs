@@ -31,6 +31,9 @@ namespace WorldCup2014WinStore.Controls
             Button btn = sender as Button;
             switch (btn.Tag.ToString())
             {
+                case "home":
+                    this.page.Frame.Navigate(typeof(HomePage));
+                    break;
                 case "tv":
                     this.page.Frame.Navigate(typeof(EpgListPage));
                     break;

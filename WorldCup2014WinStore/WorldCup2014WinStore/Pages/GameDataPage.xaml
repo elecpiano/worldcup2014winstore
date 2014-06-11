@@ -13,123 +13,263 @@
         <!--content-->
         <Grid Height="768">
             <ScrollViewer x:Name="scrollViewer" Style="{StaticResource HorizontalScrollViewerStyle}">
-                <Grid Margin="0,0,100,0">
 
-                    <!--base-->
-                    <Grid Margin="50,0,0,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-                        <Image Grid.Column="0" Source="/Assets/Images/band7.png" Stretch="None"/>
-                        <Image Grid.Column="1" Source="/Assets/Images/band8.png" Stretch="Fill"/>
-                        <Image Grid.Column="2" Source="/Assets/Images/band9.png" Stretch="None"/>
-                    </Grid>
+                <StackPanel Orientation="Horizontal" Margin="0,0,200,0">
+                    <!--section 1-->
+                    <Grid Margin="0,0,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
 
-                    <StackPanel Orientation="Horizontal" Margin="100,120,100,0">
-                        <!--section 1-->
-                        <Grid Margin="0,0,0,0">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            
-                            <!--section title-->
-                            <Grid Height="60" Margin="0,0,0,0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="50"/>
-                                    <ColumnDefinition Width="Auto" MinWidth="220"/>
-                                    <ColumnDefinition Width="50"/>
-                                </Grid.ColumnDefinitions>
-                                <Image Grid.Column="0" Source="/Assets/Images/groupTitleL.png" Stretch="None"/>
-                                <Image Grid.Column="1" Source="/Assets/Images/groupTitleM.png" Stretch="Fill"/>
-                                <Image Grid.Column="2" Source="/Assets/Images/groupTitleM.png" Stretch="None"/>
-                                <TextBlock Grid.Column="1" Text="积分榜" Style="{StaticResource SubjectPage_Category_Title_Style}"/>
-                            </Grid>
+                        <!--base-->
+                        <Grid Grid.RowSpan="2" Margin="60,0,-100,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="/Assets/Images/band7.png" Stretch="None"/>
+                            <Image Grid.Column="1" Source="/Assets/Images/band8.png" Stretch="Fill"/>
+                            <Image Grid.Column="2" Source="/Assets/Images/band10.png" Stretch="None"/>
+                        </Grid>
 
-                            <ItemsControl Grid.Row="1" x:Name="scoreListBox" Margin="0,20,0,0">
-                                <ItemsControl.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <StackPanel Orientation="Horizontal"/>
-                                    </ItemsPanelTemplate>
-                                </ItemsControl.ItemsPanel>
+                        <!--section title-->
+                        <Grid Height="60" Margin="95,120,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="Auto" MinWidth="220"/>
+                                <ColumnDefinition Width="50"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="/Assets/Images/groupTitleL.png" Stretch="None"/>
+                            <Image Grid.Column="1" Source="/Assets/Images/groupTitleM.png" Stretch="Fill"/>
+                            <Image Grid.Column="2" Source="/Assets/Images/groupTitleM.png" Stretch="None"/>
+                            <TextBlock Grid.Column="1" Text="积分榜" Style="{StaticResource SubjectPage_Category_Title_Style}"/>
+                        </Grid>
 
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <Grid Width="450" Margin="0,0,20,0">
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="Auto"/>
-                                                <RowDefinition Height="Auto"/>
-                                                <RowDefinition Height="Auto"/>
-                                            </Grid.RowDefinitions>
-                                            <!--group header-->
-                                            <Grid Height="60" Background="#ffe3c207">
-                                                <TextBlock Grid.Column="0" Text="{Binding GroupName}" 
+                        <!--section content-->
+                        <ItemsControl Grid.Row="1" x:Name="scoreListBox" Margin="100,20,0,0">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Width="450" Margin="0,0,20,0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <!--group header-->
+                                        <Grid Height="60" Background="#ffe3c207">
+                                            <TextBlock Grid.Column="0" Text="{Binding GroupName}" 
                                                            Style="{StaticResource GameDataPage_ColumnHeader_Text_Style}"
                                                            Margin="20,0,0,0" FontWeight="Bold"/>
-                                            </Grid>
+                                        </Grid>
 
-                                            <!--column header-->
-                                            <Grid Grid.Row="1" Height="50" Background="{StaticResource App_Theme_Color_Dark}">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="*"/>
-                                                    <ColumnDefinition Width="40"/>
-                                                    <ColumnDefinition Width="40"/>
-                                                    <ColumnDefinition Width="40"/>
-                                                    <ColumnDefinition Width="80"/>
-                                                    <ColumnDefinition Width="60"/>
-                                                </Grid.ColumnDefinitions>
-                                                <TextBlock Grid.Column="0" Text="球队" Style="{StaticResource GameDataPage_ColumnHeader_Text_Style}" Margin="20,0,0,0"/>
-                                                <TextBlock Grid.Column="1" Text="胜" Style="{StaticResource GameDataPage_ColumnHeader_Text_Style}"/>
-                                                <TextBlock Grid.Column="2" Text="平" Style="{StaticResource GameDataPage_ColumnHeader_Text_Style}"/>
-                                                <TextBlock Grid.Column="3" Text="负" Style="{StaticResource GameDataPage_ColumnHeader_Text_Style}"/>
-                                                <TextBlock Grid.Column="4" Text="进/失" Style="{StaticResource GameDataPage_ColumnHeader_Text_Style}"/>
-                                                <TextBlock Grid.Column="5" Text="积分" Style="{StaticResource GameDataPage_ColumnHeader_Text_Style}"/>
-                                            </Grid>
+                                        <!--column header-->
+                                        <Grid Grid.Row="1" Height="60" Background="{StaticResource App_Theme_Color_Dark}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="40"/>
+                                                <ColumnDefinition Width="40"/>
+                                                <ColumnDefinition Width="40"/>
+                                                <ColumnDefinition Width="80"/>
+                                                <ColumnDefinition Width="60"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="球队" Style="{StaticResource GameDataPage_ColumnHeader_Text_Style}" Margin="20,0,0,0"/>
+                                            <TextBlock Grid.Column="1" Text="胜" Style="{StaticResource GameDataPage_ColumnHeader_Text_Style}"/>
+                                            <TextBlock Grid.Column="2" Text="平" Style="{StaticResource GameDataPage_ColumnHeader_Text_Style}"/>
+                                            <TextBlock Grid.Column="3" Text="负" Style="{StaticResource GameDataPage_ColumnHeader_Text_Style}"/>
+                                            <TextBlock Grid.Column="4" Text="进/失" Style="{StaticResource GameDataPage_ColumnHeader_Text_Style}"/>
+                                            <TextBlock Grid.Column="5" Text="积分" Style="{StaticResource GameDataPage_ColumnHeader_Text_Style}"/>
+                                        </Grid>
 
-                                            <!--group lines-->
-                                            <ItemsControl Grid.Row="2" ItemsSource="{Binding Teams}">
-                                                <ItemsControl.ItemsPanel>
-                                                    <ItemsPanelTemplate>
-                                                        <StackPanel/>
-                                                    </ItemsPanelTemplate>
-                                                </ItemsControl.ItemsPanel>
-                                                <ItemsControl.ItemTemplate>
-                                                    <DataTemplate>
-                                                        <Grid Height="80" Background="White">
-                                                            <Grid.ColumnDefinitions>
-                                                                <ColumnDefinition Width="60"/>
-                                                                <ColumnDefinition Width="*"/>
-                                                                <ColumnDefinition Width="40"/>
-                                                                <ColumnDefinition Width="40"/>
-                                                                <ColumnDefinition Width="40"/>
-                                                                <ColumnDefinition Width="80"/>
-                                                                <ColumnDefinition Width="60"/>
-                                                            </Grid.ColumnDefinitions>
-                                                            <Image Grid.Column="0" Source="{Binding Image}" Stretch="Uniform" Width="28" Height="28" HorizontalAlignment="Left" Margin="20,0,0,0"/>
-                                                            <TextBlock Grid.Column="1" Text="{Binding Name}" Style="{StaticResource GameDataPage_Table_Text_Style}"/>
-                                                            <TextBlock Grid.Column="2" Text="{Binding Win}" Style="{StaticResource GameDataPage_Table_Text_Style}"/>
-                                                            <TextBlock Grid.Column="3" Text="{Binding Draws}" Style="{StaticResource GameDataPage_Table_Text_Style}"/>
-                                                            <TextBlock Grid.Column="4" Text="{Binding Lost}" Style="{StaticResource GameDataPage_Table_Text_Style}"/>
-                                                            <TextBlock Grid.Column="5" Text="{Binding GSGA}" Style="{StaticResource GameDataPage_Table_Text_Style}"/>
-                                                            <TextBlock Grid.Column="6" Text="{Binding Score}" Style="{StaticResource GameDataPage_Table_Text_Style}"/>
-                                                            <Rectangle Grid.ColumnSpan="7" Style="{StaticResource Item_SplitBar_Bottom_Style}" Margin="0,0,0,0"/>
-                                                        </Grid>
-                                                    </DataTemplate>
-                                                </ItemsControl.ItemTemplate>
-                                            </ItemsControl>
+                                        <!--group lines-->
+                                        <ItemsControl Grid.Row="2" ItemsSource="{Binding Teams}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <StackPanel/>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Grid Height="80" Background="White">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="60"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="40"/>
+                                                            <ColumnDefinition Width="40"/>
+                                                            <ColumnDefinition Width="40"/>
+                                                            <ColumnDefinition Width="80"/>
+                                                            <ColumnDefinition Width="60"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <Image Grid.Column="0" Source="{Binding Image}" Stretch="Uniform" Width="28" Height="28" HorizontalAlignment="Left" Margin="20,0,0,0"/>
+                                                        <TextBlock Grid.Column="1" Text="{Binding Name}" Style="{StaticResource GameDataPage_Table_Text_Style}"/>
+                                                        <TextBlock Grid.Column="2" Text="{Binding Win}" Style="{StaticResource GameDataPage_Table_Text_Style}"/>
+                                                        <TextBlock Grid.Column="3" Text="{Binding Draws}" Style="{StaticResource GameDataPage_Table_Text_Style}"/>
+                                                        <TextBlock Grid.Column="4" Text="{Binding Lost}" Style="{StaticResource GameDataPage_Table_Text_Style}"/>
+                                                        <TextBlock Grid.Column="5" Text="{Binding GSGA}" Style="{StaticResource GameDataPage_Table_Text_Style}"/>
+                                                        <TextBlock Grid.Column="6" Text="{Binding Score}" Style="{StaticResource GameDataPage_Table_Text_Style}"/>
+                                                        <Rectangle Grid.ColumnSpan="7" Style="{StaticResource Item_SplitBar_Bottom_Style}" Margin="0,0,0,0"/>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
+                    </Grid>
+
+                    <!--section 2-->
+                    <Grid Margin="300,0,0,0" Width="500">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <!--base-->
+                        <Grid Grid.RowSpan="3" Margin="-100,0,-120,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="/Assets/Images/band7.png" Stretch="None"/>
+                            <Image Grid.Column="1" Source="/Assets/Images/band8.png" Stretch="Fill"/>
+                            <Image Grid.Column="2" Source="/Assets/Images/band9.png" Stretch="None"/>
+                        </Grid>
+
+                        <!--section title-->
+                        <Grid Height="60" Margin="-5,120,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="Auto" MinWidth="220"/>
+                                <ColumnDefinition Width="50"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="/Assets/Images/groupTitleL.png" Stretch="None"/>
+                            <Image Grid.Column="1" Source="/Assets/Images/groupTitleM.png" Stretch="Fill"/>
+                            <Image Grid.Column="2" Source="/Assets/Images/groupTitleM.png" Stretch="None"/>
+                            <TextBlock Grid.Column="1" Text="射手榜" Style="{StaticResource SubjectPage_Category_Title_Style}"/>
+                        </Grid>
+
+                        <!--column header-->
+                        <Grid Grid.Row="1" Height="60" Margin="0,20,0,0" Background="{StaticResource App_Theme_Color_Dark}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="60"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="排名" Style="{StaticResource GameDataPage_ColumnHeader_Text_Style}" Margin="20,0,0,0"/>
+                            <TextBlock Grid.Column="1" Text="" Style="{StaticResource GameDataPage_ColumnHeader_Text_Style}"/>
+                            <TextBlock Grid.Column="2" Text="球员" Style="{StaticResource GameDataPage_ColumnHeader_Text_Style}"/>
+                            <TextBlock Grid.Column="3" Text="国家" Style="{StaticResource GameDataPage_ColumnHeader_Text_Style}"/>
+                            <TextBlock Grid.Column="4" Text="进球" Style="{StaticResource GameDataPage_ColumnHeader_Text_Style}"/>
+                        </Grid>
+
+                        <!--placeholder-->
+                        <Rectangle Grid.Row="2" Fill="#4d808080" Height="380" VerticalAlignment="Top"/>
+
+                        <!--section content-->
+                        <ScrollViewer x:Name="goalScrollViewer" Style="{StaticResource VerticalScrollViewerStyle}" 
+                                      Grid.Row="2" Margin="0,0,0,50" Height="380" VerticalAlignment="Top">
+                            <ItemsControl x:Name="goalListBox">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="72" Background="White">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="60"/>
+                                                <ColumnDefinition Width="40"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="100"/>
+                                                <ColumnDefinition Width="60"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="{Binding Index}" Style="{StaticResource GameDataPage_Table_Text_Style}" Margin="20,0,0,0"/>
+                                            <Image Grid.Column="1" Source="{Binding Image}" Stretch="Uniform" Width="28" Height="28"/>
+                                            <TextBlock Grid.Column="2" Text="{Binding Name}" Style="{StaticResource GameDataPage_Table_Text_Style}"/>
+                                            <TextBlock Grid.Column="3" Text="{Binding Country}" Style="{StaticResource GameDataPage_Table_Text_Style}"/>
+                                            <TextBlock Grid.Column="4" Text="{Binding GoalCount}" Style="{StaticResource GameDataPage_Table_Text_Style}"/>
+                                            <Rectangle Grid.ColumnSpan="5" Style="{StaticResource Item_SplitBar_Bottom_Style}" Margin="0,0,0,0"/>
                                         </Grid>
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
-
                             </ItemsControl>
+                        </ScrollViewer>
+                    </Grid>
 
+                    <!--section 3-->
+                    <Grid Margin="300,0,0,0" Width="500">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <!--base-->
+                        <Grid Grid.RowSpan="2" Margin="-100,0,-120,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="/Assets/Images/band7.png" Stretch="None"/>
+                            <Image Grid.Column="1" Source="/Assets/Images/band8.png" Stretch="Fill"/>
+                            <Image Grid.Column="2" Source="/Assets/Images/band10.png" Stretch="None"/>
                         </Grid>
 
-                    </StackPanel>
+                        <!--section title-->
+                        <Grid Height="60" Margin="-5,120,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="Auto" MinWidth="220"/>
+                                <ColumnDefinition Width="50"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="/Assets/Images/groupTitleL.png" Stretch="None"/>
+                            <Image Grid.Column="1" Source="/Assets/Images/groupTitleM.png" Stretch="Fill"/>
+                            <Image Grid.Column="2" Source="/Assets/Images/groupTitleM.png" Stretch="None"/>
+                            <TextBlock Grid.Column="1" Text="赛程" Style="{StaticResource SubjectPage_Category_Title_Style}"/>
+                        </Grid>
 
-                </Grid>
+                        <!--placeholder-->
+                        <Rectangle Grid.Row="1" Fill="#4d808080" Margin="0,20,0,50" Height="440" VerticalAlignment="Top"/>
+
+                        <!--section content-->
+                        <ScrollViewer x:Name="scheduleScrollViewer" Style="{StaticResource VerticalScrollViewerStyle}" 
+                                      Grid.Row="1" Margin="0,20,0,50" Height="440" VerticalAlignment="Top">
+                            <ItemsControl x:Name="scheduleListBox">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="72" Background="White">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="110"/>
+                                                <ColumnDefinition Width="40"/>
+                                                <ColumnDefinition Width="40"/>
+                                                <ColumnDefinition Width="40"/>
+                                                <ColumnDefinition Width="110"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="{Binding Date}" Style="{StaticResource GameDataPage_Table_Text_Style}" Margin="20,0,0,0"/>
+                                            <TextBlock Grid.Column="1" Text="{Binding Country1}" Style="{StaticResource GameDataPage_Table_Text_Style}" HorizontalAlignment="Right"/>
+                                            <Image Grid.Column="2" Source="{Binding Image1}" Stretch="Uniform" Width="28" Height="28"/>
+                                            <TextBlock Grid.Column="3" Text="{Binding ScoreForView}" Style="{StaticResource GameDataPage_Table_Text_Style}" HorizontalAlignment="Center"/>
+                                            <Image Grid.Column="4" Source="{Binding Image2}" Stretch="Uniform" Width="28" Height="28"/>
+                                            <TextBlock Grid.Column="5" Text="{Binding Country2}" Style="{StaticResource GameDataPage_Table_Text_Style}"/>
+                                            <Rectangle Grid.ColumnSpan="6" Style="{StaticResource Item_SplitBar_Bottom_Style}" Margin="0,0,0,0"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                    </Grid>
+
+                </StackPanel>
+
             </ScrollViewer>
         </Grid>
 

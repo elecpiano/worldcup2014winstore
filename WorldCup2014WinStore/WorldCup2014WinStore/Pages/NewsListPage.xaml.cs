@@ -46,7 +46,7 @@ namespace WorldCup2014WinStore.Pages
 
         private void LoadNews()
         {
-            if (newsLoader.Loaded || newsLoader.Busy)
+            if (newsLoader.Busy)
             {
                 return;
             }
@@ -72,12 +72,12 @@ namespace WorldCup2014WinStore.Pages
 
                     foreach (var item in list.data)
                     {
-                        if (!newsListDateHeaders.Contains(item.Time.Date))
-                        {
-                            newsListDateHeaders.Add(item.Time.Date);
-                            News dateHeader = new News() { IsDateHeader = true, HeaderDate = item.Time.Date };
-                            newsList.Add(dateHeader);
-                        }
+                        //if (!newsListDateHeaders.Contains(item.Time.Date))
+                        //{
+                        //    newsListDateHeaders.Add(item.Time.Date);
+                        //    News dateHeader = new News() { IsDateHeader = true, HeaderDate = item.Time.Date };
+                        //    newsList.Add(dateHeader);
+                        //}
 
                         newsList.Add(item);
                     }

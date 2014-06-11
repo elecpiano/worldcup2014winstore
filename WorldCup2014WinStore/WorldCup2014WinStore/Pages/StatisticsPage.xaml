@@ -8,11 +8,11 @@
     xmlns:controls="using:WorldCup2014WinStore.Controls"
     mc:Ignorable="d">
 
-    <Grid Background="#ff414141">
+    <Grid Background="White">
 
         <!--content-->
         <Grid>
-            <WebView x:Name="browser" Margin="100,120,0,50" HorizontalAlignment="Left" MinWidth="800"/>
+            <WebView x:Name="browser" Margin="100,120,0,50" HorizontalAlignment="Left" Width="480"/>
         </Grid>
 
         <ProgressBar x:Name="progressbar" IsIndeterminate="True" Visibility="Collapsed" VerticalAlignment="Top" Margin="0,30,0,0"/>

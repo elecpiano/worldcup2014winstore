@@ -263,6 +263,7 @@
     <Content Include="Assets\Images\authorTitle.png" />
     <Content Include="Assets\Images\backButton.png" />
     <Content Include="Assets\Images\band1.png" />
+    <Content Include="Assets\Images\band10.png" />
     <Content Include="Assets\Images\band2.png" />
     <Content Include="Assets\Images\band3.png" />
     <Content Include="Assets\Images\band4.png" />
@@ -326,6 +327,7 @@
     <Content Include="Assets\Images\topAppBarAuthor.png" />
     <Content Include="Assets\Images\topAppBarCalendar.png" />
     <Content Include="Assets\Images\topAppBarGameData.png" />
+    <Content Include="Assets\Images\topAppBarHome.png" />
     <Content Include="Assets\Images\topAppBarMagma.png" />
     <Content Include="Assets\Images\topAppBarMyWorldCup.png" />
     <Content Include="Assets\Images\topAppBarNews.png" />
