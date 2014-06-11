@@ -54,6 +54,7 @@ namespace WorldCup2014WinStore.Pages
 
             //busy
             progressbar.Visibility = Visibility.Visible;
+            focusSlideShow.Items.Clear();
 
             //load
             subjectLoader.Load("getsubject", "&id=" + subjectID, true, Constants.SUBJECT_MODULE, string.Format(Constants.SUBJECT_FILE_NAME_FORMAT, subjectID),

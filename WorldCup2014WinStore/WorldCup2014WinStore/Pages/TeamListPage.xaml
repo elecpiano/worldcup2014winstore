@@ -12,7 +12,7 @@
     <Grid Background="White">
 
         <!--content-->
-        <Grid Margin="0,0,0,0" Height="768">
+        <Grid Height="768">
             <ScrollViewer x:Name="scrollViewer" Style="{StaticResource HorizontalScrollViewerStyle}">
                 <Grid Margin="0,0,100,0">
 
@@ -57,7 +57,20 @@
                                     </Grid>
 
                                     <!--group items-->
-                                    <ListView Grid.Row="1" Margin="0,20,0,0"
+                                    <ListView Grid.Row="1" Margin="0,20,0,50"
+                                              ItemsSource="{Binding NewsList}"
+                                              SelectionMode="None"
+                                              IsSwipeEnabled="False"
+                                              ItemTemplateSelector="{StaticResource newsDataTemplateSelector}"
+                                              IsItemClickEnabled="True" ItemClick="news_ItemClick">
+
+                                        <!--<ListView.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <WrapGrid/>
+                                            </ItemsPanelTemplate>
+                                        </ListView.ItemsPanel>-->
+                                    </ListView>
+                                    <!--<ListView Grid.Row="1" Margin="0,20,0,0"
                                               ItemsSource="{Binding NewsList}"
                                               SelectionMode="None"
                                               IsSwipeEnabled="False"
@@ -82,7 +95,7 @@
                                                 </Grid>
                                             </DataTemplate>
                                         </ListView.ItemTemplate>
-                                    </ListView>
+                                    </ListView>-->
                                 </Grid>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
