@@ -36,8 +36,8 @@
                                             </LinearGradientBrush>
                                         </Rectangle.Fill>
                                     </Rectangle>
-                                    <TextBlock Text="{Binding NameCN}" Style="{StaticResource StadiumListPage_Title_Text_Style}" Foreground="#ff000000" Margin="25,0,0,23"/>
-                                    <TextBlock Text="{Binding NameCN}" Style="{StaticResource StadiumListPage_Title_Text_Style}" Margin="24,0,0,24"/>
+                                    <TextBlock Text="{Binding NameCN}" Style="{StaticResource StadiumListPage_Title_Text_Style}" Foreground="#ff000000" Margin="21,0,0,19"/>
+                                    <TextBlock Text="{Binding NameCN}" Style="{StaticResource StadiumListPage_Title_Text_Style}" Margin="20,0,0,20"/>
                                 </Grid>
                             </Border>
                         </DataTemplate>

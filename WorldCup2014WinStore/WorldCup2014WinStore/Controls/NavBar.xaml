@@ -38,13 +38,13 @@
                HorizontalAlignment="Left" Margin="90,0,0,0"/>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="80,0,0,0" VerticalAlignment="Top">
-            <Button Style="{StaticResource ContentButtonStyle}" Margin="0,0,-1,0">
+            <Button Style="{StaticResource ContentButtonStyle}" Margin="0,0,-1,0" Click="OnItemClick" Tag="gameData">
                 <Image Source="/Assets/Images/topAppBarGameData.png" Stretch="None"/>
             </Button>
             <Button Style="{StaticResource ContentButtonStyle}" Margin="0,0,-1,0">
                 <Image Source="/Assets/Images/topAppBarMegma.png" Stretch="None"/>
             </Button>
-            <Button Style="{StaticResource ContentButtonStyle}" Margin="0,0,-1,0">
+            <Button Style="{StaticResource ContentButtonStyle}" Margin="0,0,-1,0" Click="OnItemClick" Tag="team">
                 <Image Source="/Assets/Images/topAppBarTeam.png" Stretch="None"/>
             </Button>
             <Button Style="{StaticResource ContentButtonStyle}" Margin="0,0,-1,0" Click="OnItemClick" Tag="stadium">

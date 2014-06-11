@@ -155,10 +155,13 @@
     <Compile Include="Models\Diary.cs" />
     <Compile Include="Models\EPG.cs" />
     <Compile Include="Models\GameResult.cs" />
+    <Compile Include="Models\Goal.cs" />
     <Compile Include="Models\HTML.cs" />
     <Compile Include="Models\LiveData.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\Recommendation.cs" />
+    <Compile Include="Models\Schedule.cs" />
+    <Compile Include="Models\Score.cs" />
     <Compile Include="Models\Stadium.cs" />
     <Compile Include="Models\Subject.cs" />
     <Compile Include="Models\SubscriptionDataContext.cs" />
@@ -169,11 +172,17 @@
     <Compile Include="Pages\DiaryListPage.xaml.cs">
       <DependentUpon>DiaryListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\GameDataPage.xaml.cs">
+      <DependentUpon>GameDataPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\StadiumDetailPage.xaml.cs">
       <DependentUpon>StadiumDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\StadiumListPage.xaml.cs">
       <DependentUpon>StadiumListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TeamListPage.xaml.cs">
+      <DependentUpon>TeamListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\SubjectPage.xaml.cs">
       <DependentUpon>SubjectPage.xaml</DependentUpon>
@@ -400,11 +409,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Pages\GameDataPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Pages\StadiumDetailPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\StadiumListPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\TeamListPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -34,8 +34,14 @@ namespace WorldCup2014WinStore.Controls
                 case "tv":
                     this.page.Frame.Navigate(typeof(EpgListPage));
                     break;
+                case "gameData":
+                    this.page.Frame.Navigate(typeof(GameDataPage));
+                    break;
                 case "stadium":
                     this.page.Frame.Navigate(typeof(StadiumListPage));
+                    break;
+                case "team":
+                    this.page.Frame.Navigate(typeof(TeamListPage));
                     break;
                 default:
                     break;

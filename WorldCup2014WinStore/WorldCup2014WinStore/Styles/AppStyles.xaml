@@ -384,10 +384,25 @@
 
     <!--stadium list page-->
     <Style x:Key="StadiumListPage_Title_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
-        <Setter Property="FontSize" Value="25"/>
+        <Setter Property="FontSize" Value="22"/>
         <Setter Property="Foreground" Value="#ffffffff"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Bottom"/>
+    </Style>
+
+    <!--game data page-->
+    <Style x:Key="GameDataPage_ColumnHeader_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Foreground" Value="#ffffffff"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+
+    <Style x:Key="GameDataPage_Table_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Foreground" Value="#ff000000"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 
 
