@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-  <Identity Name="813248f6-52b3-4e1b-9977-5b7b988ee8d8" Publisher="CN=jason" Version="1.0.0.0" />
+  <Identity Name="CCTV5.CCTV5" Publisher="CN=E7F93963-5130-4740-A3E7-FB73621D77D0" Version="1.0.0.0" />
   <Properties>
     <DisplayName>CCTV5</DisplayName>
-    <PublisherDisplayName>cctv5</PublisherDisplayName>
+    <PublisherDisplayName>中视体育娱乐有限公司</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Prerequisites>

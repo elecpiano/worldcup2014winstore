@@ -435,12 +435,12 @@ namespace WorldCup2014WinStore.Pages
 
             scFeedback = new SettingsCommand("Feedback", "用户反馈", async (x) =>
             {
-                var success = await Windows.System.Launcher.LaunchUriAsync(new Uri("mailto:service@cntv.cn", UriKind.RelativeOrAbsolute));
+                var success = await Windows.System.Launcher.LaunchUriAsync(new Uri("mailto:cctv5@cctv.com", UriKind.RelativeOrAbsolute));
             });
 
             scPrivacy = new SettingsCommand("Privacy", "隐私策略", async (x) =>
             {
-                var success = await Windows.System.Launcher.LaunchUriAsync(new Uri("http://www.cntv.cn", UriKind.RelativeOrAbsolute));
+                var success = await Windows.System.Launcher.LaunchUriAsync(new Uri("http://www.cntv.cn/special/guanyunew/PAGE13818868795101878/index.shtml", UriKind.RelativeOrAbsolute));
             });
 
 

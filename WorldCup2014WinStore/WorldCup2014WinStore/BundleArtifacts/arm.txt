@@ -1,0 +1,2 @@
+MainPackage=C:\Users\jason\Documents\GitHub\worldcup2014winstore\WorldCup2014WinStore\WorldCup2014WinStore\bin\ARM\Release\WorldCup2014WinStore_1.0.0.0_Bundle\WorldCup2014WinStore_1.0.0.0_ARM.appx
+SymbolPackage=C:\Users\jason\Documents\GitHub\worldcup2014winstore\WorldCup2014WinStore\WorldCup2014WinStore\AppPackages\WorldCup2014WinStore_1.0.0.0_Test\WorldCup2014WinStore_1.0.0.0_ARM.appxsym
