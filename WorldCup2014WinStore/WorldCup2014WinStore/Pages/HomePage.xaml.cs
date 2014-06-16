@@ -440,7 +440,7 @@ namespace WorldCup2014WinStore.Pages
 
             scPrivacy = new SettingsCommand("Privacy", "隐私策略", async (x) =>
             {
-                var success = await Windows.System.Launcher.LaunchUriAsync(new Uri("http://www.cntv.cn/special/guanyunew/PAGE13818868795101878/index.shtml", UriKind.RelativeOrAbsolute));
+                var success = await Windows.System.Launcher.LaunchUriAsync(new Uri("http://sports.cntv.cn/privacy/index.shtml", UriKind.RelativeOrAbsolute));
             });
 
 
