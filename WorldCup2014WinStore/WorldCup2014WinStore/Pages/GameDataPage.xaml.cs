@@ -76,7 +76,7 @@ namespace WorldCup2014WinStore.Pages
                 {
                     foreach (var item in result)
                     {
-                        item.Index = result.IndexOf(item);
+                        item.Index = result.IndexOf(item) + 1;
                     }
 
                     goalListBox.ItemsSource = result;

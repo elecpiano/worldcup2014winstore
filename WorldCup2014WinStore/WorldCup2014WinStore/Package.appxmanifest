@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-  <Identity Name="CCTV5.CCTV5" Publisher="CN=E7F93963-5130-4740-A3E7-FB73621D77D0" Version="1.0.0.0" />
+  <Identity Name="CCTV5.CCTV5" Publisher="CN=E7F93963-5130-4740-A3E7-FB73621D77D0" Version="1.0.0.1" />
   <Properties>
     <DisplayName>CCTV5</DisplayName>
     <PublisherDisplayName>中视体育娱乐有限公司</PublisherDisplayName>

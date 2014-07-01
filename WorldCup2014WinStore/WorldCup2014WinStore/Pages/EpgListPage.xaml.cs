@@ -106,6 +106,10 @@ namespace WorldCup2014WinStore.Pages
             {
                 return;
             }
+            if (epg.ShowLivePage == 0)
+            {
+                return;
+            }
             Dictionary<string, string> param = new Dictionary<string, string>();
             param.Add(NaviParam.LIVE_ID, epg.ID);
             param.Add(NaviParam.LIVE_IMAGE, epg.Image);

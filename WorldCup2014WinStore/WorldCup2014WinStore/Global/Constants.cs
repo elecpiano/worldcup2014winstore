@@ -9,6 +9,7 @@ namespace WorldCup2014WinStore
     public class Constants
     {
         public const string DOMAIN = "http://api2.gootrip.com";//"http://api1.gootrip.com";// "http://115.28.21.97";// "http://api.gootrip.com"; //"http://115.28.253.73";
+        public const string API_POSTFIX = "&token=winstore&sign=winstore&t=888";
 
         //splash
         public const string SPLASH_MODULE = "splash";

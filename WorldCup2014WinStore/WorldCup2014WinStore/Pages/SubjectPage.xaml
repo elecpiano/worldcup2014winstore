@@ -69,7 +69,7 @@
                                               ItemsSource="{Binding NewsList}"
                                               SelectionMode="None"
                                               IsSwipeEnabled="False"
-                                              ItemTemplateSelector="{StaticResource newsDataTemplateSelector}"
+                                              ItemTemplateSelector="{StaticResource subjectNewsDataTemplateSelector}"
                                               IsItemClickEnabled="True" ItemClick="news_ItemClick">
                                         <ListView.ItemsPanel>
                                             <ItemsPanelTemplate>
