@@ -1,2 +1,2 @@
-MainPackage=C:\Users\jason\Documents\GitHub\worldcup2014winstore\WorldCup2014WinStore\WorldCup2014WinStore\bin\x64\Release\WorldCup2014WinStore_1.0.0.0_Bundle\WorldCup2014WinStore_1.0.0.0_x64.appx
-SymbolPackage=C:\Users\jason\Documents\GitHub\worldcup2014winstore\WorldCup2014WinStore\WorldCup2014WinStore\AppPackages\WorldCup2014WinStore_1.0.0.0_Test\WorldCup2014WinStore_1.0.0.0_x64.appxsym
+MainPackage=C:\Users\jason\Documents\GitHub\worldcup2014winstore\WorldCup2014WinStore\WorldCup2014WinStore\bin\x64\Release\WorldCup2014WinStore_1.0.0.1_Bundle\WorldCup2014WinStore_1.0.0.1_x64.appx
+SymbolPackage=C:\Users\jason\Documents\GitHub\worldcup2014winstore\WorldCup2014WinStore\WorldCup2014WinStore\AppPackages\WorldCup2014WinStore_1.0.0.1_Test\WorldCup2014WinStore_1.0.0.1_x64.appxsym
